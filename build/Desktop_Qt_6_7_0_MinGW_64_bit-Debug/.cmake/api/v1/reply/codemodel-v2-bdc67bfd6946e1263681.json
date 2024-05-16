@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-14e0a7b29a5ebd5eae3e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "MindfulMeadow",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "MindfulMeadow::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MindfulMeadow-Debug-4794413d345f57658ee1.json",
+					"name" : "MindfulMeadow",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "MindfulMeadow_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MindfulMeadow_autogen-Debug-ce56529ea9466229762c.json",
+					"name" : "MindfulMeadow_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "MindfulMeadow_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MindfulMeadow_autogen_timestamp_deps-Debug-6c4f6c08c65ee8f5950c.json",
+					"name" : "MindfulMeadow_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/coding/MindfulMeadow/MindfulMeadow/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug",
+		"source" : "D:/coding/MindfulMeadow/MindfulMeadow"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
