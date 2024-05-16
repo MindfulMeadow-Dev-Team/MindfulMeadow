@@ -15,18 +15,20 @@ class Matter
     // QImage image;
     // QTime time;
 public:
-    // TODO: change default values.
     Matter(QString _name = "",
            QString _description = "",
            QDate _date = QDate::currentDate(),
-           QString tag = "");
+           QString tag = "",
+           bool isDone = false);
 
     QString getName() const;
     QString getDescription() const;
+    bool getState() const;
     void changeName(QString newName);
     void changeDescription(QString newDes);
     void changeDate(QDate newDate);
     void changeTag(QString newTag);
+    void changeState(bool state);
 
     friend class MatterHandler;
 

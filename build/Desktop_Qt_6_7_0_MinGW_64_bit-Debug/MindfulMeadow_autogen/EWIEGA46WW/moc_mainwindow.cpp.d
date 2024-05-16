@@ -169,7 +169,13 @@ D:/coding/MindfulMeadow/MindfulMeadow/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/
   D:/Qt/6.7.0/mingw_64/include/QtSql/qtsql-config.h \
   D:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlexports.h \
   D:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
+  D:/Qt/6.7.0/mingw_64/include/QtWidgets/QLayout \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
+  D:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget \
+  D:/Qt/6.7.0/mingw_64/include/QtWidgets/qboxlayout.h \
+  D:/Qt/6.7.0/mingw_64/include/QtWidgets/qgridlayout.h \
+  D:/Qt/6.7.0/mingw_64/include/QtWidgets/qlayout.h \
+  D:/Qt/6.7.0/mingw_64/include/QtWidgets/qlayoutitem.h \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/qsizepolicy.h \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
@@ -407,4 +413,5 @@ D:/coding/MindfulMeadow/MindfulMeadow/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/
   D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
   D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h \
   D:/coding/MindfulMeadow/MindfulMeadow/matter.h \
+  D:/coding/MindfulMeadow/MindfulMeadow/matterbox.h \
   D:/coding/MindfulMeadow/MindfulMeadow/matterhandler.h

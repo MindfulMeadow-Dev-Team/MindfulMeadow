@@ -13,6 +13,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDateEdit>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
@@ -20,7 +21,6 @@
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -47,10 +47,10 @@ public:
     QWidget *page1;
     QDateEdit *mainDateEdit;
     QLineEdit *mainNameEdit;
-    QScrollArea *matterScrolArea;
+    QWidget *gridLayoutWidget;
+    QGridLayout *gridLayout;
+    QScrollArea *matterScrollArea;
     QWidget *scrollAreaWidgetContents_3;
-    QWidget *verticalLayoutWidget;
-    QVBoxLayout *verticalLayout;
     QWidget *page2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -113,7 +113,7 @@ public:
         dateEdit = new QDateEdit(scrollAreaWidgetContents_2);
         dateEdit->setObjectName("dateEdit");
         dateEdit->setGeometry(QRect(20, 200, 161, 24));
-        dateEdit->setMaximumDateTime(QDateTime(QDate(2100, 12, 30), QTime(23, 59, 59)));
+        dateEdit->setMaximumDateTime(QDateTime(QDate(2100, 12, 29), QTime(23, 59, 59)));
         dateEdit->setMinimumDate(QDate(2000, 9, 14));
         dateEdit->setCalendarPopup(true);
         rightScrollArea->setWidget(scrollAreaWidgetContents_2);
@@ -125,27 +125,29 @@ public:
         mainDateEdit = new QDateEdit(page1);
         mainDateEdit->setObjectName("mainDateEdit");
         mainDateEdit->setGeometry(QRect(30, 20, 361, 41));
-        mainDateEdit->setMaximumDateTime(QDateTime(QDate(2100, 12, 30), QTime(23, 59, 59)));
+        mainDateEdit->setMaximumDateTime(QDateTime(QDate(2100, 12, 29), QTime(23, 59, 59)));
         mainDateEdit->setMinimumDateTime(QDateTime(QDate(2000, 9, 14), QTime(8, 0, 0)));
         mainDateEdit->setMinimumDate(QDate(2000, 9, 14));
         mainDateEdit->setCalendarPopup(true);
         mainNameEdit = new QLineEdit(page1);
         mainNameEdit->setObjectName("mainNameEdit");
         mainNameEdit->setGeometry(QRect(30, 90, 561, 41));
-        matterScrolArea = new QScrollArea(page1);
-        matterScrolArea->setObjectName("matterScrolArea");
-        matterScrolArea->setGeometry(QRect(30, 160, 561, 321));
-        matterScrolArea->setWidgetResizable(true);
+        gridLayoutWidget = new QWidget(page1);
+        gridLayoutWidget->setObjectName("gridLayoutWidget");
+        gridLayoutWidget->setGeometry(QRect(30, 160, 561, 321));
+        gridLayout = new QGridLayout(gridLayoutWidget);
+        gridLayout->setObjectName("gridLayout");
+        gridLayout->setContentsMargins(0, 0, 0, 0);
+        matterScrollArea = new QScrollArea(gridLayoutWidget);
+        matterScrollArea->setObjectName("matterScrollArea");
+        matterScrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents_3 = new QWidget();
         scrollAreaWidgetContents_3->setObjectName("scrollAreaWidgetContents_3");
-        scrollAreaWidgetContents_3->setGeometry(QRect(0, 0, 559, 319));
-        verticalLayoutWidget = new QWidget(scrollAreaWidgetContents_3);
-        verticalLayoutWidget->setObjectName("verticalLayoutWidget");
-        verticalLayoutWidget->setGeometry(QRect(0, 0, 561, 321));
-        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
-        verticalLayout->setObjectName("verticalLayout");
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
-        matterScrolArea->setWidget(scrollAreaWidgetContents_3);
+        scrollAreaWidgetContents_3->setGeometry(QRect(0, 0, 557, 317));
+        matterScrollArea->setWidget(scrollAreaWidgetContents_3);
+
+        gridLayout->addWidget(matterScrollArea, 0, 0, 1, 1);
+
         stackedWidget->addWidget(page1);
         page2 = new QWidget();
         page2->setObjectName("page2");
@@ -158,7 +160,7 @@ public:
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
         menubar->setEnabled(false);
-        menubar->setGeometry(QRect(0, 0, 800, 21));
+        menubar->setGeometry(QRect(0, 0, 800, 20));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");

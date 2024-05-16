@@ -24,7 +24,8 @@ MatterHandler::MatterHandler(QString dbName) {
                   "name text, "
                   "description text, "
                   "date text,"
-                  "tag text)");
+                  "tag text,"
+                  "isDone bool)");
         qDebug() << "table created\n";
     } else {
         qDebug() << "table already exists\n";
@@ -37,7 +38,7 @@ MatterHandler::~MatterHandler() {
 }
 
 Matter MatterHandler::getSingleMatter(int id) const {
-    qry->prepare("select name, description, date, tag from Matters where id = ?");
+    qry->prepare("select name, description, date, tag, isDone from Matters where id = ?");
     qry->addBindValue(id);
     qry->exec();
     qry->next();
@@ -45,15 +46,17 @@ Matter MatterHandler::getSingleMatter(int id) const {
     auto description = qry->value(1).toString();
     auto date = QDate::fromString(qry->value(2).toString());
     auto tag = qry->value(3).toString();
-    auto matter = Matter(name, description, date, tag);
+    auto isDone = qry->value(4).toBool();
+    auto matter = Matter(name, description, date, tag, isDone);
 
     qDebug() << "query data where id = " << id << Qt::endl;
     return matter;
 }
 
-QVector<Matter> MatterHandler::getMatters(QDate date) const {
+std::pair<QVector<Matter>, QVector<int>> MatterHandler::getMatters(QDate date) const {
     QVector<Matter> ret;
-    qry->prepare("select name, description, date, tag from Matters where date = ?");
+    QVector<int> ids;
+    qry->prepare("select name, description, date, tag, isDone, id from Matters where date = ?");
     qry->addBindValue(date.toString());
     qry->exec();
     while (qry->next()) {
@@ -61,20 +64,24 @@ QVector<Matter> MatterHandler::getMatters(QDate date) const {
         auto description = qry->value(1).toString();
         auto date = QDate::fromString(qry->value(2).toString());
         auto tag = qry->value(3).toString();
-        auto matter = Matter(name, description, date, tag);
+        auto isDone = qry->value(4).toBool();
+        auto id = qry->value(5).toInt();
+        auto matter = Matter(name, description, date, tag, isDone);
         ret.append(matter);
+        ids.append(id);
     }
     qDebug() << "query data where date = " << date.toString() << Qt::endl;
-    return ret;
+    return {ret, ids};
 }
 
 int MatterHandler::addNew(const Matter &matter) {
-    qry->prepare("insert into Matters (name, description, date, tag)"
-                "values (:name, :des, :date, :tag)");
+    qry->prepare("insert into Matters (name, description, date, tag, isDone)"
+                "values (:name, :des, :date, :tag, :isDone)");
     qry->bindValue(":name", matter.name);
     qry->bindValue(":des", matter.description);
     qry->bindValue(":date", matter.date.toString());
     qry->bindValue(":tag", matter.tag);
+    qry->bindValue(":isDone", matter.isDone);
     qry->exec();
     qry->exec("select last_insert_rowid()");
     qry->next();
@@ -84,11 +91,12 @@ int MatterHandler::addNew(const Matter &matter) {
 }
 
 void MatterHandler::updateMatter(int id, const Matter& matter) {
-    qry->prepare("update Matters set name = ?, description = ?, date = ?, tag = ? where id = ?");
+    qry->prepare("update Matters set name = ?, description = ?, date = ?, tag = ?, isDone = ? where id = ?");
     qry->addBindValue(matter.name);
     qry->addBindValue(matter.description);
     qry->addBindValue(matter.date.toString());
     qry->addBindValue(matter.tag);
+    qry->addBindValue(matter.isDone);
     qry->addBindValue(id);
     qry->exec();
 

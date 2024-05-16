@@ -168,8 +168,13 @@ MindfulMeadow_autogen/timestamp: \
   D:/Qt/6.7.0/mingw_64/include/QtSql/qtsql-config.h \
   D:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlexports.h \
   D:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
+  D:/Qt/6.7.0/mingw_64/include/QtWidgets/QLayout \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget \
+  D:/Qt/6.7.0/mingw_64/include/QtWidgets/qboxlayout.h \
+  D:/Qt/6.7.0/mingw_64/include/QtWidgets/qgridlayout.h \
+  D:/Qt/6.7.0/mingw_64/include/QtWidgets/qlayout.h \
+  D:/Qt/6.7.0/mingw_64/include/QtWidgets/qlayoutitem.h \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/qsizepolicy.h \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \

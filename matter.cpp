@@ -3,11 +3,13 @@
 Matter::Matter(QString _name,
                QString _description,
                QDate _date,
-               QString tag)
+               QString tag,
+               bool isDone)
             : name{_name},
             description{_description},
             date{_date},
-            tag{tag}
+            tag{tag},
+            isDone{isDone}
             { }
 
 QString Matter::getName() const {
@@ -32,4 +34,12 @@ void Matter::changeDate(QDate newDate) {
 
 void Matter::changeTag(QString newTag) {
     tag = newTag;
+}
+
+void Matter::changeState(bool state) {
+    isDone = state;
+}
+
+bool Matter::getState() const {
+    return isDone;
 }

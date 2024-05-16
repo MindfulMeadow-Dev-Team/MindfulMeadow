@@ -5,7 +5,9 @@
 #include <QPropertyAnimation>
 #include <QDate>
 #include <memory>
+#include <QLayout>
 #include "matterhandler.h"
+#include "matterbox.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -38,6 +40,7 @@ private slots:
 
     void on_page2_Button_clicked();
 
+
 private:
     Ui::MainWindow *ui;
 
@@ -51,7 +54,7 @@ private:
     int currMatterId;
     std::unique_ptr<MatterHandler> handler;
 
-    void showRightSide(const Matter& matter);
+    void showRightSide();
     void updateMatters();
 };
 #endif // MAINWINDOW_H

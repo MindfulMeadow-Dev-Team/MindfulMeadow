@@ -18,7 +18,7 @@ public:
     MatterHandler(QString dbName);
     ~MatterHandler();
 
-    QVector<Matter> getMatters(QDate date) const;
+    std::pair<QVector<Matter>, QVector<int>> getMatters(QDate date) const;
     Matter getSingleMatter(int id) const;
     // Add a new matter into the database and return the id.
     int addNew(const Matter& matter);
