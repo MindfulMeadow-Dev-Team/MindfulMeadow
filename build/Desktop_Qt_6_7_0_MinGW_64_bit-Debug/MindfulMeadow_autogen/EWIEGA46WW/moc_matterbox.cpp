@@ -39,7 +39,7 @@ constexpr auto qt_meta_stringdata_CLASSMatterBoxENDCLASS = QtMocHelpers::stringD
     "on_checkBox_stateChanged",
     "",
     "state",
-    "on_checkBox_clicked"
+    "on_underlyingBtn_clicked"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -82,7 +82,7 @@ Q_CONSTINIT const QMetaObject MatterBox::staticMetaObject = { {
         // method 'on_checkBox_stateChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        // method 'on_checkBox_clicked'
+        // method 'on_underlyingBtn_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -95,6 +95,7 @@ void MatterBox::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         (void)_t;
         switch (_id) {
         case 0: _t->on_checkBox_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 1: _t->on_underlyingBtn_clicked(); break;
         default: ;
         }
     }

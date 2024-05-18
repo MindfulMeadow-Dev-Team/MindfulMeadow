@@ -170,12 +170,15 @@ MindfulMeadow_autogen/timestamp: \
   D:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/QLayout \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
+  D:/Qt/6.7.0/mingw_64/include/QtWidgets/QScrollBar \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget \
+  D:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractslider.h \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/qboxlayout.h \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/qgridlayout.h \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/qlayout.h \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/qlayoutitem.h \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h \
+  D:/Qt/6.7.0/mingw_64/include/QtWidgets/qscrollbar.h \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/qsizepolicy.h \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/qtwidgets-config.h \

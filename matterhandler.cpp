@@ -44,7 +44,7 @@ Matter MatterHandler::getSingleMatter(int id) const {
     qry->next();
     auto name = qry->value(0).toString();
     auto description = qry->value(1).toString();
-    auto date = QDate::fromString(qry->value(2).toString());
+    auto date = QDate::fromString(qry->value(2).toString(), "yyyy-MM-dd");
     auto tag = qry->value(3).toString();
     auto isDone = qry->value(4).toBool();
     auto matter = Matter(name, description, date, tag, isDone);
@@ -53,16 +53,18 @@ Matter MatterHandler::getSingleMatter(int id) const {
     return matter;
 }
 
+// get all the matters in a single day
+// by the order of isDone, dueTime, create time.
 std::pair<QVector<Matter>, QVector<int>> MatterHandler::getMatters(QDate date) const {
     QVector<Matter> ret;
     QVector<int> ids;
-    qry->prepare("select name, description, date, tag, isDone, id from Matters where date = ?");
-    qry->addBindValue(date.toString());
+    qry->prepare("select name, description, date, tag, isDone, id from Matters where date = ? order by isDone, - id");
+    qry->addBindValue(date.toString("yyyy-MM-dd"));
     qry->exec();
     while (qry->next()) {
         auto name = qry->value(0).toString();
         auto description = qry->value(1).toString();
-        auto date = QDate::fromString(qry->value(2).toString());
+        auto date = QDate::fromString(qry->value(2).toString(), "yyyy-MM-dd");
         auto tag = qry->value(3).toString();
         auto isDone = qry->value(4).toBool();
         auto id = qry->value(5).toInt();
@@ -70,7 +72,7 @@ std::pair<QVector<Matter>, QVector<int>> MatterHandler::getMatters(QDate date) c
         ret.append(matter);
         ids.append(id);
     }
-    qDebug() << "query data where date = " << date.toString() << Qt::endl;
+    qDebug() << "query data where date = " << date.toString("yyyy-MM-dd") << Qt::endl;
     return {ret, ids};
 }
 
@@ -79,7 +81,7 @@ int MatterHandler::addNew(const Matter &matter) {
                 "values (:name, :des, :date, :tag, :isDone)");
     qry->bindValue(":name", matter.name);
     qry->bindValue(":des", matter.description);
-    qry->bindValue(":date", matter.date.toString());
+    qry->bindValue(":date", matter.date.toString("yyyy-MM-dd"));
     qry->bindValue(":tag", matter.tag);
     qry->bindValue(":isDone", matter.isDone);
     qry->exec();
@@ -94,11 +96,18 @@ void MatterHandler::updateMatter(int id, const Matter& matter) {
     qry->prepare("update Matters set name = ?, description = ?, date = ?, tag = ?, isDone = ? where id = ?");
     qry->addBindValue(matter.name);
     qry->addBindValue(matter.description);
-    qry->addBindValue(matter.date.toString());
+    qry->addBindValue(matter.date.toString("yyyy-MM-dd"));
     qry->addBindValue(matter.tag);
     qry->addBindValue(matter.isDone);
     qry->addBindValue(id);
     qry->exec();
 
     qDebug() << "update data which id = " << id << Qt::endl;
+}
+
+void MatterHandler::deleteMatter(int id) {
+    qry->prepare("delete from Matters where id = ?");
+    qry->addBindValue(id);
+    qry->exec();
+    qDebug() << "delete a matter with id " << id << Qt::endl;
 }

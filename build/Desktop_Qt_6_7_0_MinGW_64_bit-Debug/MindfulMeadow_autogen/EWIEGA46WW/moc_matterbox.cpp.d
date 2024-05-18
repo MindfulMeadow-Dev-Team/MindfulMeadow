@@ -3,12 +3,14 @@ D:/coding/MindfulMeadow/MindfulMeadow/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/
   D:/Qt/6.7.0/mingw_64/include/QtCore/QDate \
   D:/Qt/6.7.0/mingw_64/include/QtCore/QDateTime \
   D:/Qt/6.7.0/mingw_64/include/QtCore/QFile \
+  D:/Qt/6.7.0/mingw_64/include/QtCore/QPropertyAnimation \
   D:/Qt/6.7.0/mingw_64/include/QtCore/QString \
   D:/Qt/6.7.0/mingw_64/include/QtCore/QVector \
   D:/Qt/6.7.0/mingw_64/include/QtCore/q20functional.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/q20memory.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/q20type_traits.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/q23utility.h \
+  D:/Qt/6.7.0/mingw_64/include/QtCore/qabstractanimation.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/qalgorithms.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/qanystringview.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/qarraydata.h \
@@ -39,6 +41,7 @@ D:/coding/MindfulMeadow/MindfulMeadow/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/
   D:/Qt/6.7.0/mingw_64/include/QtCore/qdatastream.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/qdatetime.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/qdebug.h \
+  D:/Qt/6.7.0/mingw_64/include/QtCore/qeasingcurve.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/qendian.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/qexceptionhandling.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/qfile.h \
@@ -79,6 +82,7 @@ D:/coding/MindfulMeadow/MindfulMeadow/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/
   D:/Qt/6.7.0/mingw_64/include/QtCore/qpair.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/qpoint.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/qprocessordetection.h \
+  D:/Qt/6.7.0/mingw_64/include/QtCore/qpropertyanimation.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/qrect.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/qrefcount.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/qscopedpointer.h \
@@ -124,6 +128,7 @@ D:/coding/MindfulMeadow/MindfulMeadow/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/
   D:/Qt/6.7.0/mingw_64/include/QtCore/qtypes.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/qutf8stringview.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/qvariant.h \
+  D:/Qt/6.7.0/mingw_64/include/QtCore/qvariantanimation.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/qvarlengtharray.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/qvector.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/qversiontagging.h \
@@ -164,8 +169,19 @@ D:/coding/MindfulMeadow/MindfulMeadow/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/
   D:/Qt/6.7.0/mingw_64/include/QtSql/qtsql-config.h \
   D:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlexports.h \
   D:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
+  D:/Qt/6.7.0/mingw_64/include/QtWidgets/QLayout \
+  D:/Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
+  D:/Qt/6.7.0/mingw_64/include/QtWidgets/QScrollBar \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget \
+  D:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractslider.h \
+  D:/Qt/6.7.0/mingw_64/include/QtWidgets/qboxlayout.h \
+  D:/Qt/6.7.0/mingw_64/include/QtWidgets/qgridlayout.h \
+  D:/Qt/6.7.0/mingw_64/include/QtWidgets/qlayout.h \
+  D:/Qt/6.7.0/mingw_64/include/QtWidgets/qlayoutitem.h \
+  D:/Qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h \
+  D:/Qt/6.7.0/mingw_64/include/QtWidgets/qscrollbar.h \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/qsizepolicy.h \
+  D:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -399,5 +415,7 @@ D:/coding/MindfulMeadow/MindfulMeadow/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/
   D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h \
   D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
   D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h \
+  D:/coding/MindfulMeadow/MindfulMeadow/mainwindow.h \
   D:/coding/MindfulMeadow/MindfulMeadow/matter.h \
+  D:/coding/MindfulMeadow/MindfulMeadow/matterbox.h \
   D:/coding/MindfulMeadow/MindfulMeadow/matterhandler.h

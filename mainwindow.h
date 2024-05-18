@@ -6,6 +6,7 @@
 #include <QDate>
 #include <memory>
 #include <QLayout>
+#include <QScrollBar>
 #include "matterhandler.h"
 #include "matterbox.h"
 
@@ -41,6 +42,8 @@ private slots:
     void on_page2_Button_clicked();
 
 
+    void on_deleteBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -56,5 +59,9 @@ private:
 
     void showRightSide();
     void updateMatters();
+    void hideRightSide();
+
+public:
+    friend class MatterBox;
 };
 #endif // MAINWINDOW_H

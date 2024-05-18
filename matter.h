@@ -12,6 +12,7 @@ class Matter
     QDate date;
     QString tag;
     bool isDone;
+    // QTime dueTime;
     // QImage image;
     // QTime time;
 public:

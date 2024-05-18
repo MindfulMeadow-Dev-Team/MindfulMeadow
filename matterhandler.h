@@ -23,6 +23,7 @@ public:
     // Add a new matter into the database and return the id.
     int addNew(const Matter& matter);
     void updateMatter(int id, const Matter& matter);
+    void deleteMatter(int id);
 };
 
 #endif // MATTERHANDLER_H

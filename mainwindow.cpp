@@ -41,6 +41,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_hideButton_clicked()
 {
+    hideRightSide();
+}
+
+void MainWindow::hideRightSide() {
     rightSideAnm->setEndValue(QRect(this->width(), 0, ui->rightScrollArea->width(), ui->rightScrollArea->height()));
     rightSideAnm->setStartValue(QRect(this->width() - ui->rightScrollArea->width(), 0, ui->rightScrollArea->width(), ui->rightScrollArea->height()));
     rightSideAnm->start();
@@ -51,7 +55,7 @@ void MainWindow::on_hideButton_clicked()
     mainNameEditAnm->start();
     matterScrollAreaAnm->setStartValue(ui->matterScrollArea->geometry());
     matterScrollAreaAnm->setEndValue(QRect(ui->matterScrollArea->x(), ui->matterScrollArea->y(),
-                                       561, ui->matterScrollArea->height()));
+                                           561, ui->matterScrollArea->height()));
     matterScrollAreaAnm->start();
     rightSideHidden = true;
 }
@@ -102,7 +106,7 @@ void MainWindow::updateMatters() {
     int size = matters.size();
     auto layout = ui->matterScrollArea->widget()->layout();
     if (!layout) {
-        qDebug() << "error\n";
+        qDebug() << "no layout error\n";
         return;
     }
     while (layout->count()) {
@@ -116,6 +120,7 @@ void MainWindow::updateMatters() {
         box->setMinimumHeight(60);
         layout->addWidget(box);
     }
+    ui->matterScrollArea->verticalScrollBar()->setValue(0);
 }
 
 
@@ -153,3 +158,11 @@ void MainWindow::on_page2_Button_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
 }
+
+void MainWindow::on_deleteBtn_clicked()
+{
+    handler->deleteMatter(currMatterId);
+    updateMatters();
+    hideRightSide();
+}
+

@@ -11,6 +11,7 @@
 
 #include <QtCore/QDate>
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDateEdit>
 #include <QtWidgets/QGridLayout>
@@ -21,6 +22,7 @@
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTimeEdit>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -43,6 +45,8 @@ public:
     QLineEdit *descriptionEdit;
     QLineEdit *nameEdit;
     QDateEdit *dateEdit;
+    QPushButton *deleteBtn;
+    QTimeEdit *timeEdit;
     QStackedWidget *stackedWidget;
     QWidget *page1;
     QDateEdit *mainDateEdit;
@@ -66,6 +70,8 @@ public:
         sizePolicy.setHeightForWidth(MainWindow->sizePolicy().hasHeightForWidth());
         MainWindow->setSizePolicy(sizePolicy);
         MainWindow->setMouseTracking(false);
+        MainWindow->setToolButtonStyle(Qt::ToolButtonIconOnly);
+        MainWindow->setAnimated(true);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         leftSide = new QWidget(centralwidget);
@@ -113,9 +119,18 @@ public:
         dateEdit = new QDateEdit(scrollAreaWidgetContents_2);
         dateEdit->setObjectName("dateEdit");
         dateEdit->setGeometry(QRect(20, 200, 161, 24));
-        dateEdit->setMaximumDateTime(QDateTime(QDate(2100, 12, 29), QTime(23, 59, 59)));
+        dateEdit->setMaximumDateTime(QDateTime(QDate(2100, 12, 29), QTime(15, 59, 59)));
         dateEdit->setMinimumDate(QDate(2000, 9, 14));
         dateEdit->setCalendarPopup(true);
+        deleteBtn = new QPushButton(scrollAreaWidgetContents_2);
+        deleteBtn->setObjectName("deleteBtn");
+        deleteBtn->setGeometry(QRect(20, 450, 41, 41));
+        QIcon icon(QIcon::fromTheme(QString::fromUtf8("edit-delete")));
+        deleteBtn->setIcon(icon);
+        timeEdit = new QTimeEdit(scrollAreaWidgetContents_2);
+        timeEdit->setObjectName("timeEdit");
+        timeEdit->setGeometry(QRect(20, 250, 161, 24));
+        timeEdit->setCalendarPopup(true);
         rightScrollArea->setWidget(scrollAreaWidgetContents_2);
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName("stackedWidget");
@@ -125,8 +140,8 @@ public:
         mainDateEdit = new QDateEdit(page1);
         mainDateEdit->setObjectName("mainDateEdit");
         mainDateEdit->setGeometry(QRect(30, 20, 361, 41));
-        mainDateEdit->setMaximumDateTime(QDateTime(QDate(2100, 12, 29), QTime(23, 59, 59)));
-        mainDateEdit->setMinimumDateTime(QDateTime(QDate(2000, 9, 14), QTime(8, 0, 0)));
+        mainDateEdit->setMaximumDateTime(QDateTime(QDate(2100, 12, 29), QTime(15, 59, 59)));
+        mainDateEdit->setMinimumDateTime(QDateTime(QDate(2000, 9, 14), QTime(0, 0, 0)));
         mainDateEdit->setMinimumDate(QDate(2000, 9, 14));
         mainDateEdit->setCalendarPopup(true);
         mainNameEdit = new QLineEdit(page1);
@@ -176,7 +191,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        page1_Button->setText(QCoreApplication::translate("MainWindow", "Day Todo", nullptr));
+        page1_Button->setText(QCoreApplication::translate("MainWindow", "\346\257\217\346\227\245\345\276\205\345\212\236", nullptr));
         page2_Button->setText(QCoreApplication::translate("MainWindow", "\346\227\245\347\250\213\346\246\202\350\247\210", nullptr));
         page3_Button->setText(QCoreApplication::translate("MainWindow", "\346\210\221\347\232\204\350\257\276\350\241\250", nullptr));
         page4_Button->setText(QCoreApplication::translate("MainWindow", "\346\210\221\347\232\204\346\243\256\346\236\227", nullptr));
@@ -185,6 +200,7 @@ public:
         hideButton->setText(QCoreApplication::translate("MainWindow", ">", nullptr));
         descriptionEdit->setPlaceholderText(QCoreApplication::translate("MainWindow", "\346\267\273\345\212\240\346\217\217\350\277\260", nullptr));
         nameEdit->setPlaceholderText(QCoreApplication::translate("MainWindow", "\346\227\245\347\250\213\345\220\215\347\247\260", nullptr));
+        deleteBtn->setText(QString());
         mainNameEdit->setPlaceholderText(QCoreApplication::translate("MainWindow", "\345\234\250\346\255\244\346\267\273\345\212\240\345\206\205\345\256\271\357\274\214\346\214\211\345\233\236\350\275\246\345\210\233\345\273\272\344\272\213\344\273\266", nullptr));
     } // retranslateUi
 

@@ -13,7 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -21,8 +21,7 @@ QT_BEGIN_NAMESPACE
 class Ui_MatterBox
 {
 public:
-    QWidget *widget;
-    QVBoxLayout *verticalLayout;
+    QPushButton *underlyingBtn;
     QCheckBox *checkBox;
     QLabel *description;
 
@@ -32,15 +31,12 @@ public:
             MatterBox->setObjectName("MatterBox");
         MatterBox->resize(632, 68);
         MatterBox->setStyleSheet(QString::fromUtf8("background-color:lightgrey"));
-        widget = new QWidget(MatterBox);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(0, 0, 631, 71));
-        verticalLayout = new QVBoxLayout(widget);
-        verticalLayout->setSpacing(0);
-        verticalLayout->setObjectName("verticalLayout");
-        verticalLayout->setContentsMargins(10, 0, 0, 10);
-        checkBox = new QCheckBox(widget);
+        underlyingBtn = new QPushButton(MatterBox);
+        underlyingBtn->setObjectName("underlyingBtn");
+        underlyingBtn->setGeometry(QRect(0, 0, 631, 71));
+        checkBox = new QCheckBox(MatterBox);
         checkBox->setObjectName("checkBox");
+        checkBox->setGeometry(QRect(10, 10, 81, 21));
         QSizePolicy sizePolicy(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Maximum);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -49,19 +45,14 @@ public:
         QFont font;
         font.setBold(true);
         checkBox->setFont(font);
-
-        verticalLayout->addWidget(checkBox);
-
-        description = new QLabel(widget);
+        description = new QLabel(MatterBox);
         description->setObjectName("description");
+        description->setGeometry(QRect(10, 40, 61, 16));
         QSizePolicy sizePolicy1(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Maximum);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
         sizePolicy1.setHeightForWidth(description->sizePolicy().hasHeightForWidth());
         description->setSizePolicy(sizePolicy1);
-
-        verticalLayout->addWidget(description);
-
 
         retranslateUi(MatterBox);
 
@@ -71,6 +62,7 @@ public:
     void retranslateUi(QWidget *MatterBox)
     {
         MatterBox->setWindowTitle(QCoreApplication::translate("MatterBox", "Form", nullptr));
+        underlyingBtn->setText(QString());
         checkBox->setText(QCoreApplication::translate("MatterBox", "CheckBox", nullptr));
         description->setText(QCoreApplication::translate("MatterBox", "TextLabel", nullptr));
     } // retranslateUi
