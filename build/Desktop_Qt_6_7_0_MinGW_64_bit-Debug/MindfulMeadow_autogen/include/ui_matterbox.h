@@ -31,7 +31,7 @@ public:
         if (MatterBox->objectName().isEmpty())
             MatterBox->setObjectName("MatterBox");
         MatterBox->resize(632, 103);
-        MatterBox->setStyleSheet(QString::fromUtf8("background-color:lightgrey"));
+        MatterBox->setStyleSheet(QString::fromUtf8(""));
         underlyingBtn = new QPushButton(MatterBox);
         underlyingBtn->setObjectName("underlyingBtn");
         underlyingBtn->setGeometry(QRect(0, 0, 631, 101));

@@ -1,13 +1,16 @@
 #include "matterhandler.h"
 
 MatterHandler::MatterHandler(QString dbName) {
+    // If the connection is already here, there might be a problem.
     if (QSqlDatabase::contains("qt_sql_default_connection")) {
+        qDebug() << "second database connection error\n";
         db = QSqlDatabase::database("qt_sql_default_connection");
     }
     else {
         db = QSqlDatabase::addDatabase("QSQLITE");
     }
 
+    // Open the database.
     db.setDatabaseName(dbName);
     if (!db.open()) {
         qDebug() << "data base open unsuccessful" << Qt::endl;
@@ -16,9 +19,12 @@ MatterHandler::MatterHandler(QString dbName) {
         qDebug() << "data base opened successfully\n";
     }
 
+    // If the table doesn't exist, create one.
     qry = new QSqlQuery(db);
     qry->exec("select * from Matters limit 1");
     if (!qry->next()) {
+        // Id type "integer primary key autoincrement"
+        // as the unique code of each matter.
         qry->exec("CREATE TABLE Matters("
                   "id INTEGER PRIMARY KEY AUTOINCREMENT, "
                   "name text, "
@@ -39,6 +45,7 @@ MatterHandler::~MatterHandler() {
     db.close();
 }
 
+// Acquire a single matter from the table with the matter's id.
 Matter MatterHandler::getSingleMatter(int id) const {
     qry->prepare("select name, description, date, tag, isDone, setDue, dueTime from Matters where id = ?");
     qry->addBindValue(id);
@@ -57,13 +64,33 @@ Matter MatterHandler::getSingleMatter(int id) const {
     return matter;
 }
 
-// get all the matters in a single day
-// by the order of isDone, dueTime, create time.
+// Acquire all the matters before the date that are not done
+// and ones that are on the day.
+// Return: {vector of the matters, vector of the ids}
 std::pair<QVector<Matter>, QVector<int>> MatterHandler::getMatters(QDate date) const {
     QVector<Matter> ret;
     QVector<int> ids;
+    // Matters before the day that are not done.
     qry->prepare("select name, description, date, tag, isDone, id, setDue, dueTime "
-                 "from Matters where date = ? order by isDone, - setDue, dueTime, - id");
+                 "from Matters where date(date) < ? and isDone = 0 order by date(date), dueTime");
+    qry->addBindValue(date.toString("yyyy-MM-dd"));
+    qry->exec();
+    while (qry->next()) {
+        auto name = qry->value(0).toString();
+        auto description = qry->value(1).toString();
+        auto date = QDate::fromString(qry->value(2).toString(), "yyyy-MM-dd");
+        auto tag = qry->value(3).toString();
+        auto isDone = qry->value(4).toBool();
+        auto id = qry->value(5).toInt();
+        auto setDue = qry->value(6).toBool();
+        auto dueTime = QTime::fromString(qry->value(7).toString());
+        auto matter = Matter(name, description, date, tag, isDone, setDue, dueTime);
+        ret.append(matter);
+        ids.append(id);
+    }
+    // Matters in the day.
+    qry->prepare("select name, description, date, tag, isDone, id, setDue, dueTime "
+                 "from Matters where date = ? order by isDone, - setDue, time(dueTime), - id");
     qry->addBindValue(date.toString("yyyy-MM-dd"));
     qry->exec();
     while (qry->next()) {
@@ -83,6 +110,8 @@ std::pair<QVector<Matter>, QVector<int>> MatterHandler::getMatters(QDate date) c
     return {ret, ids};
 }
 
+// Insert a new matter into the table.
+// Return the id of it.
 int MatterHandler::addNew(const Matter &matter) {
     qry->prepare("insert into Matters (name, description, date, tag, isDone, setDue, dueTime)"
                 "values (?, ?, ?, ?, ?, ?, ?)");
@@ -101,6 +130,7 @@ int MatterHandler::addNew(const Matter &matter) {
     return id;
 }
 
+// Update informations.
 void MatterHandler::updateMatter(int id, const Matter& matter) {
     qry->prepare("update Matters set name = ?, description = ?, date = ?, tag = ?"
                  ", isDone = ?, setDue = ?, dueTime = ? where id = ?");
@@ -117,6 +147,7 @@ void MatterHandler::updateMatter(int id, const Matter& matter) {
     qDebug() << "update data which id = " << id << Qt::endl;
 }
 
+// Delete one.
 void MatterHandler::deleteMatter(int id) {
     qry->prepare("delete from Matters where id = ?");
     qry->addBindValue(id);

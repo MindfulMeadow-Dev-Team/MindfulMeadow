@@ -24,11 +24,14 @@ MainWindow::MainWindow(QWidget *parent)
     mainNameEditAnm = new QPropertyAnimation(ui->mainNameEdit, "geometry");
     mainNameEditAnm->setEasingCurve(QEasingCurve::InOutSine);
     mainNameEditAnm->setDuration(800);
+
+    // TODO: tray icon.
     // set up tray icon for windows message
     messageHelper = new QSystemTrayIcon();
     // TODO: change the icon
     messageHelper->setIcon(QIcon::fromTheme(QIcon::ThemeIcon::EditDelete));
     messageHelper->show();
+
     // set up the timer
     timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(on_timeout()));
@@ -56,21 +59,26 @@ void MainWindow::on_hideButton_clicked()
 }
 
 void MainWindow::hideRightSide() {
-    rightSideAnm->setEndValue(QRect(this->width(), 0, ui->rightScrollArea->width(), ui->rightScrollArea->height()));
-    rightSideAnm->setStartValue(QRect(this->width() - ui->rightScrollArea->width(), 0, ui->rightScrollArea->width(), ui->rightScrollArea->height()));
-    rightSideAnm->start();
+    // if the right side menu is already hidden, do nothing
+    if (rightSideHidden == false) {
+        rightSideAnm->setEndValue(QRect(this->width(), 0, ui->rightScrollArea->width(), ui->rightScrollArea->height()));
+        rightSideAnm->setStartValue(QRect(this->width() - ui->rightScrollArea->width(), 0, ui->rightScrollArea->width(), ui->rightScrollArea->height()));
+        rightSideAnm->start();
 
-    mainNameEditAnm->setStartValue(ui->mainNameEdit->geometry());
-    mainNameEditAnm->setEndValue(QRect(ui->mainNameEdit->x(), ui->mainNameEdit->y(),
-                                       561, ui->mainDateEdit->height()));
-    mainNameEditAnm->start();
-    matterScrollAreaAnm->setStartValue(ui->matterScrollArea->geometry());
-    matterScrollAreaAnm->setEndValue(QRect(ui->matterScrollArea->x(), ui->matterScrollArea->y(),
-                                           561, ui->matterScrollArea->height()));
-    matterScrollAreaAnm->start();
-    rightSideHidden = true;
+        mainNameEditAnm->setStartValue(ui->mainNameEdit->geometry());
+        mainNameEditAnm->setEndValue(QRect(ui->mainNameEdit->x(), ui->mainNameEdit->y(),
+                                           561, ui->mainDateEdit->height()));
+        mainNameEditAnm->start();
+        matterScrollAreaAnm->setStartValue(ui->matterScrollArea->geometry());
+        matterScrollAreaAnm->setEndValue(QRect(ui->matterScrollArea->x(), ui->matterScrollArea->y(),
+                                               561, ui->matterScrollArea->height()));
+        matterScrollAreaAnm->start();
+        rightSideHidden = true;
+    }
 }
 
+// If the right side is hidden, show it.
+// If the right side is already shown, update the contents.
 void MainWindow::showRightSide() {
     if (rightSideHidden) {
         rightSideAnm->setStartValue(QRect(this->width(), 0, ui->rightScrollArea->width(), ui->rightScrollArea->height()));
@@ -81,7 +89,7 @@ void MainWindow::showRightSide() {
         mainNameEditAnm->setEndValue(QRect(ui->mainNameEdit->x(), ui->mainNameEdit->y(),
                                                ui->mainDateEdit->width(), ui->mainDateEdit->height()));
         mainNameEditAnm->start();
-        // TODO: move the matterScrollArea
+        // move the scroll area
         matterScrollAreaAnm->setStartValue(ui->matterScrollArea->geometry());
         matterScrollAreaAnm->setEndValue(QRect(ui->matterScrollArea->x(), ui->matterScrollArea->y(),
                                            ui->mainDateEdit->width(), ui->matterScrollArea->height()));
@@ -89,9 +97,13 @@ void MainWindow::showRightSide() {
         rightSideHidden = false;
     }
     // update contents on the right side menu
+    // name
     ui->nameEdit->setText(currMatter.getName());
+    // date
     ui->dateEdit->setDate(currDate);
+    // description
     ui->descriptionEdit->setText(currMatter.getDescription());
+    // check box
     if (currMatter.getSetDue()) {
         ui->setDueCheckbox->setChecked(true);
         ui->timeEdit->setTime(currMatter.getDueTime());
@@ -119,8 +131,8 @@ void MainWindow::on_mainDateEdit_dateChanged(const QDate &date)
     updateMatters();
 }
 
+// update matters in the matter scroll area
 void MainWindow::updateMatters() {
-    // TODO: update matters in the matter scroll area
     auto [matters, ids] = handler->getMatters(currDate);
     int size = matters.size();
     auto layout = ui->matterScrollArea->widget()->layout();
@@ -210,6 +222,8 @@ void MainWindow::on_timeEdit_timeChanged(const QTime &time)
     updateMatters();
 }
 
+// Slot function for SIGNAL(QTimer::timeout()).
+// To display the windows notice when a schedule is dued.
 void MainWindow::on_timeout() {
     auto currTime = QTime::currentTime().toString("h:mm");
     auto [matters, ids] = handler->getMatters(QDate::currentDate());

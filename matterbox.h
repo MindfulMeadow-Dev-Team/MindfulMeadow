@@ -30,6 +30,8 @@ private:
     int matterId;
     MatterHandler* handler;
     MainWindow* mainWindow;
+
+    void checkTime();
 };
 
 #endif // MATTERBOX_H

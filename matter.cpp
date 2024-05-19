@@ -28,6 +28,10 @@ QTime Matter::getDueTime() const {
     return dueTime;
 }
 
+QDate Matter::getDate() const {
+    return date;
+}
+
 bool Matter::getSetDue() const {
     return setDue;
 }

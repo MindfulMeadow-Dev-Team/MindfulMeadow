@@ -30,6 +30,7 @@ public:
     bool getState() const;
     bool getSetDue() const;
     QTime getDueTime() const;
+    QDate getDate() const;
 
     void changeName(QString newName);
     void changeDescription(QString newDes);
