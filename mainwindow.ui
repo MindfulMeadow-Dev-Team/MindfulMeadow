@@ -35,7 +35,7 @@
       <x>0</x>
       <y>0</y>
       <width>181</width>
-      <height>581</height>
+      <height>611</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -64,7 +64,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>日程概览</string>
+      <string>最近待办</string>
      </property>
     </widget>
     <widget class="QPushButton" name="page3_Button">
@@ -100,7 +100,7 @@
       <x>180</x>
       <y>509</y>
       <width>621</width>
-      <height>71</height>
+      <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -122,7 +122,7 @@
     <widget class="QPushButton" name="whiteNoiseButton">
      <property name="geometry">
       <rect>
-       <x>270</x>
+       <x>280</x>
        <y>20</y>
        <width>101</width>
        <height>51</height>
@@ -204,7 +204,7 @@
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>15</hour>
+        <hour>7</hour>
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
@@ -294,7 +294,7 @@
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>15</hour>
+        <hour>7</hour>
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
@@ -304,7 +304,7 @@
       </property>
       <property name="minimumDateTime">
        <datetime>
-        <hour>0</hour>
+        <hour>16</hour>
         <minute>0</minute>
         <second>0</second>
         <year>2000</year>
@@ -336,42 +336,60 @@
        <string>在此添加内容，按回车创建事件</string>
       </property>
      </widget>
-     <widget class="QWidget" name="gridLayoutWidget">
+     <widget class="QScrollArea" name="matterScrollArea">
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>160</y>
-        <width>561</width>
-        <height>321</height>
+        <y>170</y>
+        <width>559</width>
+        <height>319</height>
        </rect>
       </property>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="0" column="0">
-        <widget class="QScrollArea" name="matterScrollArea">
-         <property name="widgetResizable">
-          <bool>true</bool>
-         </property>
-         <widget class="QWidget" name="scrollAreaWidgetContents_3">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>557</width>
-            <height>317</height>
-           </rect>
-          </property>
-         </widget>
-        </widget>
-       </item>
-      </layout>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents_3">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>557</width>
+         <height>317</height>
+        </rect>
+       </property>
+      </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="page2"/>
+    <widget class="QWidget" name="page2">
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>40</y>
+        <width>581</width>
+        <height>471</height>
+       </rect>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>579</width>
+         <height>469</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+    </widget>
    </widget>
    <zorder>stackedWidget</zorder>
-   <zorder>leftSide</zorder>
-   <zorder>underSide</zorder>
    <zorder>rightScrollArea</zorder>
+   <zorder>underSide</zorder>
+   <zorder>leftSide</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="enabled">
@@ -382,7 +400,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

@@ -35,7 +35,7 @@ MatterBox::MatterBox(Matter matter, int matterId, MatterHandler* handler, MainWi
         ui->time->adjustSize();
         ui->time->move(QPoint(40, this->geometry().height() - 20));
     }
-    else if (matter.getDate() < QDate::currentDate()) {
+    else if (matter.getDate() < mainWindow->currDate) {
         this->setFixedHeight(this->geometry().height() + 20);
         ui->time->setText(matter.getDate().toString("MM-dd"));
         ui->time->adjustSize();
@@ -77,13 +77,26 @@ void MatterBox::on_underlyingBtn_clicked()
 void MatterBox::checkTime() {
     bool cond1 = matter.getDate() < QDate::currentDate();
     bool cond2 = matter.getDate() == QDate::currentDate() && matter.getSetDue() && matter.getDueTime() < QTime::currentTime();;
-    if ((cond1 || cond2) && matter.getState() == false) {
+    if (cond1 && matter.getState() == false) {
+        if (matter.getDate() != mainWindow->currDate) {
+            ui->time->setText(matter.getDate().toString("MM-dd"));
+            if (matter.getSetDue()) {
+                ui->time->setText(ui->time->text() + " " + matter.getDueTime().toString("h:mm"));
+            }
+        }
+        else if (matter.getSetDue()){
+            ui->time->setText(matter.getDueTime().toString("h:mm"));
+        }
+        ui->time->setStyleSheet("color:red");
+    }
+    else if (cond2 && matter.getState() == false) {
         ui->time->setStyleSheet("color:red");
     }
     else {
-        ui->time->setStyleSheet("color:black");
         if (matter.getDate() < mainWindow->currDate) {
             this->hide();
         }
+        ui->time->setStyleSheet("color:black");
     }
+    ui->time->adjustSize();
 }

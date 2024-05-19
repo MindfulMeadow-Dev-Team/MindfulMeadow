@@ -6,7 +6,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    // this->setWindowFlag(Qt::FramelessWindowHint);
+    // this->setWindowFlags(this->windowFlags() | Qt::FramelessWindowHint);
+    ui->statusbar->setVisible(false);
 
     // set matter handler
     handler = std::make_unique<MatterHandler>("matters.db");
@@ -100,7 +101,7 @@ void MainWindow::showRightSide() {
     // name
     ui->nameEdit->setText(currMatter.getName());
     // date
-    ui->dateEdit->setDate(currDate);
+    ui->dateEdit->setDate(currMatter.getDate());
     // description
     ui->descriptionEdit->setText(currMatter.getDescription());
     // check box

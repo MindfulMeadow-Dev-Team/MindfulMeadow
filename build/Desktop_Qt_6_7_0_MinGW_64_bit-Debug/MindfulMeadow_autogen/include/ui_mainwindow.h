@@ -15,7 +15,6 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QDateEdit>
-#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
@@ -53,11 +52,11 @@ public:
     QWidget *page1;
     QDateEdit *mainDateEdit;
     QLineEdit *mainNameEdit;
-    QWidget *gridLayoutWidget;
-    QGridLayout *gridLayout;
     QScrollArea *matterScrollArea;
     QWidget *scrollAreaWidgetContents_3;
     QWidget *page2;
+    QScrollArea *scrollArea;
+    QWidget *scrollAreaWidgetContents;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -78,7 +77,7 @@ public:
         centralwidget->setObjectName("centralwidget");
         leftSide = new QWidget(centralwidget);
         leftSide->setObjectName("leftSide");
-        leftSide->setGeometry(QRect(0, 0, 181, 581));
+        leftSide->setGeometry(QRect(0, 0, 181, 611));
         leftSide->setStyleSheet(QString::fromUtf8("background-color:lightgrey;"));
         page1_Button = new QPushButton(leftSide);
         page1_Button->setObjectName("page1_Button");
@@ -94,14 +93,14 @@ public:
         page4_Button->setGeometry(QRect(10, 280, 161, 41));
         underSide = new QWidget(centralwidget);
         underSide->setObjectName("underSide");
-        underSide->setGeometry(QRect(180, 509, 621, 71));
+        underSide->setGeometry(QRect(180, 509, 621, 91));
         underSide->setStyleSheet(QString::fromUtf8("background-color:gray;"));
         plantButton = new QPushButton(underSide);
         plantButton->setObjectName("plantButton");
         plantButton->setGeometry(QRect(440, 20, 101, 51));
         whiteNoiseButton = new QPushButton(underSide);
         whiteNoiseButton->setObjectName("whiteNoiseButton");
-        whiteNoiseButton->setGeometry(QRect(270, 20, 101, 51));
+        whiteNoiseButton->setGeometry(QRect(280, 20, 101, 51));
         rightScrollArea = new QScrollArea(centralwidget);
         rightScrollArea->setObjectName("rightScrollArea");
         rightScrollArea->setGeometry(QRect(600, 0, 201, 511));
@@ -121,7 +120,7 @@ public:
         dateEdit = new QDateEdit(scrollAreaWidgetContents_2);
         dateEdit->setObjectName("dateEdit");
         dateEdit->setGeometry(QRect(20, 200, 161, 24));
-        dateEdit->setMaximumDateTime(QDateTime(QDate(2100, 12, 29), QTime(15, 59, 59)));
+        dateEdit->setMaximumDateTime(QDateTime(QDate(2100, 12, 29), QTime(7, 59, 59)));
         dateEdit->setMinimumDate(QDate(2000, 9, 14));
         dateEdit->setCalendarPopup(true);
         deleteBtn = new QPushButton(scrollAreaWidgetContents_2);
@@ -146,42 +145,42 @@ public:
         mainDateEdit = new QDateEdit(page1);
         mainDateEdit->setObjectName("mainDateEdit");
         mainDateEdit->setGeometry(QRect(30, 20, 361, 41));
-        mainDateEdit->setMaximumDateTime(QDateTime(QDate(2100, 12, 29), QTime(15, 59, 59)));
-        mainDateEdit->setMinimumDateTime(QDateTime(QDate(2000, 9, 14), QTime(0, 0, 0)));
+        mainDateEdit->setMaximumDateTime(QDateTime(QDate(2100, 12, 29), QTime(7, 59, 59)));
+        mainDateEdit->setMinimumDateTime(QDateTime(QDate(2000, 9, 14), QTime(16, 0, 0)));
         mainDateEdit->setMinimumDate(QDate(2000, 9, 14));
         mainDateEdit->setCalendarPopup(true);
         mainNameEdit = new QLineEdit(page1);
         mainNameEdit->setObjectName("mainNameEdit");
         mainNameEdit->setGeometry(QRect(30, 90, 561, 41));
-        gridLayoutWidget = new QWidget(page1);
-        gridLayoutWidget->setObjectName("gridLayoutWidget");
-        gridLayoutWidget->setGeometry(QRect(30, 160, 561, 321));
-        gridLayout = new QGridLayout(gridLayoutWidget);
-        gridLayout->setObjectName("gridLayout");
-        gridLayout->setContentsMargins(0, 0, 0, 0);
-        matterScrollArea = new QScrollArea(gridLayoutWidget);
+        matterScrollArea = new QScrollArea(page1);
         matterScrollArea->setObjectName("matterScrollArea");
+        matterScrollArea->setGeometry(QRect(30, 170, 559, 319));
         matterScrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents_3 = new QWidget();
         scrollAreaWidgetContents_3->setObjectName("scrollAreaWidgetContents_3");
         scrollAreaWidgetContents_3->setGeometry(QRect(0, 0, 557, 317));
         matterScrollArea->setWidget(scrollAreaWidgetContents_3);
-
-        gridLayout->addWidget(matterScrollArea, 0, 0, 1, 1);
-
         stackedWidget->addWidget(page1);
         page2 = new QWidget();
         page2->setObjectName("page2");
+        scrollArea = new QScrollArea(page2);
+        scrollArea->setObjectName("scrollArea");
+        scrollArea->setGeometry(QRect(0, 40, 581, 471));
+        scrollArea->setWidgetResizable(true);
+        scrollAreaWidgetContents = new QWidget();
+        scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 579, 469));
+        scrollArea->setWidget(scrollAreaWidgetContents);
         stackedWidget->addWidget(page2);
         MainWindow->setCentralWidget(centralwidget);
         stackedWidget->raise();
-        leftSide->raise();
-        underSide->raise();
         rightScrollArea->raise();
+        underSide->raise();
+        leftSide->raise();
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
         menubar->setEnabled(false);
-        menubar->setGeometry(QRect(0, 0, 800, 20));
+        menubar->setGeometry(QRect(0, 0, 800, 21));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -201,7 +200,7 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         page1_Button->setText(QCoreApplication::translate("MainWindow", "\346\257\217\346\227\245\345\276\205\345\212\236", nullptr));
-        page2_Button->setText(QCoreApplication::translate("MainWindow", "\346\227\245\347\250\213\346\246\202\350\247\210", nullptr));
+        page2_Button->setText(QCoreApplication::translate("MainWindow", "\346\234\200\350\277\221\345\276\205\345\212\236", nullptr));
         page3_Button->setText(QCoreApplication::translate("MainWindow", "\346\210\221\347\232\204\350\257\276\350\241\250", nullptr));
         page4_Button->setText(QCoreApplication::translate("MainWindow", "\346\210\221\347\232\204\346\243\256\346\236\227", nullptr));
         plantButton->setText(QCoreApplication::translate("MainWindow", "\345\274\200\345\247\213\347\247\215\346\240\221", nullptr));
