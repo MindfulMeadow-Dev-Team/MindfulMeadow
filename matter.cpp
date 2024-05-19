@@ -4,12 +4,16 @@ Matter::Matter(QString _name,
                QString _description,
                QDate _date,
                QString tag,
-               bool isDone)
+               bool isDone,
+               bool setDue,
+               QTime dueTime)
             : name{_name},
             description{_description},
             date{_date},
             tag{tag},
-            isDone{isDone}
+            isDone{isDone},
+            dueTime{dueTime},
+            setDue{setDue}
             { }
 
 QString Matter::getName() const {
@@ -18,6 +22,14 @@ QString Matter::getName() const {
 
 QString Matter::getDescription() const {
     return description;
+}
+
+QTime Matter::getDueTime() const {
+    return dueTime;
+}
+
+bool Matter::getSetDue() const {
+    return setDue;
 }
 
 void Matter::changeName(QString newName) {
@@ -42,4 +54,15 @@ void Matter::changeState(bool state) {
 
 bool Matter::getState() const {
     return isDone;
+}
+
+void Matter::changeDueTime(QTime newTime) {
+    if (setDue == false) {
+        setDue = true;
+    }
+    dueTime = newTime;
+}
+
+void Matter::changeSetDue(bool newSetDue) {
+    setDue = newSetDue;
 }

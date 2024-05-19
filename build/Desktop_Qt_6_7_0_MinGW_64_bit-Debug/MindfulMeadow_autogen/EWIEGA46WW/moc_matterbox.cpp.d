@@ -5,6 +5,7 @@ D:/coding/MindfulMeadow/MindfulMeadow/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/
   D:/Qt/6.7.0/mingw_64/include/QtCore/QFile \
   D:/Qt/6.7.0/mingw_64/include/QtCore/QPropertyAnimation \
   D:/Qt/6.7.0/mingw_64/include/QtCore/QString \
+  D:/Qt/6.7.0/mingw_64/include/QtCore/QTimer \
   D:/Qt/6.7.0/mingw_64/include/QtCore/QVector \
   D:/Qt/6.7.0/mingw_64/include/QtCore/q20functional.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/q20memory.h \
@@ -20,6 +21,7 @@ D:/coding/MindfulMeadow/MindfulMeadow/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/
   D:/Qt/6.7.0/mingw_64/include/QtCore/qatomic.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/qatomic_cxx11.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/qbasicatomic.h \
+  D:/Qt/6.7.0/mingw_64/include/QtCore/qbasictimer.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/qbindingstorage.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/qbytearray.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/qbytearrayalgorithms.h \
@@ -116,6 +118,7 @@ D:/coding/MindfulMeadow/MindfulMeadow/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/
   D:/Qt/6.7.0/mingw_64/include/QtCore/qtdeprecationmarkers.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/qtenvironmentvariables.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/qtextstream.h \
+  D:/Qt/6.7.0/mingw_64/include/QtCore/qtimer.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/qtmetamacros.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/qtnoop.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/qtpreprocessorsupport.h \
@@ -172,6 +175,7 @@ D:/coding/MindfulMeadow/MindfulMeadow/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/QLayout \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/QScrollBar \
+  D:/Qt/6.7.0/mingw_64/include/QtWidgets/QSystemTrayIcon \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractslider.h \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/qboxlayout.h \
@@ -181,6 +185,7 @@ D:/coding/MindfulMeadow/MindfulMeadow/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/qscrollbar.h \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/qsizepolicy.h \
+  D:/Qt/6.7.0/mingw_64/include/QtWidgets/qsystemtrayicon.h \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
   D:/Qt/6.7.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \

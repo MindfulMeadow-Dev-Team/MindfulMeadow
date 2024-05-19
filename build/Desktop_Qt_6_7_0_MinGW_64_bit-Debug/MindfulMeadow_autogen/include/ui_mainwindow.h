@@ -13,6 +13,7 @@
 #include <QtCore/QVariant>
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QDateEdit>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLineEdit>
@@ -47,6 +48,7 @@ public:
     QDateEdit *dateEdit;
     QPushButton *deleteBtn;
     QTimeEdit *timeEdit;
+    QCheckBox *setDueCheckbox;
     QStackedWidget *stackedWidget;
     QWidget *page1;
     QDateEdit *mainDateEdit;
@@ -129,8 +131,12 @@ public:
         deleteBtn->setIcon(icon);
         timeEdit = new QTimeEdit(scrollAreaWidgetContents_2);
         timeEdit->setObjectName("timeEdit");
-        timeEdit->setGeometry(QRect(20, 250, 161, 24));
+        timeEdit->setGeometry(QRect(20, 300, 161, 24));
+        timeEdit->setReadOnly(false);
         timeEdit->setCalendarPopup(true);
+        setDueCheckbox = new QCheckBox(scrollAreaWidgetContents_2);
+        setDueCheckbox->setObjectName("setDueCheckbox");
+        setDueCheckbox->setGeometry(QRect(20, 260, 82, 21));
         rightScrollArea->setWidget(scrollAreaWidgetContents_2);
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName("stackedWidget");
@@ -185,6 +191,9 @@ public:
 
         retranslateUi(MainWindow);
 
+        stackedWidget->setCurrentIndex(0);
+
+
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
 
@@ -201,6 +210,7 @@ public:
         descriptionEdit->setPlaceholderText(QCoreApplication::translate("MainWindow", "\346\267\273\345\212\240\346\217\217\350\277\260", nullptr));
         nameEdit->setPlaceholderText(QCoreApplication::translate("MainWindow", "\346\227\245\347\250\213\345\220\215\347\247\260", nullptr));
         deleteBtn->setText(QString());
+        setDueCheckbox->setText(QCoreApplication::translate("MainWindow", "\350\256\276\347\275\256\346\217\220\351\206\222", nullptr));
         mainNameEdit->setPlaceholderText(QCoreApplication::translate("MainWindow", "\345\234\250\346\255\244\346\267\273\345\212\240\345\206\205\345\256\271\357\274\214\346\214\211\345\233\236\350\275\246\345\210\233\345\273\272\344\272\213\344\273\266", nullptr));
     } // retranslateUi
 

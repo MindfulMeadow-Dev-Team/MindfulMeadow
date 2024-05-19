@@ -7,6 +7,8 @@
 #include <memory>
 #include <QLayout>
 #include <QScrollBar>
+#include <QSystemTrayIcon>
+#include <QTimer>
 #include "matterhandler.h"
 #include "matterbox.h"
 
@@ -41,8 +43,13 @@ private slots:
 
     void on_page2_Button_clicked();
 
-
     void on_deleteBtn_clicked();
+
+    void on_setDueCheckbox_stateChanged(int state);
+
+    void on_timeEdit_timeChanged(const QTime &time);
+
+    void on_timeout();
 
 private:
     Ui::MainWindow *ui;
@@ -50,6 +57,8 @@ private:
     QPropertyAnimation* rightSideAnm;
     QPropertyAnimation* mainNameEditAnm;
     QPropertyAnimation* matterScrollAreaAnm;
+    QSystemTrayIcon* messageHelper;
+    QTimer* timer;
 
     bool rightSideHidden;
     QDate currDate;

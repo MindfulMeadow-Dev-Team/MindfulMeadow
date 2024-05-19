@@ -24,14 +24,25 @@ MainWindow::MainWindow(QWidget *parent)
     mainNameEditAnm = new QPropertyAnimation(ui->mainNameEdit, "geometry");
     mainNameEditAnm->setEasingCurve(QEasingCurve::InOutSine);
     mainNameEditAnm->setDuration(800);
+    // set up tray icon for windows message
+    messageHelper = new QSystemTrayIcon();
+    // TODO: change the icon
+    messageHelper->setIcon(QIcon::fromTheme(QIcon::ThemeIcon::EditDelete));
+    messageHelper->show();
+    // set up the timer
+    timer = new QTimer();
+    connect(timer, SIGNAL(timeout()), this, SLOT(on_timeout()));
+    timer->start(1000 * 60);
 
     // set currDate
     currDate = QDate::currentDate();
     ui->mainDateEdit->setDate(currDate);
 
     // add layout to matterScrollArea
-    ui->matterScrollArea->widget()->setLayout(new QGridLayout());
+    ui->matterScrollArea->widget()->setLayout(new QVBoxLayout());
+    ui->matterScrollArea->horizontalScrollBar()->hide();
     updateMatters();
+
 }
 
 MainWindow::~MainWindow()
@@ -81,6 +92,14 @@ void MainWindow::showRightSide() {
     ui->nameEdit->setText(currMatter.getName());
     ui->dateEdit->setDate(currDate);
     ui->descriptionEdit->setText(currMatter.getDescription());
+    if (currMatter.getSetDue()) {
+        ui->setDueCheckbox->setChecked(true);
+        ui->timeEdit->setTime(currMatter.getDueTime());
+    }
+    else {
+        ui->setDueCheckbox->setChecked(false);
+        ui->timeEdit->setVisible(false);
+    }
 }
 
 void MainWindow::on_mainNameEdit_returnPressed()
@@ -109,6 +128,7 @@ void MainWindow::updateMatters() {
         qDebug() << "no layout error\n";
         return;
     }
+    layout->setSpacing(10);
     while (layout->count()) {
         auto widget = layout->itemAt(0)->widget();
         widget->setParent(nullptr);
@@ -117,7 +137,6 @@ void MainWindow::updateMatters() {
     }
     for (int i = 0; i < size; ++i) {
         MatterBox* box = new MatterBox(matters[i], ids[i], handler.get(), this);
-        box->setMinimumHeight(60);
         layout->addWidget(box);
     }
     ui->matterScrollArea->verticalScrollBar()->setValue(0);
@@ -150,12 +169,14 @@ void MainWindow::on_dateEdit_dateChanged(const QDate &date)
 
 void MainWindow::on_page1_Button_clicked()
 {
+    hideRightSide();
     ui->stackedWidget->setCurrentIndex(0);
 }
 
 
 void MainWindow::on_page2_Button_clicked()
 {
+    hideRightSide();
     ui->stackedWidget->setCurrentIndex(1);
 }
 
@@ -164,5 +185,39 @@ void MainWindow::on_deleteBtn_clicked()
     handler->deleteMatter(currMatterId);
     updateMatters();
     hideRightSide();
+}
+
+
+void MainWindow::on_setDueCheckbox_stateChanged(int state)
+{
+    if (state == Qt::Unchecked) {
+        currMatter.changeSetDue(0);
+        ui->timeEdit->setVisible(false);
+    }
+    else {
+        currMatter.changeSetDue(1);
+        ui->timeEdit->setVisible(true);
+    }
+    handler->updateMatter(currMatterId, currMatter);
+    updateMatters();
+}
+
+
+void MainWindow::on_timeEdit_timeChanged(const QTime &time)
+{
+    currMatter.changeDueTime(time);
+    handler->updateMatter(currMatterId, currMatter);
+    updateMatters();
+}
+
+void MainWindow::on_timeout() {
+    auto currTime = QTime::currentTime().toString("h:mm");
+    auto [matters, ids] = handler->getMatters(QDate::currentDate());
+    for (const auto& matter: matters) {
+        if (matter.getSetDue() && matter.getState() == false && matter.getDueTime().toString("h:mm") == currTime) {
+            qDebug() << "show message of matter with name " << matter.getName() << Qt::endl;
+            messageHelper->showMessage(matter.getName(), "时间到啦！");
+        }
+    }
 }
 

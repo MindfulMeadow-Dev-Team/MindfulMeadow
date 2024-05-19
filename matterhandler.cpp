@@ -25,7 +25,9 @@ MatterHandler::MatterHandler(QString dbName) {
                   "description text, "
                   "date text,"
                   "tag text,"
-                  "isDone bool)");
+                  "isDone bool, "
+                  "setDue bool, "
+                  "dueTime text)");
         qDebug() << "table created\n";
     } else {
         qDebug() << "table already exists\n";
@@ -38,7 +40,7 @@ MatterHandler::~MatterHandler() {
 }
 
 Matter MatterHandler::getSingleMatter(int id) const {
-    qry->prepare("select name, description, date, tag, isDone from Matters where id = ?");
+    qry->prepare("select name, description, date, tag, isDone, setDue, dueTime from Matters where id = ?");
     qry->addBindValue(id);
     qry->exec();
     qry->next();
@@ -47,7 +49,9 @@ Matter MatterHandler::getSingleMatter(int id) const {
     auto date = QDate::fromString(qry->value(2).toString(), "yyyy-MM-dd");
     auto tag = qry->value(3).toString();
     auto isDone = qry->value(4).toBool();
-    auto matter = Matter(name, description, date, tag, isDone);
+    auto setDue = qry->value(5).toBool();
+    auto dueTime = QTime::fromString(qry->value(6).toString());
+    auto matter = Matter(name, description, date, tag, isDone, setDue, dueTime);
 
     qDebug() << "query data where id = " << id << Qt::endl;
     return matter;
@@ -58,7 +62,8 @@ Matter MatterHandler::getSingleMatter(int id) const {
 std::pair<QVector<Matter>, QVector<int>> MatterHandler::getMatters(QDate date) const {
     QVector<Matter> ret;
     QVector<int> ids;
-    qry->prepare("select name, description, date, tag, isDone, id from Matters where date = ? order by isDone, - id");
+    qry->prepare("select name, description, date, tag, isDone, id, setDue, dueTime "
+                 "from Matters where date = ? order by isDone, - setDue, dueTime, - id");
     qry->addBindValue(date.toString("yyyy-MM-dd"));
     qry->exec();
     while (qry->next()) {
@@ -68,7 +73,9 @@ std::pair<QVector<Matter>, QVector<int>> MatterHandler::getMatters(QDate date) c
         auto tag = qry->value(3).toString();
         auto isDone = qry->value(4).toBool();
         auto id = qry->value(5).toInt();
-        auto matter = Matter(name, description, date, tag, isDone);
+        auto setDue = qry->value(6).toBool();
+        auto dueTime = QTime::fromString(qry->value(7).toString());
+        auto matter = Matter(name, description, date, tag, isDone, setDue, dueTime);
         ret.append(matter);
         ids.append(id);
     }
@@ -77,13 +84,15 @@ std::pair<QVector<Matter>, QVector<int>> MatterHandler::getMatters(QDate date) c
 }
 
 int MatterHandler::addNew(const Matter &matter) {
-    qry->prepare("insert into Matters (name, description, date, tag, isDone)"
-                "values (:name, :des, :date, :tag, :isDone)");
-    qry->bindValue(":name", matter.name);
-    qry->bindValue(":des", matter.description);
-    qry->bindValue(":date", matter.date.toString("yyyy-MM-dd"));
-    qry->bindValue(":tag", matter.tag);
-    qry->bindValue(":isDone", matter.isDone);
+    qry->prepare("insert into Matters (name, description, date, tag, isDone, setDue, dueTime)"
+                "values (?, ?, ?, ?, ?, ?, ?)");
+    qry->addBindValue(matter.name);
+    qry->addBindValue(matter.description);
+    qry->addBindValue(matter.date.toString("yyyy-MM-dd"));
+    qry->addBindValue(matter.tag);
+    qry->addBindValue(matter.isDone);
+    qry->addBindValue(matter.setDue);
+    qry->addBindValue(matter.dueTime);
     qry->exec();
     qry->exec("select last_insert_rowid()");
     qry->next();
@@ -93,12 +102,15 @@ int MatterHandler::addNew(const Matter &matter) {
 }
 
 void MatterHandler::updateMatter(int id, const Matter& matter) {
-    qry->prepare("update Matters set name = ?, description = ?, date = ?, tag = ?, isDone = ? where id = ?");
+    qry->prepare("update Matters set name = ?, description = ?, date = ?, tag = ?"
+                 ", isDone = ?, setDue = ?, dueTime = ? where id = ?");
     qry->addBindValue(matter.name);
     qry->addBindValue(matter.description);
     qry->addBindValue(matter.date.toString("yyyy-MM-dd"));
     qry->addBindValue(matter.tag);
     qry->addBindValue(matter.isDone);
+    qry->addBindValue(matter.setDue);
+    qry->addBindValue(matter.dueTime);
     qry->addBindValue(id);
     qry->exec();
 

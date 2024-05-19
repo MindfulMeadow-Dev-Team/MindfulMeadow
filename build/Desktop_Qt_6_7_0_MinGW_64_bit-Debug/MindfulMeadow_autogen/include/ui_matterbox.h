@@ -24,16 +24,17 @@ public:
     QPushButton *underlyingBtn;
     QCheckBox *checkBox;
     QLabel *description;
+    QLabel *time;
 
     void setupUi(QWidget *MatterBox)
     {
         if (MatterBox->objectName().isEmpty())
             MatterBox->setObjectName("MatterBox");
-        MatterBox->resize(632, 68);
+        MatterBox->resize(632, 103);
         MatterBox->setStyleSheet(QString::fromUtf8("background-color:lightgrey"));
         underlyingBtn = new QPushButton(MatterBox);
         underlyingBtn->setObjectName("underlyingBtn");
-        underlyingBtn->setGeometry(QRect(0, 0, 631, 71));
+        underlyingBtn->setGeometry(QRect(0, 0, 631, 101));
         checkBox = new QCheckBox(MatterBox);
         checkBox->setObjectName("checkBox");
         checkBox->setGeometry(QRect(10, 10, 81, 21));
@@ -53,6 +54,9 @@ public:
         sizePolicy1.setVerticalStretch(0);
         sizePolicy1.setHeightForWidth(description->sizePolicy().hasHeightForWidth());
         description->setSizePolicy(sizePolicy1);
+        time = new QLabel(MatterBox);
+        time->setObjectName("time");
+        time->setGeometry(QRect(470, 40, 53, 21));
 
         retranslateUi(MatterBox);
 
@@ -65,6 +69,7 @@ public:
         underlyingBtn->setText(QString());
         checkBox->setText(QCoreApplication::translate("MatterBox", "CheckBox", nullptr));
         description->setText(QCoreApplication::translate("MatterBox", "TextLabel", nullptr));
+        time->setText(QCoreApplication::translate("MatterBox", "TextLabel", nullptr));
     } // retranslateUi
 
 };
