@@ -26,12 +26,20 @@ MainWindow::MainWindow(QWidget *parent)
     mainNameEditAnm->setEasingCurve(QEasingCurve::InOutSine);
     mainNameEditAnm->setDuration(800);
 
-    // TODO: tray icon.
-    // set up tray icon for windows message
-    messageHelper = new QSystemTrayIcon();
+    // set up tray icon
+    tray = new QSystemTrayIcon();
     // TODO: change the icon
-    messageHelper->setIcon(QIcon::fromTheme(QIcon::ThemeIcon::EditDelete));
-    messageHelper->show();
+    tray->setIcon(QIcon::fromTheme(QIcon::ThemeIcon::EditDelete));
+    trayShow = new QAction("MindfulMeadow", this);
+    connect(trayShow, SIGNAL(triggered(bool)), this, SLOT(show()));
+    trayExit = new QAction("彻底退出", this);
+    connect(trayExit, SIGNAL(triggered(bool)), qApp, SLOT(quit()));
+    trayMenu = new QMenu(this);
+    trayMenu->addAction(trayShow);
+    trayMenu->addAction(trayExit);
+    tray->setContextMenu(trayMenu);
+    tray->show();
+
 
     // set up the timer
     timer = new QTimer();
@@ -231,8 +239,19 @@ void MainWindow::on_timeout() {
     for (const auto& matter: matters) {
         if (matter.getSetDue() && matter.getState() == false && matter.getDueTime().toString("h:mm") == currTime) {
             qDebug() << "show message of matter with name " << matter.getName() << Qt::endl;
-            messageHelper->showMessage(matter.getName(), "时间到啦！");
+            tray->showMessage(matter.getName(), "时间到啦！");
         }
     }
 }
 
+// override function closeEvent for system tray icon.
+void MainWindow::closeEvent(QCloseEvent *event) {
+    if (tray->isVisible()) {
+        this->hide();
+        tray->showMessage("MindfulMeadow", "应用已缩小到托盘区");
+        event->ignore();
+    }
+    else {
+        event->accept();
+    }
+}

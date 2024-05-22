@@ -1,6 +1,4 @@
 #include "mainwindow.h"
-#include "matter.h"
-#include "matterhandler.h"
 
 #include <QApplication>
 #include <QDebug>
