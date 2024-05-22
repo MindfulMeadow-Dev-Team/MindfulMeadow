@@ -1,0 +1,12 @@
+# ninja log v5
+2	1538	7379231633168016	MindfulMeadow_autogen/timestamp	4bfcdaaf80f4e24a
+2	1538	7379231633168016	MindfulMeadow_autogen/mocs_compilation.cpp	4bfcdaaf80f4e24a
+2	1538	7379231633168016	D:/coding/MindfulMeadow/MindfulMeadow/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/MindfulMeadow_autogen/timestamp	4bfcdaaf80f4e24a
+2	1538	7379231633168016	D:/coding/MindfulMeadow/MindfulMeadow/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/MindfulMeadow_autogen/mocs_compilation.cpp	4bfcdaaf80f4e24a
+1638	3461	7379231653519581	CMakeFiles/MindfulMeadow.dir/matter.cpp.obj	eabc164d942a1580
+1539	4083	7379231658956966	CMakeFiles/MindfulMeadow.dir/MindfulMeadow_autogen/mocs_compilation.cpp.obj	8166e188f699cebf
+1677	4096	7379231659252078	CMakeFiles/MindfulMeadow.dir/matterhandler.cpp.obj	38dde0b9c7b82b06
+1720	4178	7379231660311636	CMakeFiles/MindfulMeadow.dir/matterbox.cpp.obj	95c16be775142f9b
+1604	4504	7379231664449441	CMakeFiles/MindfulMeadow.dir/mainwindow.cpp.obj	b765f65066ab9f79
+1567	5000	7379231668732933	CMakeFiles/MindfulMeadow.dir/main.cpp.obj	ed5a9a4f344a6bf3
+5001	5590	7379231673621949	MindfulMeadow.exe	d89431e5638bf7b7
