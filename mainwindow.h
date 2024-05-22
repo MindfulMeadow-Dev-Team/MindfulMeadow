@@ -9,6 +9,7 @@
 #include <QScrollBar>
 #include <QSystemTrayIcon>
 #include <QTimer>
+#include <QCloseEvent>
 #include "matterhandler.h"
 #include "matterbox.h"
 
@@ -57,7 +58,10 @@ private:
     QPropertyAnimation* rightSideAnm;
     QPropertyAnimation* mainNameEditAnm;
     QPropertyAnimation* matterScrollAreaAnm;
-    QSystemTrayIcon* messageHelper;
+    QSystemTrayIcon* tray;
+    QMenu* trayMenu;
+    QAction* trayExit;
+    QAction* trayShow;
     QTimer* timer;
 
     bool rightSideHidden;
@@ -69,6 +73,8 @@ private:
     void showRightSide();
     void updateMatters();
     void hideRightSide();
+
+    void closeEvent(QCloseEvent *event);
 
 public:
     friend class MatterBox;
