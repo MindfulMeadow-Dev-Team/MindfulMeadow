@@ -132,6 +132,19 @@
       <string>白噪音</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="miniButton">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>20</y>
+       <width>100</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>缩小</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QScrollArea" name="rightScrollArea">
     <property name="geometry">
@@ -204,12 +217,12 @@
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>7</hour>
+        <hour>15</hour>
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
         <month>12</month>
-        <day>29</day>
+        <day>28</day>
        </datetime>
       </property>
       <property name="minimumDate">
@@ -280,7 +293,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="page1">
      <widget class="QDateEdit" name="mainDateEdit">
@@ -294,17 +307,17 @@
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>7</hour>
+        <hour>15</hour>
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
         <month>12</month>
-        <day>29</day>
+        <day>28</day>
        </datetime>
       </property>
       <property name="minimumDateTime">
        <datetime>
-        <hour>16</hour>
+        <hour>0</hour>
         <minute>0</minute>
         <second>0</second>
         <year>2000</year>
@@ -361,13 +374,13 @@
      </widget>
     </widget>
     <widget class="QWidget" name="page2">
-     <widget class="QScrollArea" name="scrollArea">
+     <widget class="QScrollArea" name="matterScrollArea2">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>40</y>
-        <width>581</width>
-        <height>471</height>
+        <x>30</x>
+        <y>30</y>
+        <width>551</width>
+        <height>451</height>
        </rect>
       </property>
       <property name="widgetResizable">
@@ -378,8 +391,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>579</width>
-         <height>469</height>
+         <width>549</width>
+         <height>449</height>
         </rect>
        </property>
       </widget>

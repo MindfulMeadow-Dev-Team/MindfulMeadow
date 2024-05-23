@@ -12,6 +12,9 @@
 #include <QCloseEvent>
 #include "matterhandler.h"
 #include "matterbox.h"
+#include "minischedule.h"
+
+class MiniSchedule;
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -54,6 +57,8 @@ private slots:
 
     void on_timeEdit_userTimeChanged(const QTime &time);
 
+    void on_miniButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -65,6 +70,7 @@ private:
     QAction* trayExit;
     QAction* trayShow;
     QTimer* timer;
+    MiniSchedule* mini;
 
     bool rightSideHidden;
     QDate currDate;
@@ -74,9 +80,11 @@ private:
 
     void showRightSide();
     void updateMatters();
+    void updateMatters2();
     void hideRightSide();
 
     void closeEvent(QCloseEvent *event);
+    void showEvent(QShowEvent* event);
 
 public:
     friend class MatterBox;

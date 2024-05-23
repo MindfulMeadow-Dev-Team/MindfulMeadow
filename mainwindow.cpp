@@ -50,11 +50,18 @@ MainWindow::MainWindow(QWidget *parent)
     currDate = QDate::currentDate();
     ui->mainDateEdit->setDate(currDate);
 
-    // add layout to matterScrollArea
+    // add layout to matterScrollAreas
     ui->matterScrollArea->widget()->setLayout(new QVBoxLayout());
     ui->matterScrollArea->horizontalScrollBar()->hide();
     updateMatters();
+    ui->matterScrollArea2->widget()->setLayout(new QVBoxLayout());
+    ui->matterScrollArea2->horizontalScrollBar()->hide();
+    updateMatters2();
 
+    // initialize miniwindow
+    mini = new MiniSchedule(handler.get(), this);
+
+    ui->stackedWidget->setCurrentIndex(0);
 }
 
 MainWindow::~MainWindow()
@@ -89,6 +96,8 @@ void MainWindow::hideRightSide() {
 // If the right side is hidden, show it.
 // If the right side is already shown, update the contents.
 void MainWindow::showRightSide() {
+    if (ui->stackedWidget->currentIndex() == 1)
+        return;
     if (rightSideHidden) {
         rightSideAnm->setStartValue(QRect(this->width(), 0, ui->rightScrollArea->width(), ui->rightScrollArea->height()));
         rightSideAnm->setEndValue(QRect(this->width() - ui->rightScrollArea->width(), 0, ui->rightScrollArea->width(), ui->rightScrollArea->height()));
@@ -116,6 +125,7 @@ void MainWindow::showRightSide() {
     if (currMatter.getSetDue()) {
         ui->setDueCheckbox->setChecked(true);
         ui->timeEdit->setTime(currMatter.getDueTime());
+        ui->timeEdit->setVisible(true);
     }
     else {
         ui->setDueCheckbox->setChecked(false);
@@ -157,10 +167,33 @@ void MainWindow::updateMatters() {
         delete widget;
     }
     for (int i = 0; i < size; ++i) {
-        MatterBox* box = new MatterBox(matters[i], ids[i], handler.get(), this);
+        MatterBox* box = new MatterBox(matters[i], ids[i], 0, handler.get(), this);
         layout->addWidget(box);
     }
     ui->matterScrollArea->verticalScrollBar()->setValue(0);
+}
+
+void MainWindow::updateMatters2() {
+    auto [matters, ids] = handler->getMattersSince(QDate::currentDate(), 10);
+    int size = matters.size();
+    qDebug() << size << Qt::endl;
+    auto layout = ui->matterScrollArea2->widget()->layout();
+    if (!layout) {
+        qDebug() << "no layout error\n";
+        return;
+    }
+    layout->setSpacing(10);
+    while (layout->count()) {
+        auto widget = layout->itemAt(0)->widget();
+        widget->setParent(nullptr);
+        layout->removeWidget(widget);
+        delete widget;
+    }
+    for (int i = 0; i < size; ++i) {
+        MatterBox* box = new MatterBox(matters[i], ids[i], 1, handler.get(), this);
+        layout->addWidget(box);
+    }
+    ui->matterScrollArea2->verticalScrollBar()->setValue(0);
 }
 
 
@@ -192,6 +225,7 @@ void MainWindow::on_page1_Button_clicked()
 {
     hideRightSide();
     ui->stackedWidget->setCurrentIndex(0);
+    updateMatters();
 }
 
 
@@ -199,6 +233,7 @@ void MainWindow::on_page2_Button_clicked()
 {
     hideRightSide();
     ui->stackedWidget->setCurrentIndex(1);
+    updateMatters2();
 }
 
 void MainWindow::on_deleteBtn_clicked()
@@ -213,6 +248,7 @@ void MainWindow::on_setDueCheckbox_clicked(bool checked)
 {
     if (checked) {
         currMatter.changeSetDue(1);
+        ui->timeEdit->setTime(QTime::currentTime());
         ui->timeEdit->setVisible(true);
     }
     else {
@@ -263,3 +299,13 @@ void MainWindow::closeEvent(QCloseEvent *event) {
     }
 }
 
+void MainWindow::on_miniButton_clicked()
+{
+    mini->show();
+    this->hide();
+}
+
+void MainWindow::showEvent(QShowEvent *event) {
+    updateMatters();
+    updateMatters2();
+}
