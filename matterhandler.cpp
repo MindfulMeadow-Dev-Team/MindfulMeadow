@@ -64,10 +64,54 @@ Matter MatterHandler::getSingleMatter(int id) const {
     return matter;
 }
 
-// Acquire all the matters before the date that are not done
-// and ones that are on the day.
+// Acquire all the matters on the day.
 // Return: {vector of the matters, vector of the ids}
-std::pair<QVector<Matter>, QVector<int>> MatterHandler::getMatters(QDate date) const {
+std::pair<QVector<Matter>, QVector<int>> MatterHandler::getMatters(const QDate& date) const {
+    QVector<Matter> ret;
+    QVector<int> ids;
+    // Matters before the day that are not done.
+    // qry->prepare("select name, description, date, tag, isDone, id, setDue, dueTime "
+    //              "from Matters where date(date) < ? and isDone = 0 order by date(date), dueTime");
+    // qry->addBindValue(date.toString("yyyy-MM-dd"));
+    // qry->exec();
+    // while (qry->next()) {
+    //     auto name = qry->value(0).toString();
+    //     auto description = qry->value(1).toString();
+    //     auto date = QDate::fromString(qry->value(2).toString(), "yyyy-MM-dd");
+    //     auto tag = qry->value(3).toString();
+    //     auto isDone = qry->value(4).toBool();
+    //     auto id = qry->value(5).toInt();
+    //     auto setDue = qry->value(6).toBool();
+    //     auto dueTime = QTime::fromString(qry->value(7).toString());
+    //     auto matter = Matter(name, description, date, tag, isDone, setDue, dueTime);
+    //     ret.append(matter);
+    //     ids.append(id);
+    // }
+    // Require matters in the day.
+    qry->prepare("select name, description, date, tag, isDone, id, setDue, dueTime "
+                 "from Matters where date = ? order by isDone, - setDue, time(dueTime), - id");
+    qry->addBindValue(date.toString("yyyy-MM-dd"));
+    qry->exec();
+    while (qry->next()) {
+        auto name = qry->value(0).toString();
+        auto description = qry->value(1).toString();
+        auto date = QDate::fromString(qry->value(2).toString(), "yyyy-MM-dd");
+        auto tag = qry->value(3).toString();
+        auto isDone = qry->value(4).toBool();
+        auto id = qry->value(5).toInt();
+        auto setDue = qry->value(6).toBool();
+        auto dueTime = QTime::fromString(qry->value(7).toString());
+        auto matter = Matter(name, description, date, tag, isDone, setDue, dueTime);
+        ret.append(matter);
+        ids.append(id);
+    }
+    qDebug() << "query data where date = " << date.toString("yyyy-MM-dd") << Qt::endl;
+    return {ret, ids};
+}
+
+// Acquire all the matters that is overdue
+// and the ones that are on the day and nday days after the day
+std::pair<QVector<Matter>, QVector<int>> MatterHandler::getMattersSince(const QDate& date, int nday) const {
     QVector<Matter> ret;
     QVector<int> ids;
     // Matters before the day that are not done.
@@ -88,10 +132,11 @@ std::pair<QVector<Matter>, QVector<int>> MatterHandler::getMatters(QDate date) c
         ret.append(matter);
         ids.append(id);
     }
-    // Matters in the day.
+    // Matters after the day
     qry->prepare("select name, description, date, tag, isDone, id, setDue, dueTime "
-                 "from Matters where date = ? order by isDone, - setDue, time(dueTime), - id");
+                 "from Matters where date >= ? and date <= ? order by date, isDone, - setDue, time(dueTime), - id");
     qry->addBindValue(date.toString("yyyy-MM-dd"));
+    qry->addBindValue(date.addDays(nday).toString("yyyy-MM-dd"));
     qry->exec();
     while (qry->next()) {
         auto name = qry->value(0).toString();
@@ -106,7 +151,8 @@ std::pair<QVector<Matter>, QVector<int>> MatterHandler::getMatters(QDate date) c
         ret.append(matter);
         ids.append(id);
     }
-    qDebug() << "query data where date = " << date.toString("yyyy-MM-dd") << Qt::endl;
+    qDebug() << "query data since date =  " << date.toString("yyyy-MM-dd") << Qt::endl;
+    qDebug() << ret.size();
     return {ret, ids};
 }
 

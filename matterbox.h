@@ -16,7 +16,9 @@ class MatterBox : public QWidget
     Q_OBJECT
 
 public:
-    explicit MatterBox(Matter matter, int matterId, MatterHandler* handler, MainWindow* mainWindow, QWidget *parent = nullptr);
+    explicit MatterBox(Matter matter, int matterId, bool showDate
+                       , MatterHandler* handler
+                       , MainWindow* mainWindow, QWidget *parent = nullptr);
     ~MatterBox();
 
 private slots:
@@ -28,6 +30,8 @@ private:
     Ui::MatterBox *ui;
     Matter matter;
     int matterId;
+    // for feature recent schedules, if showDate == true, always show the date.
+    bool showDate;
     MatterHandler* handler;
     MainWindow* mainWindow;
 
