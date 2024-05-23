@@ -32,7 +32,7 @@ MainWindow::MainWindow(QWidget *parent)
     tray->setIcon(QIcon::fromTheme(QIcon::ThemeIcon::EditDelete));
     trayShow = new QAction("MindfulMeadow", this);
     connect(trayShow, SIGNAL(triggered(bool)), this, SLOT(show()));
-    trayExit = new QAction("彻底退出", this);
+    trayExit = new QAction("退出", this);
     connect(trayExit, SIGNAL(triggered(bool)), qApp, SLOT(quit()));
     trayMenu = new QMenu(this);
     trayMenu->addAction(trayShow);
@@ -179,8 +179,8 @@ void MainWindow::on_descriptionEdit_editingFinished()
     updateMatters();
 }
 
-
-void MainWindow::on_dateEdit_dateChanged(const QDate &date)
+// Called when the user change the date other than code.
+void MainWindow::on_mainDateEdit_userDateChanged(const QDate &date)
 {
     currMatter.changeDate(ui->dateEdit->date());
     handler->updateMatter(currMatterId, currMatter);
@@ -209,24 +209,31 @@ void MainWindow::on_deleteBtn_clicked()
 }
 
 
-void MainWindow::on_setDueCheckbox_stateChanged(int state)
+void MainWindow::on_setDueCheckbox_clicked(bool checked)
 {
-    if (state == Qt::Unchecked) {
-        currMatter.changeSetDue(0);
-        ui->timeEdit->setVisible(false);
-    }
-    else {
+    if (checked) {
         currMatter.changeSetDue(1);
         ui->timeEdit->setVisible(true);
+    }
+    else {
+        currMatter.changeSetDue(0);
+        ui->timeEdit->setVisible(false);
     }
     handler->updateMatter(currMatterId, currMatter);
     updateMatters();
 }
 
-
-void MainWindow::on_timeEdit_timeChanged(const QTime &time)
+void MainWindow::on_timeEdit_userTimeChanged(const QTime &time)
 {
     currMatter.changeDueTime(time);
+    handler->updateMatter(currMatterId, currMatter);
+    updateMatters();
+}
+
+
+void MainWindow::on_dateEdit_userDateChanged(const QDate &date)
+{
+    currMatter.changeDate(date);
     handler->updateMatter(currMatterId, currMatter);
     updateMatters();
 }
@@ -255,3 +262,4 @@ void MainWindow::closeEvent(QCloseEvent *event) {
         event->accept();
     }
 }
+

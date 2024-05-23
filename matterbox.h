@@ -20,9 +20,9 @@ public:
     ~MatterBox();
 
 private slots:
-    void on_checkBox_stateChanged(int state);
-
     void on_underlyingBtn_clicked();
+
+    void on_checkBox_clicked(bool checked);
 
 private:
     Ui::MatterBox *ui;

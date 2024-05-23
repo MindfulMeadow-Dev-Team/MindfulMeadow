@@ -53,18 +53,6 @@ MatterBox::~MatterBox()
     // DO NOT delete handler!
 }
 
-void MatterBox::on_checkBox_stateChanged(int state)
-{
-    if (state == Qt::Unchecked) {
-        matter.changeState(0);
-    }
-    else {
-        matter.changeState(1);
-    }
-    handler->updateMatter(matterId, matter);
-    checkTime();
-}
-
 void MatterBox::on_underlyingBtn_clicked()
 {
     mainWindow->currMatter = matter;
@@ -100,3 +88,19 @@ void MatterBox::checkTime() {
     }
     ui->time->adjustSize();
 }
+
+// SIGNAL(clicked) is emitted only when user clicked the box.
+// In other words, the signal will not be emitted by code.
+void MatterBox::on_checkBox_clicked(bool checked)
+{
+    if (checked) {
+        matter.changeState(1);
+    }
+    else {
+        matter.changeState(0);
+    }
+    handler->updateMatter(matterId, matter);
+    // checkTime();
+    mainWindow->updateMatters();
+}
+

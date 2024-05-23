@@ -38,19 +38,21 @@ private slots:
 
     void on_descriptionEdit_editingFinished();
 
-    void on_dateEdit_dateChanged(const QDate &date);
-
     void on_page1_Button_clicked();
 
     void on_page2_Button_clicked();
 
     void on_deleteBtn_clicked();
 
-    void on_setDueCheckbox_stateChanged(int state);
-
-    void on_timeEdit_timeChanged(const QTime &time);
-
     void on_timeout();
+
+    void on_mainDateEdit_userDateChanged(const QDate &date);
+
+    void on_dateEdit_userDateChanged(const QDate &date);
+
+    void on_setDueCheckbox_clicked(bool checked);
+
+    void on_timeEdit_userTimeChanged(const QTime &time);
 
 private:
     Ui::MainWindow *ui;
