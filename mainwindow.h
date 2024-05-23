@@ -67,8 +67,9 @@ private:
     QPropertyAnimation* matterScrollAreaAnm;
     QSystemTrayIcon* tray;
     QMenu* trayMenu;
-    QAction* trayExit;
     QAction* trayShow;
+    QAction* trayMini;
+    QAction* trayExit;
     QTimer* timer;
     MiniSchedule* mini;
 

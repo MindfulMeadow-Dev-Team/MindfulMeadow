@@ -26,16 +26,22 @@ MainWindow::MainWindow(QWidget *parent)
     mainNameEditAnm->setEasingCurve(QEasingCurve::InOutSine);
     mainNameEditAnm->setDuration(800);
 
+    // initialize miniwindow
+    mini = new MiniSchedule(handler.get(), this);
+
     // set up tray icon
     tray = new QSystemTrayIcon();
     // TODO: change the icon
     tray->setIcon(QIcon::fromTheme(QIcon::ThemeIcon::EditDelete));
     trayShow = new QAction("MindfulMeadow", this);
     connect(trayShow, SIGNAL(triggered(bool)), this, SLOT(show()));
+    trayMini = new QAction("悬浮窗口", this);
+    connect(trayMini, SIGNAL(triggered(bool)), mini, SLOT(show()));
     trayExit = new QAction("退出", this);
     connect(trayExit, SIGNAL(triggered(bool)), qApp, SLOT(quit()));
     trayMenu = new QMenu(this);
     trayMenu->addAction(trayShow);
+    trayMenu->addAction(trayMini);
     trayMenu->addAction(trayExit);
     tray->setContextMenu(trayMenu);
     tray->show();
@@ -58,8 +64,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->matterScrollArea2->horizontalScrollBar()->hide();
     updateMatters2();
 
-    // initialize miniwindow
-    mini = new MiniSchedule(handler.get(), this);
 
     ui->stackedWidget->setCurrentIndex(0);
 }
@@ -67,6 +71,16 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete rightSideAnm;
+    delete mainNameEditAnm;
+    delete matterScrollAreaAnm;
+    delete tray;
+    delete trayMenu;
+    delete trayShow;
+    delete trayMini;
+    delete trayExit;
+    delete timer;
+    delete mini;
 }
 
 void MainWindow::on_hideButton_clicked()

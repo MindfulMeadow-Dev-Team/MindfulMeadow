@@ -9,7 +9,7 @@ MiniSchedule::MiniSchedule(MatterHandler* handler, QWidget* mainWindow, QWidget 
 {
     ui->setupUi(this);
 
-    this->setWindowFlags(Qt::WindowStaysOnTopHint | Qt::WindowCloseButtonHint);
+    this->setWindowFlags(Qt::WindowStaysOnTopHint | Qt::WindowCloseButtonHint | Qt::SubWindow);
     ui->timeLabel->setText(QDate::currentDate().toString("MMM d, ddd"));
     ui->scrollArea->widget()->setLayout(new QVBoxLayout());
     ui->scrollArea->horizontalScrollBar()->hide();
