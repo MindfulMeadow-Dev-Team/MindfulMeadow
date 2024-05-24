@@ -13,6 +13,7 @@
 #include "matterhandler.h"
 #include "matterbox.h"
 #include "minischedule.h"
+#include "planttree.h"
 
 class MiniSchedule;
 
@@ -59,6 +60,7 @@ private slots:
 
     void on_miniButton_clicked();
 
+    void on_treeButton_clicked();
 private:
     Ui::MainWindow *ui;
 
@@ -72,6 +74,7 @@ private:
     QAction* trayExit;
     QTimer* timer;
     MiniSchedule* mini;
+    plantTree *ptree;  // 声明一个PlantTree窗口的指针
 
     bool rightSideHidden;
     QDate currDate;
