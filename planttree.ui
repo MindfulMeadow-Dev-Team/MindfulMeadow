@@ -6,34 +6,27 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>430</width>
+    <width>300</width>
     <height>300</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>200</y>
-     <width>80</width>
-     <height>18</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>PushButton</string>
-   </property>
-  </widget>
   <widget class="QScrollArea" name="matterScrollArea2">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>551</width>
-     <height>451</height>
+     <width>300</width>
+     <height>300</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget {
+    background-image: url(:/img/planttreebg.png);
+}
+</string>
    </property>
    <property name="widgetResizable">
     <bool>true</bool>
@@ -43,14 +36,25 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>549</width>
-      <height>449</height>
+      <width>298</width>
+      <height>298</height>
      </rect>
     </property>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>240</y>
+       <width>80</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>PushButton</string>
+     </property>
+    </widget>
    </widget>
   </widget>
-  <zorder>matterScrollArea2</zorder>
-  <zorder>pushButton</zorder>
  </widget>
  <resources/>
  <connections/>
