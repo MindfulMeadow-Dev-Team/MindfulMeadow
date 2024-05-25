@@ -10,9 +10,12 @@
 #include <QSystemTrayIcon>
 #include <QTimer>
 #include <QCloseEvent>
+#include <QMediaPlayer>
+#include <QAudioOutput>
 #include "matterhandler.h"
 #include "matterbox.h"
 #include "minischedule.h"
+#include "whitenoisewindow.h"
 
 class MiniSchedule;
 
@@ -59,6 +62,10 @@ private slots:
 
     void on_miniButton_clicked();
 
+    void on_whiteNoiseButton_clicked();
+
+    void playMusic(int);
+
 private:
     Ui::MainWindow *ui;
 
@@ -72,6 +79,8 @@ private:
     QAction* trayExit;
     QTimer* timer;
     MiniSchedule* mini;
+    WhiteNoiseWindow* whiteNoise;
+    QMediaPlayer* player;
 
     bool rightSideHidden;
     QDate currDate;

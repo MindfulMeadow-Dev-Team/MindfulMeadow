@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
@@ -21,6 +21,10 @@
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>:/icons/img/mainIcon.png</normaloff>:/icons/img/mainIcon.png</iconset>
   </property>
   <property name="toolButtonStyle">
    <enum>Qt::ToolButtonIconOnly</enum>
@@ -131,6 +135,10 @@
      <property name="text">
       <string>白噪音</string>
      </property>
+     <property name="icon">
+      <iconset resource="res.qrc">
+       <normaloff>:/icon/img/whiteNoise.png</normaloff>:/icon/img/whiteNoise.png</iconset>
+     </property>
     </widget>
     <widget class="QPushButton" name="miniButton">
      <property name="geometry">
@@ -217,7 +225,7 @@
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>15</hour>
+        <hour>7</hour>
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
@@ -307,7 +315,7 @@
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>15</hour>
+        <hour>7</hour>
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
@@ -317,7 +325,7 @@
       </property>
       <property name="minimumDateTime">
        <datetime>
-        <hour>0</hour>
+        <hour>16</hour>
         <minute>0</minute>
         <second>0</second>
         <year>2000</year>
@@ -426,6 +434,8 @@
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
  <connections/>
 </ui>

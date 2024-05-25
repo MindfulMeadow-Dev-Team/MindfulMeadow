@@ -29,6 +29,11 @@ MainWindow::MainWindow(QWidget *parent)
     // initialize miniwindow
     mini = new MiniSchedule(handler.get(), this);
 
+    // set up media player
+    whiteNoise = new WhiteNoiseWindow();
+    player = new QMediaPlayer(this);
+    connect(whiteNoise, SIGNAL(playMusic(int)), this, SLOT(playMusic(int)));
+
     // set up tray icon
     tray = new QSystemTrayIcon();
     // TODO: change the icon
@@ -322,4 +327,22 @@ void MainWindow::on_miniButton_clicked()
 void MainWindow::showEvent(QShowEvent *event) {
     updateMatters();
     updateMatters2();
+}
+
+void MainWindow::on_whiteNoiseButton_clicked()
+{
+    whiteNoise->show();
+}
+
+void MainWindow::playMusic(int id) {
+    qDebug() << QString("play music id: %1").arg(id);
+    QAudioOutput* audioOutput = new QAudioOutput(this); // chooses the default audio routing
+    player->setAudioOutput(audioOutput);
+    qDebug() << QUrl(QString("qrc:/audio/%1.mp3").arg(id));
+    player->setSource(QUrl(QString("qrc:/audio/audio/%1.mp3").arg(id)));
+    qDebug() << player->source();
+    // player->setMedia(QUrl(QString(":/res/audio/%1.mp3").arg(id)));
+    player->setLoops(QMediaPlayer::Infinite);
+    player->play();
+    qDebug() << player->mediaStatus();
 }
