@@ -11,14 +11,5 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
-    // MatterHandler handler("data.db");
-    // handler.addNew(Matter());
-    // handler.addNew(Matter());
-    // handler.addNew(Matter());
-    // handler.addNew(Matter());
-    // handler.addNew(Matter());
-    // auto matters = handler.getMatters(QDate::currentDate());
-    // qDebug() << matters.size() << Qt::endl;
-
     return a.exec();
 }
