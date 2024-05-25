@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "matterhandler.h"
+#include "matterhandler.h"
 namespace Ui {
 class plantTree;
 }

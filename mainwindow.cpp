@@ -67,6 +67,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->stackedWidget->setCurrentIndex(0);
 
+
+    ptree=nullptr;
     connect(ui->plantButton, &QPushButton::clicked, this, &MainWindow::on_treeButton_clicked);
 
 }
@@ -329,7 +331,11 @@ void MainWindow::showEvent(QShowEvent *event) {
 void MainWindow::on_treeButton_clicked()
 {
     // 显示PlantTree窗口
-    ptree=new plantTree(nullptr);
-    ptree->show();
+    if(!ptree){
+
+        ptree=new plantTree(nullptr);
+        ptree->show();
+    }
+
 }
 
