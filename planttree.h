@@ -3,6 +3,9 @@
 
 #include <QWidget>
 #include <QPixmap>
+#include <QTimer>
+#include <QComboBox>
+#include <QLabel>
 
 #include "matterhandler.h"
 #include "matterhandler.h"
@@ -24,6 +27,9 @@ private slots:
 
     void on_righttree_clicked();
 
+    void on_startButton_clicked();
+
+    void updateCountdown();
 private:
     Ui::plantTree *ui;
     QWidget* mainWindow;
@@ -32,12 +38,23 @@ private:
     int currentTreeIndex;  // 当前显示的树的索引
 
     void updateTreeLabel();  // 更新显示树的 QLabel
+    void startCountdown(int duration);
+    void updateTreeStage();
+    void resetUI();
 
+
+    QTimer *timer;
+    QLabel *countdownLabel;
+    QComboBox *timeComboBox;
+
+
+    int countdownTime;
+    int elapsedSeconds;
 
 private:
 // override closeEvent to hide the window in windows tray
-void closeEvent(QCloseEvent* event);
-void showEvent(QShowEvent *event);
+    void closeEvent(QCloseEvent* event);
+    void showEvent(QShowEvent *event);
 };
 
 #endif // PLANTTREE_H

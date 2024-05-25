@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>-20</y>
+     <y>0</y>
      <width>300</width>
      <height>331</height>
     </rect>
@@ -40,11 +40,11 @@
       <height>329</height>
      </rect>
     </property>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="startButton">
      <property name="geometry">
       <rect>
        <x>80</x>
-       <y>270</y>
+       <y>290</y>
        <width>131</width>
        <height>31</height>
       </rect>
@@ -117,7 +117,22 @@
       <string>TextLabel</string>
      </property>
     </widget>
+    <zorder>lefttree</zorder>
+    <zorder>righttree</zorder>
+    <zorder>treeLabel</zorder>
+    <zorder>startButton</zorder>
    </widget>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>250</y>
+     <width>131</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_3"/>
   </widget>
  </widget>
  <resources/>
