@@ -307,6 +307,7 @@ void MainWindow::on_timeout() {
 }
 
 // override function closeEvent for system tray icon.
+// if white noise window is visible, hide it
 void MainWindow::closeEvent(QCloseEvent *event) {
     if (tray->isVisible()) {
         this->hide();
@@ -315,6 +316,9 @@ void MainWindow::closeEvent(QCloseEvent *event) {
     }
     else {
         event->accept();
+    }
+    if (whiteNoise->isVisible()) {
+        whiteNoise->hide();
     }
 }
 
@@ -332,6 +336,7 @@ void MainWindow::showEvent(QShowEvent *event) {
 void MainWindow::on_whiteNoiseButton_clicked()
 {
     whiteNoise->show();
+    whiteNoise->move(this->x() + 430, this->y() + 256);
 }
 
 void MainWindow::playMusic(int id) {
@@ -345,4 +350,11 @@ void MainWindow::playMusic(int id) {
     player->setLoops(QMediaPlayer::Infinite);
     player->play();
     qDebug() << player->mediaStatus();
+}
+
+void MainWindow::mousePressEvent(QMouseEvent *event) {
+    if (whiteNoise->isVisible()) {
+        whiteNoise->hide();
+    }
+    QMainWindow::mousePressEvent(event);
 }

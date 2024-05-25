@@ -7,6 +7,8 @@ WhiteNoiseWindow::WhiteNoiseWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    this->setWindowFlags(Qt::FramelessWindowHint | Qt::SubWindow);
+
     QVBoxLayout* layout = new QVBoxLayout(this);
     buttonGroup = new QButtonGroup(this);
     QRadioButton* radioBtns[8];

@@ -95,6 +95,8 @@ private:
 
     void closeEvent(QCloseEvent *event);
     void showEvent(QShowEvent* event);
+    // test: when the mouse clicked on the main window, hide the white noise window
+    void mousePressEvent(QMouseEvent* event);
 
 public:
     friend class MatterBox;
