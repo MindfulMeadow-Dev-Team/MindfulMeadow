@@ -5,6 +5,7 @@
 #include <QLayout>
 #include <QRadioButton>
 #include <QButtonGroup>
+#include <QtMultimedia>
 
 namespace Ui {
 class WhiteNoiseWindow;
@@ -22,12 +23,14 @@ private:
     Ui::WhiteNoiseWindow *ui;
 
     QButtonGroup* buttonGroup;
+    QMediaPlayer* player;
+    QAudioOutput* audioOutput;
 
 private slots:
     void selectedChanged();
 
-signals:
-    void playMusic(int);
+// signals:
+//     void playMusic(int);
 };
 
 #endif // WHITENOISEWINDOW_H

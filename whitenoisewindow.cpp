@@ -19,9 +19,13 @@ WhiteNoiseWindow::WhiteNoiseWindow(QWidget *parent)
         layout->addWidget(radioBtns[i]);
         connect(radioBtns[i], SIGNAL(clicked(bool)), this, SLOT(selectedChanged()));
     }
-    radioBtns[0]->setChecked(true);
+    // radioBtns[0]->setChecked(true);
     buttonGroup->setExclusive(true);
     this->setLayout(layout);
+    player = new QMediaPlayer();
+    audioOutput = new QAudioOutput(this); // chooses the default audio routing
+    player->setAudioOutput(audioOutput);
+
 }
 
 WhiteNoiseWindow::~WhiteNoiseWindow()
@@ -30,5 +34,13 @@ WhiteNoiseWindow::~WhiteNoiseWindow()
 }
 
 void WhiteNoiseWindow::selectedChanged() {
-    emit playMusic(buttonGroup->checkedId());
+    int id = buttonGroup->checkedId();
+    qDebug() << QString("play music id: %1").arg(id);
+    qDebug() << QUrl(QString("qrc:/audio/%1.mp3").arg(id));
+    player->setSource(QUrl(QString("qrc:/audio/audio/%1.mp3").arg(id)));
+    qDebug() << player->source();
+    // player->setMedia(QUrl(QString(":/res/audio/%1.mp3").arg(id)));
+    player->setLoops(QMediaPlayer::Infinite);
+    player->play();
+    qDebug() << player->mediaStatus();
 }

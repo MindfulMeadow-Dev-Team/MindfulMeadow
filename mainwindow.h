@@ -64,7 +64,7 @@ private slots:
 
     void on_whiteNoiseButton_clicked();
 
-    void playMusic(int);
+    // void playMusic(int);
 
 private:
     Ui::MainWindow *ui;
@@ -80,7 +80,7 @@ private:
     QTimer* timer;
     MiniSchedule* mini;
     WhiteNoiseWindow* whiteNoise;
-    QMediaPlayer* player;
+    // QMediaPlayer* player;
 
     bool rightSideHidden;
     QDate currDate;

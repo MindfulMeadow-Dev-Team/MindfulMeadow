@@ -29,10 +29,8 @@ MainWindow::MainWindow(QWidget *parent)
     // initialize miniwindow
     mini = new MiniSchedule(handler.get(), this);
 
-    // set up media player
+    // set up white noise window
     whiteNoise = new WhiteNoiseWindow();
-    player = new QMediaPlayer(this);
-    connect(whiteNoise, SIGNAL(playMusic(int)), this, SLOT(playMusic(int)));
 
     // set up tray icon
     tray = new QSystemTrayIcon();
@@ -328,9 +326,11 @@ void MainWindow::on_miniButton_clicked()
     this->hide();
 }
 
+// Each time the main window is shown, flash the matter scroll area.
 void MainWindow::showEvent(QShowEvent *event) {
     updateMatters();
     updateMatters2();
+    QMainWindow::showEvent(event);
 }
 
 void MainWindow::on_whiteNoiseButton_clicked()
@@ -339,19 +339,7 @@ void MainWindow::on_whiteNoiseButton_clicked()
     whiteNoise->move(this->x() + 430, this->y() + 256);
 }
 
-void MainWindow::playMusic(int id) {
-    qDebug() << QString("play music id: %1").arg(id);
-    QAudioOutput* audioOutput = new QAudioOutput(this); // chooses the default audio routing
-    player->setAudioOutput(audioOutput);
-    qDebug() << QUrl(QString("qrc:/audio/%1.mp3").arg(id));
-    player->setSource(QUrl(QString("qrc:/audio/audio/%1.mp3").arg(id)));
-    qDebug() << player->source();
-    // player->setMedia(QUrl(QString(":/res/audio/%1.mp3").arg(id)));
-    player->setLoops(QMediaPlayer::Infinite);
-    player->play();
-    qDebug() << player->mediaStatus();
-}
-
+// If mouse clicked on the main window, hide the white noise window.
 void MainWindow::mousePressEvent(QMouseEvent *event) {
     if (whiteNoise->isVisible()) {
         whiteNoise->hide();
