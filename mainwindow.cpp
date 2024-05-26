@@ -34,17 +34,21 @@ MainWindow::MainWindow(QWidget *parent)
 
     // set up tray icon
     tray = new QSystemTrayIcon();
-    // TODO: change the icon
-    tray->setIcon(QIcon::fromTheme(QIcon::ThemeIcon::EditDelete));
-    trayShow = new QAction("MindfulMeadow", this);
+    tray->setIcon(QIcon(":/icon/img/mainIcon.png"));
+    auto trayShow = new QAction("MindfulMeadow", this);
     connect(trayShow, SIGNAL(triggered(bool)), this, SLOT(show()));
-    trayMini = new QAction("悬浮窗口", this);
+    auto trayMini = new QAction("悬浮窗口", this);
     connect(trayMini, SIGNAL(triggered(bool)), mini, SLOT(show()));
-    trayExit = new QAction("退出", this);
+    auto trayPlayMusic = new QAction("播放/暂停白噪声", this);
+    connect(trayPlayMusic, SIGNAL(triggered(bool)), whiteNoise, SLOT(playMusic()));
+    auto trayExit = new QAction("退出", this);
     connect(trayExit, SIGNAL(triggered(bool)), qApp, SLOT(quit()));
     trayMenu = new QMenu(this);
     trayMenu->addAction(trayShow);
+    trayMenu->addSeparator();
     trayMenu->addAction(trayMini);
+    trayMenu->addAction(trayPlayMusic);
+    trayMenu->addSeparator();
     trayMenu->addAction(trayExit);
     tray->setContextMenu(trayMenu);
     tray->show();
@@ -79,9 +83,6 @@ MainWindow::~MainWindow()
     delete matterScrollAreaAnm;
     delete tray;
     delete trayMenu;
-    delete trayShow;
-    delete trayMini;
-    delete trayExit;
     delete timer;
     delete mini;
 }
@@ -336,7 +337,7 @@ void MainWindow::showEvent(QShowEvent *event) {
 void MainWindow::on_whiteNoiseButton_clicked()
 {
     whiteNoise->show();
-    whiteNoise->move(this->x() + 430, this->y() + 256);
+    whiteNoise->move(this->x() + 460, this->y() + 283);
 }
 
 // If mouse clicked on the main window, hide the white noise window.

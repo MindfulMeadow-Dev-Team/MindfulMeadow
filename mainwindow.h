@@ -64,8 +64,6 @@ private slots:
 
     void on_whiteNoiseButton_clicked();
 
-    // void playMusic(int);
-
 private:
     Ui::MainWindow *ui;
 
@@ -74,13 +72,12 @@ private:
     QPropertyAnimation* matterScrollAreaAnm;
     QSystemTrayIcon* tray;
     QMenu* trayMenu;
-    QAction* trayShow;
-    QAction* trayMini;
-    QAction* trayExit;
+    // QAction* trayShow;
+    // QAction* trayMini;
+    // QAction* trayExit;
     QTimer* timer;
     MiniSchedule* mini;
     WhiteNoiseWindow* whiteNoise;
-    // QMediaPlayer* player;
 
     bool rightSideHidden;
     QDate currDate;
