@@ -5,7 +5,9 @@
 #include <QLayout>
 #include <QRadioButton>
 #include <QButtonGroup>
+#include <QPushButton>
 #include <QtMultimedia>
+#include <QGraphicsDropShadowEffect>
 
 namespace Ui {
 class WhiteNoiseWindow;
@@ -23,14 +25,14 @@ private:
     Ui::WhiteNoiseWindow *ui;
 
     QButtonGroup* buttonGroup;
+    QPushButton* playBtn;
     QMediaPlayer* player;
     QAudioOutput* audioOutput;
+    bool isPlaying;
 
 private slots:
-    void selectedChanged();
-
-// signals:
-//     void playMusic(int);
+    void playMusic();
+    void selectChanged();
 };
 
 #endif // WHITENOISEWINDOW_H

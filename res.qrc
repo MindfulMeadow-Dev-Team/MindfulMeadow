@@ -5,6 +5,7 @@
         <file>img/mainIcon.png</file>
         <file>img/toDo.png</file>
         <file>img/whiteNoise.png</file>
+        <file>img/greentree.png</file>
     </qresource>
     <qresource prefix="/audio">
         <file>audio/0.mp3</file>

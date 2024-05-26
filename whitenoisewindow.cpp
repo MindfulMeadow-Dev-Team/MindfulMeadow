@@ -7,7 +7,7 @@ WhiteNoiseWindow::WhiteNoiseWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    this->setWindowFlags(Qt::FramelessWindowHint | Qt::SubWindow);
+    this->setWindowFlags(Qt::Popup);
 
     QVBoxLayout* layout = new QVBoxLayout(this);
     buttonGroup = new QButtonGroup(this);
@@ -17,30 +17,55 @@ WhiteNoiseWindow::WhiteNoiseWindow(QWidget *parent)
         radioBtns[i] = new QRadioButton(names[i]);
         buttonGroup->addButton(radioBtns[i], i);
         layout->addWidget(radioBtns[i]);
-        connect(radioBtns[i], SIGNAL(clicked(bool)), this, SLOT(selectedChanged()));
+        connect(radioBtns[i], SIGNAL(clicked(bool)), this, SLOT(selectChanged()));
     }
-    // radioBtns[0]->setChecked(true);
+    radioBtns[0]->setChecked(true);
     buttonGroup->setExclusive(true);
+
+    playBtn = new QPushButton();
+    playBtn->setIcon(QIcon::fromTheme("media-playback-start"));
+    connect(playBtn, SIGNAL(clicked(bool)), this, SLOT(playMusic()));
+    layout->addWidget(playBtn);
     this->setLayout(layout);
     player = new QMediaPlayer();
     audioOutput = new QAudioOutput(this); // chooses the default audio routing
     player->setAudioOutput(audioOutput);
 
+    isPlaying = false;
 }
 
 WhiteNoiseWindow::~WhiteNoiseWindow()
 {
+    qDebug() << "white noise window distructed";
+    delete player;
+    delete audioOutput;
+    delete buttonGroup;
     delete ui;
 }
 
-void WhiteNoiseWindow::selectedChanged() {
-    int id = buttonGroup->checkedId();
-    qDebug() << QString("play music id: %1").arg(id);
-    qDebug() << QUrl(QString("qrc:/audio/%1.mp3").arg(id));
-    player->setSource(QUrl(QString("qrc:/audio/audio/%1.mp3").arg(id)));
-    qDebug() << player->source();
-    // player->setMedia(QUrl(QString(":/res/audio/%1.mp3").arg(id)));
-    player->setLoops(QMediaPlayer::Infinite);
-    player->play();
-    qDebug() << player->mediaStatus();
+void WhiteNoiseWindow::playMusic() {
+    if (isPlaying) {
+        playBtn->setIcon(QIcon::fromTheme("media-playback-start"));
+        player->stop();
+        isPlaying = false;
+    }
+    else {
+        playBtn->setIcon(QIcon::fromTheme("media-playback-pause"));
+
+        int id = buttonGroup->checkedId();
+        player->setSource(QUrl(QString("qrc:/audio/audio/%1.mp3").arg(id)));
+        qDebug() << player->source();
+        player->setLoops(QMediaPlayer::Infinite);
+        player->play();
+        qDebug() << player->mediaStatus();
+        isPlaying = true;
+    }
+}
+
+void WhiteNoiseWindow::selectChanged() {
+    qDebug() << "select changed";
+    if (isPlaying) {
+        isPlaying = false;
+        playMusic();
+    }
 }

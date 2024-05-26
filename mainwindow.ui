@@ -16,6 +16,18 @@
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
   <property name="mouseTracking">
    <bool>false</bool>
   </property>
@@ -24,7 +36,8 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>:/icons/img/mainIcon.png</normaloff>:/icons/img/mainIcon.png</iconset>
+    <normaloff>:/icons/img/mainIcon.png</normaloff>
+    <normalon>:/icon/img/mainIcon.png</normalon>:/icons/img/mainIcon.png</iconset>
   </property>
   <property name="toolButtonStyle">
    <enum>Qt::ToolButtonIconOnly</enum>
@@ -57,6 +70,16 @@
      <property name="text">
       <string>每日待办</string>
      </property>
+     <property name="icon">
+      <iconset resource="res.qrc">
+       <normaloff>:/icon/img/toDo.png</normaloff>:/icon/img/toDo.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
+     </property>
     </widget>
     <widget class="QPushButton" name="page2_Button">
      <property name="geometry">
@@ -69,6 +92,16 @@
      </property>
      <property name="text">
       <string>最近待办</string>
+     </property>
+     <property name="icon">
+      <iconset resource="res.qrc">
+       <normaloff>:/icon/img/clock.png</normaloff>:/icon/img/clock.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
      </property>
     </widget>
     <widget class="QPushButton" name="page3_Button">
@@ -83,6 +116,16 @@
      <property name="text">
       <string>我的课表</string>
      </property>
+     <property name="icon">
+      <iconset resource="res.qrc">
+       <normaloff>:/icon/img/calendar.png</normaloff>:/icon/img/calendar.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
+     </property>
     </widget>
     <widget class="QPushButton" name="page4_Button">
      <property name="geometry">
@@ -95,6 +138,16 @@
      </property>
      <property name="text">
       <string>我的森林</string>
+     </property>
+     <property name="icon">
+      <iconset resource="res.qrc">
+       <normaloff>:/icon/img/mainIcon.png</normaloff>:/icon/img/mainIcon.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
      </property>
     </widget>
    </widget>
@@ -138,6 +191,12 @@
      <property name="icon">
       <iconset resource="res.qrc">
        <normaloff>:/icon/img/whiteNoise.png</normaloff>:/icon/img/whiteNoise.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
      </property>
     </widget>
     <widget class="QPushButton" name="miniButton">
@@ -225,12 +284,12 @@
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>7</hour>
+        <hour>23</hour>
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
         <month>12</month>
-        <day>28</day>
+        <day>27</day>
        </datetime>
       </property>
       <property name="minimumDate">
@@ -315,17 +374,17 @@
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>7</hour>
+        <hour>23</hour>
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
         <month>12</month>
-        <day>28</day>
+        <day>27</day>
        </datetime>
       </property>
       <property name="minimumDateTime">
        <datetime>
-        <hour>16</hour>
+        <hour>8</hour>
         <minute>0</minute>
         <second>0</second>
         <year>2000</year>
@@ -421,7 +480,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>
