@@ -54,6 +54,9 @@ private:
     int countdownTime;
     int elapsedSeconds;
 
+signals:
+    void treeWindowClosed();  // 增加一个信号，用于通知主窗口
+
 private:
 // override closeEvent to hide the window in windows tray
     void closeEvent(QCloseEvent* event);

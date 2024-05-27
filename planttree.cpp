@@ -57,7 +57,10 @@ plantTree::~plantTree()
     QWidget::closeEvent(event);
 
 }*/
+
 void plantTree::closeEvent(QCloseEvent *event) {
+    emit treeWindowClosed();  // 发出 treeWindowClosed 信号
+    QWidget::closeEvent(event);
 }
 
 

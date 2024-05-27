@@ -330,12 +330,14 @@ void MainWindow::showEvent(QShowEvent *event) {
 }
 void MainWindow::on_treeButton_clicked()
 {
-    // 显示PlantTree窗口
-    if(!ptree){
-
-        ptree=new plantTree(nullptr);
+    // 如果 plantTree 窗口不存在，则创建一个新的
+    if (!ptree) {
+        ptree = new plantTree(nullptr);
+        connect(ptree, &plantTree::treeWindowClosed, this, [this]() {
+            ptree = nullptr;
+        });
         ptree->show();
     }
-
 }
+
 
