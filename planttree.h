@@ -6,6 +6,7 @@
 #include <QTimer>
 #include <QComboBox>
 #include <QLabel>
+#include <QMessageBox>  // 添加此头文件以使用消息框
 
 #include "matterhandler.h"
 #include "matterhandler.h"
@@ -30,6 +31,8 @@ private slots:
     void on_startButton_clicked();
 
     void updateCountdown();
+
+    void cancelCountdown();  // 取消倒计时
 private:
     Ui::plantTree *ui;
     QWidget* mainWindow;
