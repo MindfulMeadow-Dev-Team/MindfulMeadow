@@ -6,9 +6,11 @@
 #include <QTimer>
 #include <QComboBox>
 #include <QLabel>
-#include <QMessageBox>  // 添加此头文件以使用消息框
+#include <QMessageBox>
+#include <QCloseEvent>
+#include <QSystemTrayIcon>
+#include <QMenu>
 
-#include "matterhandler.h"
 #include "matterhandler.h"
 namespace Ui {
 class plantTree;
@@ -39,7 +41,11 @@ private:
     MatterHandler* handler;
     QPixmap treePixmap;  // 用于存储当前树的图片
     int currentTreeIndex;  // 当前显示的树的索引
+    bool isCountdownActive;
 
+public:
+    int closeflag;  // 新增：用于标记窗口关闭时的条件
+private:
     void updateTreeLabel();  // 更新显示树的 QLabel
     void startCountdown(int duration);
     void updateTreeStage();
@@ -55,12 +61,14 @@ private:
     int elapsedSeconds;
 
 signals:
-    void treeWindowClosed();  // 增加一个信号，用于通知主窗口
-
+    void treeWindowClosed();
+    void windowClosing();//打断计时信号传递
+    void notInterrupt();
 private:
 // override closeEvent to hide the window in windows tray
     void closeEvent(QCloseEvent* event);
     void showEvent(QShowEvent *event);
+
 };
 
 #endif // PLANTTREE_H

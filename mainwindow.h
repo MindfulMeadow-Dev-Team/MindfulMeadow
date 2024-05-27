@@ -61,6 +61,10 @@ private slots:
     void on_miniButton_clicked();
 
     void on_treeButton_clicked();
+
+    void onTreeWindowClosing();
+
+    void notDied();
 private:
     Ui::MainWindow *ui;
 
@@ -89,6 +93,8 @@ private:
 
     void closeEvent(QCloseEvent *event);
     void showEvent(QShowEvent* event);
+public:
+    int closeflag;
 
 public:
     friend class MatterBox;
