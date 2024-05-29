@@ -31,6 +31,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         minischedule.h minischedule.cpp minischedule.ui
         whitenoisewindow.h whitenoisewindow.cpp whitenoisewindow.ui
         res.qrc
+        tree.h tree.cpp
+        treehandler.h treehandler.cpp
 
 
 
