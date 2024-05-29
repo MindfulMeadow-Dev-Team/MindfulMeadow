@@ -33,6 +33,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         res.qrc
         tree.h tree.cpp
         treehandler.h treehandler.cpp
+        planttree.cpp planttree.h planttree.ui
+        images.qrc
 
 
 

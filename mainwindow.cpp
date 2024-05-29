@@ -72,6 +72,13 @@ MainWindow::MainWindow(QWidget *parent)
     updateMatters2();
 
 
+    //below are planttree by zjy
+    ptree=nullptr;
+    connect(ui->plantButton, &QPushButton::clicked, this, &MainWindow::on_treeButton_clicked);
+    closeflag = 0;
+
+    //above are planttree by zjy
+
     ui->stackedWidget->setCurrentIndex(0);
 }
 
@@ -123,12 +130,12 @@ void MainWindow::showRightSide() {
         // move the mainNameEdit widget
         mainNameEditAnm->setStartValue(ui->mainNameEdit->geometry());
         mainNameEditAnm->setEndValue(QRect(ui->mainNameEdit->x(), ui->mainNameEdit->y(),
-                                               ui->mainDateEdit->width(), ui->mainDateEdit->height()));
+                                           ui->mainDateEdit->width(), ui->mainDateEdit->height()));
         mainNameEditAnm->start();
         // move the scroll area
         matterScrollAreaAnm->setStartValue(ui->matterScrollArea->geometry());
         matterScrollAreaAnm->setEndValue(QRect(ui->matterScrollArea->x(), ui->matterScrollArea->y(),
-                                           ui->mainDateEdit->width(), ui->matterScrollArea->height()));
+                                               ui->mainDateEdit->width(), ui->matterScrollArea->height()));
         matterScrollAreaAnm->start();
         rightSideHidden = false;
     }
@@ -347,3 +354,29 @@ void MainWindow::mousePressEvent(QMouseEvent *event) {
     }
     QMainWindow::mousePressEvent(event);
 }
+
+//below are planttree by zjy
+void MainWindow::on_treeButton_clicked()
+{
+    if (!ptree) {
+        ptree = new plantTree(nullptr);
+        connect(ptree, &plantTree::treeWindowClosed, this, [this]() {
+            ptree = nullptr;
+        });
+
+        connect(ptree, &plantTree::windowClosing, this, &MainWindow::onTreeWindowClosing);
+
+        connect(ptree, &plantTree::notInterrupt, this, &MainWindow::notDied);
+        ptree->closeflag = closeflag;  // 设置 closeflag
+        qDebug()<<"closeflag="<<ptree->closeflag<<Qt::endl;
+        ptree->show();
+    }
+}
+void MainWindow::onTreeWindowClosing() {
+    closeflag = 1;
+}
+void MainWindow::notDied() {
+    closeflag = 0;
+}
+
+//above are planttree by zjy

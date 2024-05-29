@@ -16,7 +16,9 @@
 #include "matterbox.h"
 #include "minischedule.h"
 #include "whitenoisewindow.h"
-
+//below are planttree by zjy
+#include "planttree.h"
+//above are planttree by zjy
 class MiniSchedule;
 
 QT_BEGIN_NAMESPACE
@@ -64,6 +66,14 @@ private slots:
 
     void on_whiteNoiseButton_clicked();
 
+    //below are planttree by zjy
+    void on_treeButton_clicked();
+
+    void onTreeWindowClosing();
+
+    void notDied();
+    //avove are planttree by zjy
+
 private:
     Ui::MainWindow *ui;
 
@@ -78,6 +88,10 @@ private:
     QTimer* timer;
     MiniSchedule* mini;
     WhiteNoiseWindow* whiteNoise;
+    //below are planttree by zjy
+    plantTree *ptree;
+
+    //avove are planttree by zjy
 
     bool rightSideHidden;
     QDate currDate;
@@ -97,5 +111,9 @@ private:
 
 public:
     friend class MatterBox;
+    //below are planttree by zjy
+    int closeflag;
+
+    //above are planttree by zjy
 };
 #endif // MAINWINDOW_H
