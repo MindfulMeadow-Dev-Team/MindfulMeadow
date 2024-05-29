@@ -330,7 +330,6 @@ void MainWindow::on_miniButton_clicked()
 void MainWindow::showEvent(QShowEvent *event) {
     updateMatters();
     updateMatters2();
-    QMainWindow::showEvent(event);
 }
 
 //below are planttree by zjy
@@ -356,4 +355,6 @@ void MainWindow::onTreeWindowClosing() {
 void MainWindow::notDied() {
     closeflag = 0;
 }
+
+//above are planttree by zjy
 

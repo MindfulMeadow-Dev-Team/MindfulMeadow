@@ -13,7 +13,11 @@
 #include "matterhandler.h"
 #include "matterbox.h"
 #include "minischedule.h"
+
+
+//below are planttree by zjy
 #include "planttree.h"
+//above are planttree by zjy
 
 class MiniSchedule;
 
@@ -60,11 +64,14 @@ private slots:
 
     void on_miniButton_clicked();
 
+
+    //below are planttree by zjy
     void on_treeButton_clicked();
 
     void onTreeWindowClosing();
 
     void notDied();
+    //avove are planttree by zjy
 private:
     Ui::MainWindow *ui;
 
@@ -78,7 +85,11 @@ private:
     QAction* trayExit;
     QTimer* timer;
     MiniSchedule* mini;
-    plantTree *ptree;  // 声明一个PlantTree窗口的指针
+
+    //below are planttree by zjy
+    plantTree *ptree;
+
+    //avove are planttree by zjy
 
     bool rightSideHidden;
     QDate currDate;
@@ -93,9 +104,12 @@ private:
 
     void closeEvent(QCloseEvent *event);
     void showEvent(QShowEvent* event);
+
+//below are planttree by zjy
 public:
     int closeflag;
 
+//above are planttree by zjy
 public:
     friend class MatterBox;
 };
