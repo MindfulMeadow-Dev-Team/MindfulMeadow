@@ -284,7 +284,7 @@
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>23</hour>
+        <hour>15</hour>
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
@@ -374,7 +374,7 @@
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>23</hour>
+        <hour>15</hour>
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
@@ -384,7 +384,7 @@
       </property>
       <property name="minimumDateTime">
        <datetime>
-        <hour>8</hour>
+        <hour>0</hour>
         <minute>0</minute>
         <second>0</second>
         <year>2000</year>
@@ -480,7 +480,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>20</height>
+     <height>17</height>
     </rect>
    </property>
   </widget>
