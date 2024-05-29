@@ -9,5 +9,6 @@
         <file>img/stage2.png</file>
         <file>img/stage3.png</file>
         <file>img/died.png</file>
+        <file>img/plant.png</file>
     </qresource>
 </RCC>
