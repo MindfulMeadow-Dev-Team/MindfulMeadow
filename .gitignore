@@ -1,2 +1,3 @@
 # Ignore Qt build directory
 build/
+CMakeLists.txt.user
