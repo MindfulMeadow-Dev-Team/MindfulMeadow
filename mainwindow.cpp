@@ -67,10 +67,12 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->stackedWidget->setCurrentIndex(0);
 
-
+//below are planttree by zjy
     ptree=nullptr;
     connect(ui->plantButton, &QPushButton::clicked, this, &MainWindow::on_treeButton_clicked);
     closeflag = 0;
+
+//above are planttree by zjy
 }
 
 MainWindow::~MainWindow()
@@ -324,13 +326,16 @@ void MainWindow::on_miniButton_clicked()
     this->hide();
 }
 
+
 void MainWindow::showEvent(QShowEvent *event) {
     updateMatters();
     updateMatters2();
+    QMainWindow::showEvent(event);
 }
+
+//below are planttree by zjy
 void MainWindow::on_treeButton_clicked()
 {
-    // 如果 plantTree 窗口不存在，则创建一个新的
     if (!ptree) {
         ptree = new plantTree(nullptr);
         connect(ptree, &plantTree::treeWindowClosed, this, [this]() {

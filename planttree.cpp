@@ -131,6 +131,7 @@ void plantTree::updateTreeLabel()
 {
     ui->treeLabel->setPixmap(treePixmap);
 }
+
 void plantTree::on_startButton_clicked()
 {
     if (ui->startButton->text() == "种下一颗思绪之种") {
@@ -159,8 +160,6 @@ void plantTree::on_startButton_clicked()
         resetUI();
     }
 }
-
-
 void plantTree::startCountdown(int index)
 {
     countdownTime = timeComboBox->itemData(index).toInt();
@@ -174,14 +173,13 @@ void plantTree::startCountdown(int index)
         return;
     }
 
-    // 隐藏倒计时选择框并显示倒计时标签
     timeComboBox->hide();
     countdownLabel->show();
-    ui->treeLabel->setPixmap(QPixmap(":/img/stage1.png"));  // 显示第一阶段图片
+    ui->treeLabel->setPixmap(QPixmap(":/img/stage1.png"));
 
     // 更改 startButton 文本
     ui->startButton->setText("放弃");
-    timer->start(1000);  // 每秒触发一次
+    timer->start(1000);
 }
 
 void plantTree::updateCountdown()
