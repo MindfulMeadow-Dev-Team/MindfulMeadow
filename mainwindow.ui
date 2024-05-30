@@ -168,7 +168,11 @@
      <rect>
       <x>180</x>
       <y>520</y>
+<<<<<<< HEAD
       <width>621</width>
+=======
+      <width>620</width>
+>>>>>>> dev
       <height>80</height>
      </rect>
     </property>
@@ -316,7 +320,7 @@
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>23</hour>
+        <hour>15</hour>
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
@@ -406,7 +410,7 @@
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>23</hour>
+        <hour>15</hour>
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
@@ -416,7 +420,7 @@
       </property>
       <property name="minimumDateTime">
        <datetime>
-        <hour>8</hour>
+        <hour>0</hour>
         <minute>0</minute>
         <second>0</second>
         <year>2000</year>
@@ -512,7 +516,11 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
+<<<<<<< HEAD
      <height>17</height>
+=======
+     <height>21</height>
+>>>>>>> dev
     </rect>
    </property>
   </widget>
