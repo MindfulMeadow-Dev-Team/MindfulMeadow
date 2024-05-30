@@ -168,11 +168,7 @@
      <rect>
       <x>180</x>
       <y>520</y>
-<<<<<<< HEAD
-      <width>621</width>
-=======
       <width>620</width>
->>>>>>> dev
       <height>80</height>
      </rect>
     </property>
@@ -516,11 +512,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-<<<<<<< HEAD
-     <height>17</height>
-=======
      <height>21</height>
->>>>>>> dev
     </rect>
    </property>
   </widget>
