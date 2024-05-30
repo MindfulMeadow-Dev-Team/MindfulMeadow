@@ -69,7 +69,7 @@ void plantTree::closeEvent(QCloseEvent *event) {
 
         // 存储取消种树的信息到数据库
         QDate currentDate = QDate::currentDate();
-        Tree canceledTree(currentDate, currentTreeIndex, true);  // true 表示树已经死了
+        Tree canceledTree(currentDate, currentTreeIndex, true,0);  // true 表示树已经死了
 
         // 添加到数据库
         int treeId = thandler.add(canceledTree);
@@ -208,7 +208,7 @@ void plantTree::updateCountdown()
 
         // 存储成功种树的信息到数据库
         QDate currentDate = QDate::currentDate();
-        Tree plantedTree(currentDate, currentTreeIndex, false);  // false 表示树还活着
+        Tree plantedTree(currentDate, currentTreeIndex, false,countdownTime);  // false 表示树还活着
 
         // 添加到数据库
         int treeId = thandler.add(plantedTree);
@@ -232,7 +232,7 @@ void plantTree::cancelCountdown()
 
     // 存储取消种树的信息到数据库
     QDate currentDate = QDate::currentDate();
-    Tree canceledTree(currentDate, currentTreeIndex, true);  // true 表示树已经死了
+    Tree canceledTree(currentDate, currentTreeIndex, true,0);  // true 表示树已经死了
 
     // 添加到数据库
     int treeId = thandler.add(canceledTree);

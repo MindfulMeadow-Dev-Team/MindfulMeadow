@@ -1,7 +1,6 @@
 #include "forest.h"
 #include "ui_forest.h"
 #include <QVector>
-#include <QCloseEvent>
 #include <QDebug>
 
 forest::forest(QWidget *parent)
@@ -11,7 +10,6 @@ forest::forest(QWidget *parent)
 {
     ui->setupUi(this);
 
-    // 初始化 QLabel，这里使用的是在 forest.ui 中设计好的 QLabel
     treelb_1 = ui->treelb_1;
     treelb_2 = ui->treelb_2;
     treelb_3 = ui->treelb_3;
@@ -51,6 +49,7 @@ forest::~forest()
 {
     delete ui;
 }
+
 void forest::showFirstTree()
 {
     // 获取数据库中前30棵树的信息
@@ -65,30 +64,28 @@ void forest::showFirstTree()
         treelb_26, treelb_27, treelb_28, treelb_29, treelb_30
     };
 
-    for (int i = 0; i < 30; ++i) {
-        if (i < trees.size()) {
-            Tree tree = trees[i];
-            int treeType = tree.getType();
-            bool isDead = tree.ifDead();
+    for (int i = 0; i < trees.size(); ++i) {
+        Tree tree = trees[i];
+        int treeType = tree.getType();
+        bool isDead = tree.ifDead();
 
-            if (isDead) {
-                labels[i]->setPixmap(QPixmap(":/img/died.png"));
-            } else {
-                QString imagePath = QString(":/img/tree%1.png").arg(treeType);
-                labels[i]->setPixmap(QPixmap(imagePath));
-            }
-            labels[i]->setScaledContents(true);  // 缩放图片以适应 QLabel 大小
-            labels[i]->setAlignment(Qt::AlignCenter);
+        if (isDead) {
+            labels[i]->setPixmap(QPixmap(":/img/died.png"));
         } else {
-            // 如果树的数量少于30，显示默认的图片或者空白
-            labels[i]->setText("");
+            QString imagePath = QString(":/img/tree%1.png").arg(treeType);
+            labels[i]->setPixmap(QPixmap(imagePath));
         }
+        labels[i]->setScaledContents(true);  // 缩放图片以适应 QLabel 大小
+        labels[i]->setAlignment(Qt::AlignCenter);
+    }
+
+    for (int i = trees.size(); i < 30; ++i) {
+        // 如果树的数量少于30，显示默认的图片或者空白
+        labels[i]->setText("");
     }
 }
+
 void forest::closeEvent(QCloseEvent *event) {
-
-
-        emit forestClosed();  // 发出 treeWindowClosed 信号
-        QWidget::closeEvent(event);
-
+    emit forestClosed();  // 发出 forestClosed 信号
+    QWidget::closeEvent(event);
 }

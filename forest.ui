@@ -226,19 +226,6 @@
     <string>1</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>450</y>
-     <width>71</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>TextLabel</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="treelb_13">
    <property name="geometry">
     <rect>
@@ -527,6 +514,19 @@
     <string>1</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>450</y>
+     <width>80</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>种植记录</string>
+   </property>
+  </widget>
   <zorder>bg</zorder>
   <zorder>treelb_1</zorder>
   <zorder>treelb_2</zorder>
@@ -540,7 +540,6 @@
   <zorder>treelb_10</zorder>
   <zorder>treelb_11</zorder>
   <zorder>treelb_12</zorder>
-  <zorder>label</zorder>
   <zorder>treelb_13</zorder>
   <zorder>treelb_14</zorder>
   <zorder>treelb_15</zorder>
@@ -559,6 +558,7 @@
   <zorder>treelb_28</zorder>
   <zorder>treelb_29</zorder>
   <zorder>treelb_30</zorder>
+  <zorder>pushButton</zorder>
  </widget>
  <resources/>
  <connections/>
