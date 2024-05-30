@@ -67,6 +67,9 @@
        <height>41</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt &quot;方正小标宋&quot;;</string>
+     </property>
      <property name="text">
       <string>每日待办</string>
      </property>
@@ -89,6 +92,9 @@
        <width>161</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt &quot;方正小标宋&quot;;</string>
      </property>
      <property name="text">
       <string>最近待办</string>
@@ -113,6 +119,9 @@
        <height>41</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt &quot;方正小标宋&quot;;</string>
+     </property>
      <property name="text">
       <string>我的课表</string>
      </property>
@@ -135,6 +144,9 @@
        <width>161</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt &quot;方正小标宋&quot;;</string>
      </property>
      <property name="text">
       <string>我的森林</string>
@@ -172,6 +184,9 @@
        <height>51</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt &quot;方正小标宋&quot;;</string>
+     </property>
      <property name="text">
       <string>开始种树</string>
      </property>
@@ -196,6 +211,9 @@
        <height>51</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt &quot;方正小标宋&quot;;</string>
+     </property>
      <property name="text">
       <string>白噪音</string>
      </property>
@@ -218,6 +236,9 @@
        <width>100</width>
        <height>50</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt &quot;方正小标宋&quot;;</string>
      </property>
      <property name="text">
       <string>缩小</string>
@@ -295,12 +316,12 @@
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>15</hour>
+        <hour>23</hour>
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
         <month>12</month>
-        <day>27</day>
+        <day>26</day>
        </datetime>
       </property>
       <property name="minimumDate">
@@ -385,17 +406,17 @@
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>15</hour>
+        <hour>23</hour>
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
         <month>12</month>
-        <day>27</day>
+        <day>26</day>
        </datetime>
       </property>
       <property name="minimumDateTime">
        <datetime>
-        <hour>0</hour>
+        <hour>8</hour>
         <minute>0</minute>
         <second>0</second>
         <year>2000</year>
