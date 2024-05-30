@@ -51,8 +51,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>181</width>
-      <height>611</height>
+      <width>180</width>
+      <height>600</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -155,9 +155,9 @@
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>509</y>
-      <width>621</width>
-      <height>91</height>
+      <y>520</y>
+      <width>620</width>
+      <height>80</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -218,8 +218,8 @@
      <rect>
       <x>600</x>
       <y>0</y>
-      <width>201</width>
-      <height>511</height>
+      <width>200</width>
+      <height>520</height>
      </rect>
     </property>
     <property name="widgetResizable">
@@ -230,8 +230,8 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>199</width>
-       <height>509</height>
+       <width>198</width>
+       <height>518</height>
       </rect>
      </property>
      <widget class="QPushButton" name="hideButton">
@@ -284,7 +284,7 @@
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>23</hour>
+        <hour>15</hour>
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
@@ -374,7 +374,7 @@
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>23</hour>
+        <hour>15</hour>
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
@@ -384,7 +384,7 @@
       </property>
       <property name="minimumDateTime">
        <datetime>
-        <hour>8</hour>
+        <hour>0</hour>
         <minute>0</minute>
         <second>0</second>
         <year>2000</year>
@@ -480,7 +480,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
