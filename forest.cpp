@@ -11,7 +11,7 @@ forest::forest(QWidget *parent)
 {
     ui->setupUi(this);
 
-    // 初始化 QLabel，这里使用的是在 forest.ui 中设计好的 QLabel
+
     treelb_1 = ui->treelb_1;
     treelb_2 = ui->treelb_2;
     treelb_3 = ui->treelb_3;

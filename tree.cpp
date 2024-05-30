@@ -1,3 +1,4 @@
+
 #include "tree.h"
 
 Tree::Tree(const QDate & date, int type, bool isDead)
