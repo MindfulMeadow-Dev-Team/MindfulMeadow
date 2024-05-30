@@ -50,7 +50,11 @@ private:
     QLabel *treelb_29;
     QLabel *treelb_30;
 
+    void closeEvent(QCloseEvent* event);
 
+
+signals:
+    void forestClosed();
 private slots:
     void showFirstTree();  // 显示第一棵树
 };

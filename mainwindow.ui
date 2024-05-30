@@ -179,9 +179,9 @@
      <property name="geometry">
       <rect>
        <x>440</x>
-       <y>20</y>
-       <width>101</width>
-       <height>51</height>
+       <y>15</y>
+       <width>100</width>
+       <height>50</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -206,9 +206,9 @@
      <property name="geometry">
       <rect>
        <x>280</x>
-       <y>20</y>
-       <width>101</width>
-       <height>51</height>
+       <y>15</y>
+       <width>100</width>
+       <height>50</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -232,7 +232,7 @@
      <property name="geometry">
       <rect>
        <x>120</x>
-       <y>20</y>
+       <y>15</y>
        <width>100</width>
        <height>50</height>
       </rect>
@@ -316,12 +316,12 @@
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>15</hour>
+        <hour>23</hour>
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
         <month>12</month>
-        <day>26</day>
+        <day>25</day>
        </datetime>
       </property>
       <property name="minimumDate">
@@ -388,7 +388,7 @@
       <x>180</x>
       <y>0</y>
       <width>621</width>
-      <height>511</height>
+      <height>521</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -406,17 +406,17 @@
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>15</hour>
+        <hour>23</hour>
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
         <month>12</month>
-        <day>26</day>
+        <day>25</day>
        </datetime>
       </property>
       <property name="minimumDateTime">
        <datetime>
-        <hour>0</hour>
+        <hour>8</hour>
         <minute>0</minute>
         <second>0</second>
         <year>2000</year>
@@ -512,7 +512,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>17</height>
     </rect>
    </property>
   </widget>

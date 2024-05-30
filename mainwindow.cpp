@@ -252,6 +252,11 @@ void MainWindow::on_page1_Button_clicked()
     hideRightSide();
     ui->stackedWidget->setCurrentIndex(0);
     updateMatters();
+    if(frst){
+
+        frst->close();
+        frst=nullptr;
+    }
 }
 
 
@@ -260,6 +265,11 @@ void MainWindow::on_page2_Button_clicked()
     hideRightSide();
     ui->stackedWidget->setCurrentIndex(1);
     updateMatters2();
+    if(frst){
+
+        frst->close();
+        frst=nullptr;
+    }
 }
 
 void MainWindow::on_deleteBtn_clicked()
@@ -385,8 +395,12 @@ void MainWindow::notDied() {
 void MainWindow::on_page4_Button_clicked()
 {
     if (!frst) {
-        frst = new forest(nullptr);
+        frst = new forest(this);
+        connect(frst, &forest::forestClosed, this, [this]() {
+            frst = nullptr;
+        });
 
+        frst->move(180,0);
         frst->show();
     }
 
