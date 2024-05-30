@@ -3,20 +3,25 @@
 MatterHandler::MatterHandler(QString dbName) {
     // If the connection is already here, there might be a problem.
     if (QSqlDatabase::contains("qt_sql_default_connection")) {
-        qDebug() << "second database connection error\n";
-        db = QSqlDatabase::database("qt_sql_default_connection");
+        QSqlDatabase::database("qt_sql_default_connection").close();
+        QSqlDatabase::removeDatabase("qt_sql_default_connection");
+    }
+    if (QSqlDatabase::contains("matter_db")) {
+        qDebug() << "second database connection created\n";
+        db = QSqlDatabase::database("matter_db");
     }
     else {
-        db = QSqlDatabase::addDatabase("QSQLITE");
+        db = QSqlDatabase::addDatabase("QSQLITE", "matter_db");
     }
+    // db = QSqlDatabase::addDatabase("QSQLITE");
 
     // Open the database.
     db.setDatabaseName(dbName);
     if (!db.open()) {
-        qDebug() << "data base open unsuccessful" << Qt::endl;
+        qDebug() << "matter data base open unsuccessful" << Qt::endl;
     }
     else {
-        qDebug() << "data base opened successfully\n";
+        qDebug() << "matter data base opened successfully\n";
     }
 
     // If the table doesn't exist, create one.
@@ -34,9 +39,9 @@ MatterHandler::MatterHandler(QString dbName) {
                   "isDone bool, "
                   "setDue bool, "
                   "dueTime text)");
-        qDebug() << "table created\n";
+        qDebug() << "matter table created\n";
     } else {
-        qDebug() << "table already exists\n";
+        qDebug() << "matter table already exists\n";
     }
 }
 

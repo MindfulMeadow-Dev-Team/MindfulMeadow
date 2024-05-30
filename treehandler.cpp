@@ -3,20 +3,25 @@
 TreeHandler::TreeHandler(QString dbName) {
     // If the connection is already here, there might be a problem.
     if (QSqlDatabase::contains("qt_sql_default_connection")) {
-        qDebug() << "second database connection error\n";
         db = QSqlDatabase::database("qt_sql_default_connection");
+        db.close();
+        QSqlDatabase::removeDatabase("qt_sql_default_connection");
+    }
+    if (QSqlDatabase::contains("tree_db")) {
+        qDebug() << "second database connection error\n";
+        db = QSqlDatabase::database("tree_db");
     }
     else {
-        db = QSqlDatabase::addDatabase("QSQLITE");
+        db = QSqlDatabase::addDatabase("QSQLITE", "tree_db");
     }
 
     // Open the database.
     db.setDatabaseName(dbName);
     if (!db.open()) {
-        qDebug() << "data base open unsuccessful" << Qt::endl;
+        qDebug() << "tree data base open unsuccessful" << Qt::endl;
     }
     else {
-        qDebug() << "data base opened successfully\n";
+        qDebug() << "tree data base opened successfully\n";
     }
 
     // If the table doesn't exist, create one.
@@ -30,9 +35,9 @@ TreeHandler::TreeHandler(QString dbName) {
                   "date text, "
                   "type int, "
                   "isDead bool)");
-        qDebug() << "table created\n";
+        qDebug() << "tree table created\n";
     } else {
-        qDebug() << "table already exists\n";
+        qDebug() << "tree table already exists\n";
     }
 }
 
