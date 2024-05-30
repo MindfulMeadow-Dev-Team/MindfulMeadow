@@ -36,7 +36,6 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         planttree.cpp planttree.h planttree.ui
         images.qrc
         forest.h forest.cpp forest.ui
-        clickablelable.h  clickablelable.ui
         treedetails.h treedetails.cpp treedetails.ui
 
 
