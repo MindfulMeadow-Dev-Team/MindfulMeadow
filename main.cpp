@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
-    auto handler = std::make_unique<TreeHandler>("trees.db");
+    /*auto handler = std::make_unique<TreeHandler>("trees.db");
     // for (int i = 0; i < 10; ++i) {
     //     handler->add(Tree(QDate::currentDate(), i, 0));
     // }
@@ -39,6 +39,6 @@ int main(int argc, char *argv[])
         qDebug() << tree.getDate() << tree.getType() << ' ' << tree.ifDead();
     }
     qDebug() << Qt::endl;
-
+*/
     return a.exec();
 }

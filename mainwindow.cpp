@@ -74,6 +74,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     //below are planttree by zjy
     ptree=nullptr;
+    frst=nullptr;
     connect(ui->plantButton, &QPushButton::clicked, this, &MainWindow::on_treeButton_clicked);
     closeflag = 0;
 
@@ -380,3 +381,14 @@ void MainWindow::notDied() {
 }
 
 //above are planttree by zjy
+
+void MainWindow::on_page4_Button_clicked()
+{
+    if (!frst) {
+        frst = new forest(nullptr);
+
+        frst->show();
+    }
+
+}
+

@@ -1,3 +1,4 @@
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -18,6 +19,7 @@
 #include "whitenoisewindow.h"
 //below are planttree by zjy
 #include "planttree.h"
+#include"forest.h"
 //above are planttree by zjy
 class MiniSchedule;
 
@@ -74,6 +76,8 @@ private slots:
     void notDied();
     //avove are planttree by zjy
 
+    void on_page4_Button_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -90,6 +94,7 @@ private:
     WhiteNoiseWindow* whiteNoise;
     //below are planttree by zjy
     plantTree *ptree;
+    forest *frst;
 
     //avove are planttree by zjy
 

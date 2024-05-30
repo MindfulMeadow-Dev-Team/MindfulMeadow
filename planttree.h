@@ -10,6 +10,8 @@
 #include <QCloseEvent>
 #include <QSystemTrayIcon>
 #include <QMenu>
+#include "treehandler.h"
+
 
 #include "matterhandler.h"
 namespace Ui {
@@ -55,6 +57,8 @@ private:
     QTimer *timer;
     QLabel *countdownLabel;
     QComboBox *timeComboBox;
+    TreeHandler thandler;
+
 
 
     int countdownTime;
