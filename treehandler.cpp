@@ -34,7 +34,8 @@ TreeHandler::TreeHandler(QString dbName) {
                   "id INTEGER PRIMARY KEY AUTOINCREMENT, "
                   "date text, "
                   "type int, "
-                  "isDead bool)");
+                  "isDead bool, "
+                  "duration int)");
         qDebug() << "tree table created\n";
     } else {
         qDebug() << "tree table already exists\n";
@@ -47,11 +48,12 @@ TreeHandler::~TreeHandler() {
 }
 
 int TreeHandler::add(const Tree &tree) {
-    qry->prepare("insert into Trees (date, type, isDead)"
-                 "values (?, ?, ?)");
+    qry->prepare("insert into Trees (date, type, isDead, duration)"
+                 "values (?, ?, ?, ?)");
     qry->addBindValue(tree.getDate());
     qry->addBindValue(tree.getType());
     qry->addBindValue(tree.ifDead());
+    qry->addBindValue(tree.getDuration());
     qry->exec();
     qry->exec("select last_insert_rowid()");
     qry->next();
@@ -62,7 +64,7 @@ int TreeHandler::add(const Tree &tree) {
 
 QVector<Tree> TreeHandler::getTrees(const QDate &date) const {
     QVector<Tree> ret;
-    qry->prepare("select date, type, isDead "
+    qry->prepare("select date, type, isDead, duration "
                  "from Trees where date = ? order by id");
     qry->addBindValue(date.toString("yyyy-MM-dd"));
     qry->exec();
@@ -70,7 +72,8 @@ QVector<Tree> TreeHandler::getTrees(const QDate &date) const {
         auto date = QDate::fromString(qry->value(0).toString(), "yyyy-MM-dd");
         auto type = qry->value(1).toInt();
         auto isDead = qry->value(2).toBool();
-        auto tree = Tree(date, type, isDead);
+        auto duration = qry->value(3).toInt();
+        auto tree = Tree(date, type, isDead, duration);
         ret.append(tree);
     }
     qDebug() << "acquire trees where date = " << date.toString("yyyy-MM-dd") << Qt::endl;
@@ -80,7 +83,7 @@ QVector<Tree> TreeHandler::getTrees(const QDate &date) const {
 QVector<Tree> TreeHandler::getTrees(const QDate &from, const QDate& to) const {
     qDebug() << from << to;
     QVector<Tree> ret;
-    qry->prepare("select date, type, isDead "
+    qry->prepare("select date, type, isDead, duration "
                  "from Trees where date >= ? and date <= ? order by date, id");
     qry->addBindValue(from.toString("yyyy-MM-dd"));
     qry->addBindValue(to.toString("yyyy-MM-dd"));
@@ -89,7 +92,8 @@ QVector<Tree> TreeHandler::getTrees(const QDate &from, const QDate& to) const {
         auto date = QDate::fromString(qry->value(0).toString(), "yyyy-MM-dd");
         auto type = qry->value(1).toInt();
         auto isDead = qry->value(2).toBool();
-        auto tree = Tree(date, type, isDead);
+        auto duration = qry->value(3).toInt();
+        auto tree = Tree(date, type, isDead, duration);
         ret.append(tree);
     }
     qDebug() << "acquire trees from  " << from.toString("yyyy-MM-dd") << " to " << to.toString("yyyy-MM-dd") << Qt::endl;
@@ -98,7 +102,7 @@ QVector<Tree> TreeHandler::getTrees(const QDate &from, const QDate& to) const {
 
 QVector<Tree> TreeHandler::getTrees(int n) const {
     QVector<Tree> ret;
-    qry->prepare("select date, type, isDead from (select * "
+    qry->prepare("select date, type, isDead, duration from (select * "
                  "from Trees order by -id limit ?) order by id");
     qry->addBindValue(n);
     qry->exec();
@@ -106,7 +110,8 @@ QVector<Tree> TreeHandler::getTrees(int n) const {
         auto date = QDate::fromString(qry->value(0).toString(), "yyyy-MM-dd");
         auto type = qry->value(1).toInt();
         auto isDead = qry->value(2).toBool();
-        auto tree = Tree(date, type, isDead);
+        auto duration = qry->value(3).toInt();
+        auto tree = Tree(date, type, isDead, duration);
         ret.append(tree);
     }
     qDebug() << "acquire " << n << " trees";
