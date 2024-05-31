@@ -390,7 +390,6 @@ void MainWindow::notDied() {
     closeflag = 0;
 }
 
-//above are planttree by zjy
 
 void MainWindow::on_page4_Button_clicked()
 {
@@ -406,3 +405,9 @@ void MainWindow::on_page4_Button_clicked()
 
 }
 
+//above are planttree by zjy
+void MainWindow::on_page3_Button_clicked()
+{
+    MySchedule *newschedule = new MySchedule();
+    newschedule->show();
+}
