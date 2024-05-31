@@ -17,6 +17,7 @@
 #include "matterbox.h"
 #include "minischedule.h"
 #include "whitenoisewindow.h"
+#include"myschedule.h"
 //below are planttree by zjy
 #include "planttree.h"
 #include"forest.h"
@@ -75,6 +76,9 @@ private slots:
 
     void notDied();
     //avove are planttree by zjy
+
+
+    void on_page3_Button_clicked();
 
     void on_page4_Button_clicked();
 
