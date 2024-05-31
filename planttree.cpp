@@ -36,7 +36,7 @@ plantTree::plantTree(QWidget *parent)
     // 设置倒计时选择框
 
     timeComboBox->addItem("取消", 0);  // 添加取消选项
-    for (int i = 1; i <= 180; i += 10) {
+    for (int i = 10; i <= 180; i += 10) {
         timeComboBox->addItem(QString("%1 分钟").arg(i), i * 60);  // 以秒为单位存储
     }
     ui->verticalLayout_3->addWidget(timeComboBox);
