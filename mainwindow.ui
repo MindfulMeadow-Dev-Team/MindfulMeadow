@@ -50,8 +50,15 @@
        <height>41</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(0, 156, 0);
+background-color: rgb(6, 230, 255);</string>
+     </property>
      <property name="text">
       <string>每日待办</string>
+     </property>
+     <property name="checkable">
+      <bool>false</bool>
      </property>
     </widget>
     <widget class="QPushButton" name="page2_Button">
@@ -62,6 +69,9 @@
        <width>161</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 234, 2);</string>
      </property>
      <property name="text">
       <string>最近待办</string>
@@ -76,6 +86,9 @@
        <height>41</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 12, 44);</string>
+     </property>
      <property name="text">
       <string>我的课表</string>
      </property>
@@ -88,6 +101,9 @@
        <width>161</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(0, 156, 0);</string>
      </property>
      <property name="text">
       <string>我的森林</string>
@@ -204,12 +220,12 @@
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>7</hour>
+        <hour>15</hour>
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
         <month>12</month>
-        <day>29</day>
+        <day>28</day>
        </datetime>
       </property>
       <property name="minimumDate">
@@ -294,17 +310,17 @@
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>7</hour>
+        <hour>15</hour>
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
         <month>12</month>
-        <day>29</day>
+        <day>28</day>
        </datetime>
       </property>
       <property name="minimumDateTime">
        <datetime>
-        <hour>16</hour>
+        <hour>0</hour>
         <minute>0</minute>
         <second>0</second>
         <year>2000</year>

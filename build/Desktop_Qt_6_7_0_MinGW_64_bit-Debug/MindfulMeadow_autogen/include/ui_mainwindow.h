@@ -82,15 +82,21 @@ public:
         page1_Button = new QPushButton(leftSide);
         page1_Button->setObjectName("page1_Button");
         page1_Button->setGeometry(QRect(10, 130, 161, 41));
+        page1_Button->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 156, 0);\n"
+"background-color: rgb(6, 230, 255);"));
+        page1_Button->setCheckable(false);
         page2_Button = new QPushButton(leftSide);
         page2_Button->setObjectName("page2_Button");
         page2_Button->setGeometry(QRect(10, 180, 161, 41));
+        page2_Button->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 234, 2);"));
         page3_Button = new QPushButton(leftSide);
         page3_Button->setObjectName("page3_Button");
         page3_Button->setGeometry(QRect(10, 230, 161, 41));
+        page3_Button->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 12, 44);"));
         page4_Button = new QPushButton(leftSide);
         page4_Button->setObjectName("page4_Button");
         page4_Button->setGeometry(QRect(10, 280, 161, 41));
+        page4_Button->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 156, 0);"));
         underSide = new QWidget(centralwidget);
         underSide->setObjectName("underSide");
         underSide->setGeometry(QRect(180, 509, 621, 91));
@@ -120,7 +126,7 @@ public:
         dateEdit = new QDateEdit(scrollAreaWidgetContents_2);
         dateEdit->setObjectName("dateEdit");
         dateEdit->setGeometry(QRect(20, 200, 161, 24));
-        dateEdit->setMaximumDateTime(QDateTime(QDate(2100, 12, 29), QTime(7, 59, 59)));
+        dateEdit->setMaximumDateTime(QDateTime(QDate(2100, 12, 28), QTime(15, 59, 59)));
         dateEdit->setMinimumDate(QDate(2000, 9, 14));
         dateEdit->setCalendarPopup(true);
         deleteBtn = new QPushButton(scrollAreaWidgetContents_2);
@@ -145,8 +151,8 @@ public:
         mainDateEdit = new QDateEdit(page1);
         mainDateEdit->setObjectName("mainDateEdit");
         mainDateEdit->setGeometry(QRect(30, 20, 361, 41));
-        mainDateEdit->setMaximumDateTime(QDateTime(QDate(2100, 12, 29), QTime(7, 59, 59)));
-        mainDateEdit->setMinimumDateTime(QDateTime(QDate(2000, 9, 14), QTime(16, 0, 0)));
+        mainDateEdit->setMaximumDateTime(QDateTime(QDate(2100, 12, 28), QTime(15, 59, 59)));
+        mainDateEdit->setMinimumDateTime(QDateTime(QDate(2000, 9, 14), QTime(0, 0, 0)));
         mainDateEdit->setMinimumDate(QDate(2000, 9, 14));
         mainDateEdit->setCalendarPopup(true);
         mainNameEdit = new QLineEdit(page1);

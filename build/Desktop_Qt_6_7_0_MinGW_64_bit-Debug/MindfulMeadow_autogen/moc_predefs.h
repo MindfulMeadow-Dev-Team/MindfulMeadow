@@ -41,6 +41,7 @@
 #define __SIG_ATOMIC_TYPE__ int
 #define __DBL_MIN_10_EXP__ (-307)
 #define __FINITE_MATH_ONLY__ 0
+#define QT_AXCONTAINER_LIB 1
 #define __cpp_variable_templates 201304L
 #define __FLT32X_MAX_EXP__ 1024
 #define __FLT32_HAS_DENORM__ 1
@@ -441,6 +442,7 @@
 #define __UINT_FAST16_MAX__ 0xffff
 #define __LDBL_NORM_MAX__ 1.18973149535723176502126385303097021e+4932L
 #define __GCC_ATOMIC_SHORT_LOCK_FREE 2
+#define QT_PRINTSUPPORT_LIB 1
 #define __UINT_FAST8_TYPE__ unsigned char
 #define __WIN64__ 1
 #define __cpp_init_captures 201304L

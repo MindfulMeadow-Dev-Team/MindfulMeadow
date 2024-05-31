@@ -12,6 +12,7 @@
 #include "matterhandler.h"
 #include "matterbox.h"
 
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -50,6 +51,10 @@ private slots:
     void on_timeEdit_timeChanged(const QTime &time);
 
     void on_timeout();
+
+    void on_page3_Button_clicked();
+
+    void on_page4_Button_clicked();
 
 private:
     Ui::MainWindow *ui;

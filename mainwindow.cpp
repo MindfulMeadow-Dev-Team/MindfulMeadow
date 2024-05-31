@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
-
+#include "MySchedule.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -234,5 +234,12 @@ void MainWindow::on_timeout() {
             messageHelper->showMessage(matter.getName(), "时间到啦！");
         }
     }
+}
+
+
+void MainWindow::on_page3_Button_clicked()
+{
+    MySchedule *newschedule = new MySchedule();
+    newschedule->show();
 }
 

@@ -12,6 +12,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Sql)
+find_package(Qt6 REQUIRED COMPONENTS PrintSupport)
+find_package(Qt6 REQUIRED COMPONENTS AxContainer)
 
 set(PROJECT_SOURCES
         main.cpp
@@ -27,6 +29,12 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         matter.h matter.cpp
         matterhandler.h matterhandler.cpp
         matterbox.h matterbox.cpp matterbox.ui
+        myschedule.h myschedule.cpp myschedule.ui
+        pdfapi.h pdfapi.cpp pdfapi.ui
+
+
+
+
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET MindfulMeadow APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
@@ -46,7 +54,12 @@ else()
     endif()
 endif()
 
-target_link_libraries(MindfulMeadow PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Sql)
+target_link_libraries(MindfulMeadow PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Core
+    Qt${QT_VERSION_MAJOR}::Sql
+    Qt6::PrintSupport
+    Qt6::AxContainer
+)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
