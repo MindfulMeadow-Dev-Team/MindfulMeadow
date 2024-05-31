@@ -19,6 +19,11 @@
   <property name="windowTitle">
    <string>MindfulMeadow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">MiniSchedule {
+	background-color: #eff4f9;
+}</string>
+  </property>
   <widget class="QPushButton" name="maxBtn">
    <property name="geometry">
     <rect>
@@ -28,8 +33,27 @@
      <height>41</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+border: none;
+}
+
+QPushButton:hover {
+background-color: #ededed;
+}</string>
+   </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/icon/img/bigger.png</normaloff>:/icon/img/bigger.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>24</width>
+     <height>24</height>
+    </size>
    </property>
   </widget>
   <widget class="QScrollArea" name="scrollArea">
@@ -40,6 +64,9 @@
      <width>301</width>
      <height>241</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: #f3f3f3;</string>
    </property>
    <property name="widgetResizable">
     <bool>true</bool>
@@ -52,6 +79,9 @@
       <width>299</width>
       <height>239</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #f3f3f3;</string>
     </property>
    </widget>
   </widget>
@@ -74,6 +104,8 @@
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
  <connections/>
 </ui>

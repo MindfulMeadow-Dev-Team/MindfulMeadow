@@ -6,31 +6,48 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>850</width>
-    <height>480</height>
+    <width>620</width>
+    <height>520</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">font: 12px 方正小标宋;</string>
   </property>
   <widget class="QTableWidget" name="tableWidget">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>850</width>
-     <height>481</height>
+     <width>620</width>
+     <height>440</height>
     </rect>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>410</y>
+     <x>120</x>
+     <y>460</y>
      <width>121</width>
      <height>41</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	border-radius: 5px; 
+	background-color: #c4dae2; 
+	border-style: none;
+	color: #d0738c;
+}
+QPushButton:hover{
+    background-color: #9cb2c7;
+}
+QPushButton:pressed{
+    background-color: #e9edee;
+}</string>
    </property>
    <property name="text">
     <string>保存</string>
@@ -39,11 +56,25 @@
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>460</x>
-     <y>410</y>
+     <x>370</x>
+     <y>460</y>
      <width>121</width>
      <height>41</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	border-radius: 5px; 
+	background-color: #c4dae2; 
+	border-style: none;
+	color: #d0738c;
+}
+QPushButton:hover{
+    background-color: #9cb2c7;
+}
+QPushButton:pressed{
+    background-color: #e9edee;
+}</string>
    </property>
    <property name="text">
     <string>清空</string>

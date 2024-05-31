@@ -6,6 +6,9 @@
         <file>img/toDo.png</file>
         <file>img/whiteNoise.png</file>
         <file>img/greentree.png</file>
+        <file>img/bigger.png</file>
+        <file>img/down.png</file>
+        <file>img/smaller.png</file>
     </qresource>
     <qresource prefix="/audio">
         <file>audio/0.mp3</file>

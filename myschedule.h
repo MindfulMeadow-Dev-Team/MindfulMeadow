@@ -2,7 +2,23 @@
 #define MYSCHEDULE_H
 
 #include <QWidget>
-#include<QTableWidget>
+#include <QTableWidget>
+#include "ui_myschedule.h"
+#include <QTableWidget>
+#include <QMessageBox>
+#include <QPushButton>
+#include <QFileDialog>
+#include <QStringList>
+#include <QTextEdit>
+#include <QTextStream>
+#include <QFileDialog>
+#include <QStandardPaths>
+#include <QDate>
+#include <QMessageBox>
+#include <QDesktopServices>
+#include <QApplication>
+#include <QDebug>
+
 namespace Ui {
 class MySchedule;
 }

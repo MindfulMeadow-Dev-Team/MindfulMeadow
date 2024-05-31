@@ -29,7 +29,7 @@ MatterBox::MatterBox(Matter matter, int matterId, int kind,
         ui->checkBox->adjustSize();
         ui->checkBox->move(QPoint(20, 10));
         ui->description->setText(matter.getDescription());
-        ui->description->move(QPoint(40, 35));
+        ui->description->move(QPoint(43, 35));
         ui->description->adjustSize();
     }
     // In matterScrollArea2, the date is always shown.

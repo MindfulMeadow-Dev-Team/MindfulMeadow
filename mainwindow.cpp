@@ -66,8 +66,14 @@ MainWindow::MainWindow(QWidget *parent)
     // add layout to matterScrollAreas
     ui->matterScrollArea->widget()->setLayout(new QVBoxLayout());
     ui->matterScrollArea->horizontalScrollBar()->hide();
+    ui->matterScrollArea->widget()->layout()->setContentsMargins(0, 10, 10, 10);
+    ui->matterScrollArea->widget()->layout()->setSpacing(0);
+    ui->matterScrollArea->widget()->layout()->setAlignment(Qt::AlignTop);
     updateMatters();
     ui->matterScrollArea2->widget()->setLayout(new QVBoxLayout());
+    ui->matterScrollArea2->widget()->layout()->setContentsMargins(0, 10, 10, 10);
+    ui->matterScrollArea2->widget()->layout()->setSpacing(0);
+    ui->matterScrollArea2->widget()->layout()->setAlignment(Qt::AlignTop);
     ui->matterScrollArea2->horizontalScrollBar()->hide();
     updateMatters2();
 
@@ -109,11 +115,11 @@ void MainWindow::hideRightSide() {
 
         mainNameEditAnm->setStartValue(ui->mainNameEdit->geometry());
         mainNameEditAnm->setEndValue(QRect(ui->mainNameEdit->x(), ui->mainNameEdit->y(),
-                                           561, ui->mainDateEdit->height()));
+                                           560, 40));
         mainNameEditAnm->start();
         matterScrollAreaAnm->setStartValue(ui->matterScrollArea->geometry());
         matterScrollAreaAnm->setEndValue(QRect(ui->matterScrollArea->x(), ui->matterScrollArea->y(),
-                                               561, ui->matterScrollArea->height()));
+                                               560, ui->matterScrollArea->height()));
         matterScrollAreaAnm->start();
         rightSideHidden = true;
     }
@@ -131,12 +137,12 @@ void MainWindow::showRightSide() {
         // move the mainNameEdit widget
         mainNameEditAnm->setStartValue(ui->mainNameEdit->geometry());
         mainNameEditAnm->setEndValue(QRect(ui->mainNameEdit->x(), ui->mainNameEdit->y(),
-                                           ui->mainDateEdit->width(), ui->mainDateEdit->height()));
+                                           400, 40));
         mainNameEditAnm->start();
         // move the scroll area
         matterScrollAreaAnm->setStartValue(ui->matterScrollArea->geometry());
         matterScrollAreaAnm->setEndValue(QRect(ui->matterScrollArea->x(), ui->matterScrollArea->y(),
-                                               ui->mainDateEdit->width(), ui->matterScrollArea->height()));
+                                                400, ui->matterScrollArea->height()));
         matterScrollAreaAnm->start();
         rightSideHidden = false;
     }
@@ -409,5 +415,9 @@ void MainWindow::on_page4_Button_clicked()
 void MainWindow::on_page3_Button_clicked()
 {
     MySchedule *newschedule = new MySchedule();
+    // ui->stackedWidget->setCurrentIndex(2);
+
+    // ui->stackedWidget->addWidget(newschedule);
+    // newschedule->move(15, 0);
     newschedule->show();
 }

@@ -43,7 +43,7 @@
     <widget class="QPushButton" name="startButton">
      <property name="geometry">
       <rect>
-       <x>80</x>
+       <x>85</x>
        <y>290</y>
        <width>131</width>
        <height>31</height>
@@ -126,7 +126,7 @@
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>80</x>
+     <x>90</x>
      <y>250</y>
      <width>131</width>
      <height>51</height>

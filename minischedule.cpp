@@ -13,6 +13,9 @@ MiniSchedule::MiniSchedule(MatterHandler* handler, QWidget* mainWindow, QWidget 
     ui->timeLabel->setText(QDate::currentDate().toString("MMM d, ddd"));
     ui->scrollArea->widget()->setLayout(new QVBoxLayout());
     ui->scrollArea->horizontalScrollBar()->hide();
+    ui->scrollArea->widget()->layout()->setContentsMargins(0, 10, 10, 10);
+    ui->scrollArea->widget()->layout()->setSpacing(0);
+    ui->scrollArea->widget()->layout()->setAlignment(Qt::AlignTop);
     updateMatters();
 }
 

@@ -14,7 +14,12 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">QWidget {
+font: 10pt 方正小标宋;
+}
+QWidget#MatterBox: hover {
+	backgroud-color: #9cb2c7;
+}</string>
   </property>
   <widget class="QPushButton" name="underlyingBtn">
    <property name="geometry">
@@ -24,6 +29,17 @@
      <width>631</width>
      <height>101</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+margin: 0px;
+background-color: #f3f3f3;
+border-top: 2px solid #c8e0e4;
+border-bottom: 2px solid #c8e0e4;
+}
+QPushButton: hover {
+	background-color: #9cb2c7;
+}</string>
    </property>
    <property name="text">
     <string/>
@@ -46,7 +62,10 @@
    </property>
    <property name="font">
     <font>
-     <bold>true</bold>
+     <family>方正小标宋</family>
+     <pointsize>10</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
     </font>
    </property>
    <property name="text">
