@@ -16,6 +16,7 @@ MiniSchedule::MiniSchedule(MatterHandler* handler, QWidget* mainWindow, QWidget 
     ui->scrollArea->widget()->layout()->setContentsMargins(0, 10, 10, 10);
     ui->scrollArea->widget()->layout()->setSpacing(0);
     ui->scrollArea->widget()->layout()->setAlignment(Qt::AlignTop);
+    ui->scrollArea->widget()->setObjectName("scrollAreaContent");
     updateMatters();
 }
 
@@ -39,17 +40,23 @@ void MiniSchedule::updateMatters() {
         qDebug() << "no layout error\n";
         return;
     }
-    layout->setSpacing(10);
+    // layout->setSpacing(10);
+
     while (layout->count()) {
         auto widget = layout->itemAt(0)->widget();
         widget->setParent(nullptr);
         layout->removeWidget(widget);
         delete widget;
     }
+    if (size == 0) {
+        ui->scrollArea->widget()->setStyleSheet("QWidget#scrollAreaContent {background-image: url(://img/noMatter.png);background-size: cover;background-position: center center; background-size: 100px;}");
+        return;
+    }
     for (int i = 0; i < size; ++i) {
         MatterBox* box = new MatterBox(matters[i], ids[i], 2, handler);
         layout->addWidget(box);
     }
+    ui->scrollArea->widget()->setStyleSheet("");
     ui->scrollArea->verticalScrollBar()->setValue(0);
 }
 

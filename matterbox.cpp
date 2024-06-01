@@ -46,13 +46,13 @@ MatterBox::MatterBox(Matter matter, int matterId, int kind,
             ui->time->setText(ui->time->text() + matter.getDueTime().toString("h:mm"));
         }
         ui->time->adjustSize();
-        ui->time->move(QPoint(40, this->geometry().height() - 20));
+        ui->time->move(QPoint(43, this->geometry().height() - 20));
     }
     else if (matter.getSetDue()) {
         this->setFixedHeight(this->geometry().height() + 20);
         ui->time->setText(matter.getDueTime().toString("h:mm"));
         ui->time->adjustSize();
-        ui->time->move(QPoint(40, this->geometry().height() - 20));
+        ui->time->move(QPoint(43, this->geometry().height() - 20));
     }
     // else if (matter.getDate() < mainWindow->currDate) {
     //     this->setFixedHeight(this->geometry().height() + 20);
