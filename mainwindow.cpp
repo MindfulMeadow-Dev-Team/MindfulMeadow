@@ -202,7 +202,7 @@ void MainWindow::updateMatters() {
         delete widget;
     }
     if (size == 0) {
-        ui->matterScrollArea->widget()->setStyleSheet("QWidget#scrollAreaContent {background-image: url(://img/noMatter.png);background-size: cover;background-position: center center; background-size: 100px;}");
+        ui->matterScrollArea->widget()->setStyleSheet("QWidget#scrollAreaContent {background-image: url(:/img/noMatter.png);background-size: cover;background-position: center center; background-size: 100px;}");
         return;
     }
     for (int i = 0; i < size; ++i) {

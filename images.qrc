@@ -12,5 +12,6 @@
         <file>img/plant.png</file>
         <file>img/meadow.png</file>
         <file>img/noMatter.png</file>
+        <file>img/miniNoMatter.png</file>
     </qresource>
 </RCC>

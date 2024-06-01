@@ -49,7 +49,7 @@ void MiniSchedule::updateMatters() {
         delete widget;
     }
     if (size == 0) {
-        ui->scrollArea->widget()->setStyleSheet("QWidget#scrollAreaContent {background-image: url(://img/noMatter.png);background-size: cover;background-position: center center; background-size: 100px;}");
+        ui->scrollArea->widget()->setStyleSheet("QWidget#scrollAreaContent {background-image: url(:/img/miniNoMatter.png);background-size: cover;background-position: center center; background-size: 100px;}");
         return;
     }
     for (int i = 0; i < size; ++i) {
