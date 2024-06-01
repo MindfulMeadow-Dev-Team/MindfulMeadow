@@ -194,7 +194,7 @@ void MainWindow::updateMatters() {
         qDebug() << "no layout error\n";
         return;
     }
-    layout->setSpacing(10);
+    // layout->setSpacing(10);
     while (layout->count()) {
         auto widget = layout->itemAt(0)->widget();
         widget->setParent(nullptr);
@@ -222,17 +222,22 @@ void MainWindow::updateMatters2() {
         qDebug() << "no layout error\n";
         return;
     }
-    layout->setSpacing(10);
+    // layout->setSpacing(10);
     while (layout->count()) {
         auto widget = layout->itemAt(0)->widget();
         widget->setParent(nullptr);
         layout->removeWidget(widget);
         delete widget;
     }
+    if (size == 0) {
+        ui->matterScrollArea2->widget()->setStyleSheet("QWidget#scrollAreaContent2 {background-image: url(://img/noMatter.png);background-size: cover;background-position: center center; background-size: 100px;}");
+        return;
+    }
     for (int i = 0; i < size; ++i) {
         MatterBox* box = new MatterBox(matters[i], ids[i], 1, handler.get(), this);
         layout->addWidget(box);
     }
+    ui->matterScrollArea2->widget()->setStyleSheet("");
     ui->matterScrollArea2->verticalScrollBar()->setValue(0);
 }
 
