@@ -201,15 +201,15 @@ void MainWindow::updateMatters() {
         layout->removeWidget(widget);
         delete widget;
     }
-    if (size == 0) {
-        ui->matterScrollArea->widget()->setStyleSheet("QWidget#scrollAreaContent {background-image: url(://img/noMatter.png);background-size: cover;background-position: center center; background-size: 100px;}");
-        return;
-    }
+    // if (size == 0) {
+    //     ui->matterScrollArea->widget()->setStyleSheet("QWidget#scrollAreaContent {background-image: url(://img/noMatter.png);background-size: cover;background-position: center center; background-size: 100px;}");
+    //     return;
+    // }
     for (int i = 0; i < size; ++i) {
         MatterBox* box = new MatterBox(matters[i], ids[i], 0, handler.get(), this);
         layout->addWidget(box);
     }
-    ui->matterScrollArea->widget()->setStyleSheet("");
+    // ui->matterScrollArea->widget()->setStyleSheet("");
     ui->matterScrollArea->verticalScrollBar()->setValue(0);
 }
 
