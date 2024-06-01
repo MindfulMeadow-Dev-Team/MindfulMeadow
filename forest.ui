@@ -517,10 +517,10 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>440</y>
+     <x>130</x>
+     <y>460</y>
      <width>141</width>
-     <height>41</height>
+     <height>40</height>
     </rect>
    </property>
    <property name="font">
@@ -534,7 +534,7 @@
 	border-radius: 5px; 
 	background-color: #c4dae2; 
 	border-style: none;
-	color: #d0738c;
+	color: #333333;
 }
 QPushButton:hover{
     background-color: #9cb2c7;

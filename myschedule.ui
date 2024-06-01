@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>620</width>
+    <width>850</width>
     <height>520</height>
    </rect>
   </property>
@@ -21,7 +21,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>620</width>
+     <width>850</width>
      <height>440</height>
     </rect>
    </property>
@@ -29,11 +29,19 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>120</x>
+     <x>190</x>
      <y>460</y>
      <width>121</width>
      <height>41</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>方正小标宋</family>
+     <pointsize>-1</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
@@ -56,7 +64,7 @@ QPushButton:pressed{
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>370</x>
+     <x>540</x>
      <y>460</y>
      <width>121</width>
      <height>41</height>

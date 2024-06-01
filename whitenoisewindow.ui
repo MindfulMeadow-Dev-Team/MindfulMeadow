@@ -10,11 +10,19 @@
     <height>275</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Microsoft YaHei UI</family>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">QWidget#WhiteNoiseWindow {
+	border-radius: 5px;
+	
+}</string>
   </property>
  </widget>
  <resources/>

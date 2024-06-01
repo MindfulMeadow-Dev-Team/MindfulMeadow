@@ -77,7 +77,7 @@
 	border-radius: 5px; 
 	background-color: #c4dae2; 
 	border-style: none;
-	color: #d0738c;
+	color: #333333;
 }
 QPushButton:hover{
     background-color: #9cb2c7;
@@ -114,7 +114,7 @@ QPushButton:pressed{
 	border-radius: 5px; 
 	background-color: #c4dae2; 
 	border-style: none;
-	color: #d0738c;
+	color: #333333;
 }
 QPushButton:hover{
     background-color: #9cb2c7;
@@ -151,7 +151,7 @@ QPushButton:pressed{
 	border-radius: 5px; 
 	background-color: #c4dae2; 
 	border-style: none;
-	color: #d0738c;
+	color: #333333;
 }
 QPushButton:hover{
     background-color: #9cb2c7;
@@ -191,7 +191,7 @@ QPushButton:pressed{
 	border-radius: 5px; 
 	background-color: #c4dae2; 
 	border-style: none;
-	color: #d0738c;
+	color: #333333;
 }
 QPushButton:hover{
     background-color: #9cb2c7;
@@ -201,7 +201,7 @@ QPushButton:pressed{
 }</string>
      </property>
      <property name="text">
-      <string>我的森林</string>
+      <string>思绪原野</string>
      </property>
      <property name="icon">
       <iconset resource="res.qrc">
@@ -426,7 +426,7 @@ padding-left: 5px;</string>
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>23</hour>
+        <hour>15</hour>
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
@@ -453,6 +453,16 @@ padding-left: 5px;</string>
         <width>41</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+border: 1px solid #008D75;
+	border-radius: 5px;;
+}
+
+QPushButton:hover {
+background-color: #ededed;
+}</string>
       </property>
       <property name="text">
        <string/>
@@ -529,7 +539,7 @@ padding-left: 5px;</string>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page1">
      <widget class="QDateEdit" name="mainDateEdit">
@@ -566,7 +576,7 @@ padding-left: 5px;</string>
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>23</hour>
+        <hour>15</hour>
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
@@ -576,7 +586,7 @@ padding-left: 5px;</string>
       </property>
       <property name="minimumDateTime">
        <datetime>
-        <hour>8</hour>
+        <hour>0</hour>
         <minute>0</minute>
         <second>0</second>
         <year>2000</year>

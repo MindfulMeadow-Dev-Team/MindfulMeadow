@@ -19,6 +19,7 @@ plantTree::plantTree(QWidget *parent)
     ui->setupUi(this);
     qDebug()<<"初始化"<<closeflag<<Qt::endl;
     setWindowTitle("Plant Tree");
+    // ui->startButton->setStyleSheet("QPushButton {\n	border-radius: 5px; \n	background-color: #c4dae2; \n	border-style: none;\n	color: #333333;\n}\nQPushButton:hover{\n    background-color: #9cb2c7;\n}\nQPushButton:pressed{\n    background-color: #e9edee;\n}");
     /*if(closeflag){
         treePixmap = QPixmap(":/img/died.png");
         ui->treeLabel->setPixmap(treePixmap);

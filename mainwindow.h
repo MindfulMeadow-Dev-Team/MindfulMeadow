@@ -82,6 +82,8 @@ private slots:
 
     void on_page4_Button_clicked();
 
+    void on_activatedSysTrayIcon(QSystemTrayIcon::ActivationReason reason);
+
 private:
     Ui::MainWindow *ui;
 

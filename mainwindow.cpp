@@ -52,6 +52,7 @@ MainWindow::MainWindow(QWidget *parent)
     trayMenu->addAction(trayExit);
     tray->setContextMenu(trayMenu);
     tray->show();
+    connect(tray, &QSystemTrayIcon::activated, this, &MainWindow::on_activatedSysTrayIcon);
 
 
     // set up the timer
@@ -69,12 +70,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->matterScrollArea->widget()->layout()->setContentsMargins(0, 10, 10, 10);
     ui->matterScrollArea->widget()->layout()->setSpacing(0);
     ui->matterScrollArea->widget()->layout()->setAlignment(Qt::AlignTop);
+    ui->matterScrollArea->widget()->setObjectName("scrollAreaContent");
     updateMatters();
     ui->matterScrollArea2->widget()->setLayout(new QVBoxLayout());
     ui->matterScrollArea2->widget()->layout()->setContentsMargins(0, 10, 10, 10);
     ui->matterScrollArea2->widget()->layout()->setSpacing(0);
     ui->matterScrollArea2->widget()->layout()->setAlignment(Qt::AlignTop);
     ui->matterScrollArea2->horizontalScrollBar()->hide();
+    ui->matterScrollArea2->widget()->setObjectName("scrollAreaContent2");
     updateMatters2();
 
 
@@ -115,11 +118,11 @@ void MainWindow::hideRightSide() {
 
         mainNameEditAnm->setStartValue(ui->mainNameEdit->geometry());
         mainNameEditAnm->setEndValue(QRect(ui->mainNameEdit->x(), ui->mainNameEdit->y(),
-                                           560, 40));
+                                           590, 40));
         mainNameEditAnm->start();
         matterScrollAreaAnm->setStartValue(ui->matterScrollArea->geometry());
         matterScrollAreaAnm->setEndValue(QRect(ui->matterScrollArea->x(), ui->matterScrollArea->y(),
-                                               560, ui->matterScrollArea->height()));
+                                               590, ui->matterScrollArea->height()));
         matterScrollAreaAnm->start();
         rightSideHidden = true;
     }
@@ -198,10 +201,15 @@ void MainWindow::updateMatters() {
         layout->removeWidget(widget);
         delete widget;
     }
+    if (size == 0) {
+        ui->matterScrollArea->widget()->setStyleSheet("QWidget#scrollAreaContent {background-image: url(://img/noMatter.png);background-size: cover;background-position: center center; background-size: 100px;}");
+        return;
+    }
     for (int i = 0; i < size; ++i) {
         MatterBox* box = new MatterBox(matters[i], ids[i], 0, handler.get(), this);
         layout->addWidget(box);
     }
+    ui->matterScrollArea->widget()->setStyleSheet("");
     ui->matterScrollArea->verticalScrollBar()->setValue(0);
 }
 
@@ -361,7 +369,7 @@ void MainWindow::showEvent(QShowEvent *event) {
 void MainWindow::on_whiteNoiseButton_clicked()
 {
     whiteNoise->show();
-    whiteNoise->move(this->x() + 460, this->y() + 283);
+    whiteNoise->move(this->x() + 503, this->y() + 290);
 }
 
 // If mouse clicked on the main window, hide the white noise window.
@@ -420,4 +428,18 @@ void MainWindow::on_page3_Button_clicked()
     // ui->stackedWidget->addWidget(newschedule);
     // newschedule->move(15, 0);
     newschedule->show();
+}
+
+void MainWindow::on_activatedSysTrayIcon(QSystemTrayIcon::ActivationReason reason)
+{
+    switch (reason) {
+        case QSystemTrayIcon::Trigger:
+            break;
+        case QSystemTrayIcon::DoubleClick:
+            if (this->isVisible() == false)
+                this->show();
+            break;
+        default:
+            break;
+    }
 }

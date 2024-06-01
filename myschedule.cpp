@@ -23,7 +23,6 @@ MySchedule::MySchedule(QWidget *parent)
     QTableWidgetItem *item= new QTableWidgetItem("");
     item->setTextAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
     ui->tableWidget->setItem(0, 0, item);
-
 }
 MySchedule::~MySchedule()
 {
@@ -63,7 +62,7 @@ void MySchedule::on_pushButton_2_clicked() // 清空按钮
     item = new QTableWidgetItem(0);
     item->setTextAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
     ui->tableWidget->setItem(0, 0, item);
-    ui->tableWidget->adjustSize();
+    ui->tableWidget->setGeometry(QRect(0, 0, 850, 440));
 }
 
 
@@ -106,7 +105,6 @@ void MySchedule::loadSchedule() // 读取保存的课表函数实现
         for (int row = 0; row < ui->tableWidget->rowCount(); ++row) {
             QString line = in.readLine();
             QStringList cells = line.split("\t");
-            qDebug() << cells;
             for (int column = 0; column < ui->tableWidget->columnCount(); ++column) {
                 QString text = (column < cells.size()) ? cells[column] : "EMPTY";
                 QTableWidgetItem *item = new QTableWidgetItem(text == "EMPTY" ? "" : text);
@@ -114,7 +112,6 @@ void MySchedule::loadSchedule() // 读取保存的课表函数实现
                 ui->tableWidget->setItem(row, column, item);
             }
         }
-        ui->tableWidget->update();
         file.close();
     } else {
         QMessageBox::warning(this, "读取失败", "无法打开文件进行读取");

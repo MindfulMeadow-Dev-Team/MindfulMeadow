@@ -23,10 +23,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">QWidget {
-    background-image: url(:/img/planttreebg.png);
-}
-</string>
+    <string notr="true"/>
    </property>
    <property name="widgetResizable">
     <bool>true</bool>
@@ -40,33 +37,58 @@
       <height>329</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget#scrollAreaWidgetContents {
+    background-image: url(:/img/planttreebg.png);
+}
+</string>
+    </property>
     <widget class="QPushButton" name="startButton">
      <property name="geometry">
       <rect>
        <x>85</x>
        <y>290</y>
        <width>131</width>
-       <height>31</height>
+       <height>30</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>宋体</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">QWidget {
-    background: rgb(197, 255, 239);
+      <string notr="true">QPushButton {
+	border-radius: 5px; 
+	background-color: #c4dae2; 
+	border-style: none;
+	color: #333333;
 }
-</string>
+QPushButton:hover{
+    background-color: #9cb2c7;
+}
+QPushButton:pressed{
+    background-color: #e9edee;
+}</string>
      </property>
      <property name="text">
-      <string>种下一颗思绪之种</string>
+      <string>种下一颗思绪之树</string>
      </property>
     </widget>
     <widget class="QPushButton" name="lefttree">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>140</y>
-       <width>21</width>
-       <height>18</height>
+       <x>40</x>
+       <y>130</y>
+       <width>30</width>
+       <height>30</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">QWidget {
@@ -82,10 +104,15 @@
      <property name="geometry">
       <rect>
        <x>230</x>
-       <y>140</y>
-       <width>21</width>
-       <height>18</height>
+       <y>130</y>
+       <width>30</width>
+       <height>30</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">QWidget {

@@ -8,6 +8,7 @@ WhiteNoiseWindow::WhiteNoiseWindow(QWidget *parent)
     ui->setupUi(this);
 
     this->setWindowFlags(Qt::Popup);
+    this->setStyleSheet("QWidget#WhiteNoiseWindow {\n	border-radius: 5px;\n	font: 12pt 方正小标宋;\n}");
 
     QVBoxLayout* layout = new QVBoxLayout(this);
     buttonGroup = new QButtonGroup(this);
@@ -25,6 +26,7 @@ WhiteNoiseWindow::WhiteNoiseWindow(QWidget *parent)
     playBtn = new QPushButton();
     playBtn->setIcon(QIcon::fromTheme("media-playback-start"));
     connect(playBtn, SIGNAL(clicked(bool)), this, SLOT(playMusic()));
+    playBtn->setStyleSheet("QPushButton {\n	border-radius: 5px; \n	background-color: #c4dae2; \n	border-style: none;\n	color: #333333;\n}\nQPushButton:hover{\n    background-color: #9cb2c7;\n}\nQPushButton:pressed{\n    background-color: #e9edee;\n}");
     layout->addWidget(playBtn);
     this->setLayout(layout);
     player = new QMediaPlayer();
