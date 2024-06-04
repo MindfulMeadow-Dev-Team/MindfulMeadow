@@ -32,7 +32,7 @@
    <bool>false</bool>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>MindfulMeadow</string>
   </property>
   <property name="windowIcon">
    <iconset>
@@ -426,7 +426,7 @@ padding-left: 5px;</string>
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>15</hour>
+        <hour>7</hour>
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
@@ -576,7 +576,7 @@ background-color: #ededed;
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>15</hour>
+        <hour>7</hour>
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
@@ -586,7 +586,7 @@ background-color: #ededed;
       </property>
       <property name="minimumDateTime">
        <datetime>
-        <hour>0</hour>
+        <hour>16</hour>
         <minute>0</minute>
         <second>0</second>
         <year>2000</year>
