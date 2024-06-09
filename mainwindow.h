@@ -5,6 +5,9 @@
 #include <QMainWindow>
 #include <QPropertyAnimation>
 #include <QDate>
+#include <QLabel>
+#include <QDateTime>
+#include <QApplication>
 #include <memory>
 #include <QLayout>
 #include <QScrollBar>
@@ -84,6 +87,10 @@ private slots:
 
     void on_activatedSysTrayIcon(QSystemTrayIcon::ActivationReason reason);
 
+    void on_label_linkActivated(const QString &link);
+
+    void on_timeEdit_2_userTimeChanged(const QTime &time);
+
 private:
     Ui::MainWindow *ui;
 
@@ -114,7 +121,6 @@ private:
     void updateMatters();
     void updateMatters2();
     void hideRightSide();
-
     void closeEvent(QCloseEvent *event);
     void showEvent(QShowEvent* event);
     // test: when the mouse clicked on the main window, hide the white noise window

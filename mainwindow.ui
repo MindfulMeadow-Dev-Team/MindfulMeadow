@@ -214,6 +214,29 @@ QPushButton:pressed{
       </size>
      </property>
     </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>40</y>
+       <width>101</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QTimeEdit" name="timeEdit_2">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>100</y>
+       <width>118</width>
+       <height>24</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="underSide" native="true">
     <property name="geometry">
@@ -426,12 +449,12 @@ padding-left: 5px;</string>
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>7</hour>
+        <hour>23</hour>
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
         <month>12</month>
-        <day>24</day>
+        <day>23</day>
        </datetime>
       </property>
       <property name="minimumDate">
@@ -576,17 +599,17 @@ background-color: #ededed;
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>7</hour>
+        <hour>23</hour>
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
         <month>12</month>
-        <day>24</day>
+        <day>23</day>
        </datetime>
       </property>
       <property name="minimumDateTime">
        <datetime>
-        <hour>16</hour>
+        <hour>8</hour>
         <minute>0</minute>
         <second>0</second>
         <year>2000</year>

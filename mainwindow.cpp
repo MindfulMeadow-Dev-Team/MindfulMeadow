@@ -8,7 +8,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     // this->setWindowFlags(this->windowFlags() | Qt::FramelessWindowHint);
     ui->statusbar->setVisible(false);
-
     // set matter handler
     handler = std::make_unique<MatterHandler>("matters.db");
 
@@ -90,8 +89,9 @@ MainWindow::MainWindow(QWidget *parent)
     //above are planttree by zjy
 
     ui->stackedWidget->setCurrentIndex(0);
-}
 
+
+}
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -448,3 +448,24 @@ void MainWindow::on_activatedSysTrayIcon(QSystemTrayIcon::ActivationReason reaso
             break;
     }
 }
+
+void MainWindow::on_label_linkActivated(const QString &link)
+{
+    QLabel *label = new QLabel(this);
+    QDateTime currentDateTime = QDateTime::currentDateTime();
+    QString currentDateTimeStr = currentDateTime.toString("yyyy-MM-dd hh:mm:ss");
+    // 设置标签文本为当前时间
+    label->setText(currentDateTimeStr);
+    // 显示标签
+    // 每隔1秒钟更新一次标签内容以显示最新的时间
+    QTimer* timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(updateLabel(label)));
+    timer->start(1000);
+}
+
+
+void MainWindow::on_timeEdit_2_userTimeChanged(const QTime &time)
+{
+    time=QTime::currentTime();
+}
+
