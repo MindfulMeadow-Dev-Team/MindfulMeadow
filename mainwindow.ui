@@ -73,6 +73,7 @@
       </rect>
      </property>
      <property name="styleSheet">
+<<<<<<< HEAD
       <string notr="true">QPushButton {
 	border-radius: 5px; 
 	background-color: #c4dae2; 
@@ -85,10 +86,15 @@ QPushButton:hover{
 QPushButton:pressed{
     background-color: #e9edee;
 }</string>
+=======
+      <string notr="true">background-color: rgb(0, 156, 0);
+background-color: rgb(6, 230, 255);</string>
+>>>>>>> 25ddaa8f86ddbb61dd12adca040a91a77147a369
      </property>
      <property name="text">
       <string>每日待办</string>
      </property>
+<<<<<<< HEAD
      <property name="icon">
       <iconset resource="res.qrc">
        <normaloff>:/icon/img/toDo.png</normaloff>:/icon/img/toDo.png</iconset>
@@ -98,6 +104,10 @@ QPushButton:pressed{
        <width>32</width>
        <height>32</height>
       </size>
+=======
+     <property name="checkable">
+      <bool>false</bool>
+>>>>>>> 25ddaa8f86ddbb61dd12adca040a91a77147a369
      </property>
     </widget>
     <widget class="QPushButton" name="page2_Button">
@@ -110,6 +120,7 @@ QPushButton:pressed{
       </rect>
      </property>
      <property name="styleSheet">
+<<<<<<< HEAD
       <string notr="true">QPushButton {
 	border-radius: 5px; 
 	background-color: #c4dae2; 
@@ -122,6 +133,9 @@ QPushButton:hover{
 QPushButton:pressed{
     background-color: #e9edee;
 }</string>
+=======
+      <string notr="true">background-color: rgb(255, 234, 2);</string>
+>>>>>>> 25ddaa8f86ddbb61dd12adca040a91a77147a369
      </property>
      <property name="text">
       <string>最近待办</string>
@@ -147,6 +161,7 @@ QPushButton:pressed{
       </rect>
      </property>
      <property name="styleSheet">
+<<<<<<< HEAD
       <string notr="true">QPushButton {
 	border-radius: 5px; 
 	background-color: #c4dae2; 
@@ -159,6 +174,9 @@ QPushButton:hover{
 QPushButton:pressed{
     background-color: #e9edee;
 }</string>
+=======
+      <string notr="true">background-color: rgb(255, 12, 44);</string>
+>>>>>>> 25ddaa8f86ddbb61dd12adca040a91a77147a369
      </property>
      <property name="text">
       <string>我的课表</string>
@@ -183,6 +201,7 @@ QPushButton:pressed{
        <height>41</height>
       </rect>
      </property>
+<<<<<<< HEAD
      <property name="autoFillBackground">
       <bool>false</bool>
      </property>
@@ -199,6 +218,10 @@ QPushButton:hover{
 QPushButton:pressed{
     background-color: #e9edee;
 }</string>
+=======
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(0, 156, 0);</string>
+>>>>>>> 25ddaa8f86ddbb61dd12adca040a91a77147a369
      </property>
      <property name="text">
       <string>思绪原野</string>
@@ -449,12 +472,20 @@ padding-left: 5px;</string>
       </property>
       <property name="maximumDateTime">
        <datetime>
+<<<<<<< HEAD
         <hour>23</hour>
+=======
+        <hour>15</hour>
+>>>>>>> 25ddaa8f86ddbb61dd12adca040a91a77147a369
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
         <month>12</month>
+<<<<<<< HEAD
         <day>23</day>
+=======
+        <day>28</day>
+>>>>>>> 25ddaa8f86ddbb61dd12adca040a91a77147a369
        </datetime>
       </property>
       <property name="minimumDate">
@@ -599,17 +630,29 @@ background-color: #ededed;
       </property>
       <property name="maximumDateTime">
        <datetime>
+<<<<<<< HEAD
         <hour>23</hour>
+=======
+        <hour>15</hour>
+>>>>>>> 25ddaa8f86ddbb61dd12adca040a91a77147a369
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
         <month>12</month>
+<<<<<<< HEAD
         <day>23</day>
+=======
+        <day>28</day>
+>>>>>>> 25ddaa8f86ddbb61dd12adca040a91a77147a369
        </datetime>
       </property>
       <property name="minimumDateTime">
        <datetime>
+<<<<<<< HEAD
         <hour>8</hour>
+=======
+        <hour>0</hour>
+>>>>>>> 25ddaa8f86ddbb61dd12adca040a91a77147a369
         <minute>0</minute>
         <second>0</second>
         <year>2000</year>

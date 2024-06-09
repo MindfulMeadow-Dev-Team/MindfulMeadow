@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
-
+#include "MySchedule.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -342,6 +342,7 @@ void MainWindow::on_timeout() {
     }
 }
 
+<<<<<<< HEAD
 // override function closeEvent for system tray icon.
 // if white noise window is visible, hide it
 void MainWindow::closeEvent(QCloseEvent *event) {
@@ -469,3 +470,12 @@ void MainWindow::on_timeEdit_2_userTimeChanged(const QTime &time)
     time=QTime::currentTime();
 }
 
+=======
+
+void MainWindow::on_page3_Button_clicked()
+{
+    MySchedule *newschedule = new MySchedule();
+    newschedule->show();
+}
+
+>>>>>>> 25ddaa8f86ddbb61dd12adca040a91a77147a369

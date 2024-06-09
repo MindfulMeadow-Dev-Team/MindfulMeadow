@@ -6,35 +6,54 @@
    <rect>
     <x>0</x>
     <y>0</y>
+<<<<<<< HEAD
     <width>850</width>
     <height>520</height>
+=======
+    <width>640</width>
+    <height>480</height>
+>>>>>>> 25ddaa8f86ddbb61dd12adca040a91a77147a369
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+<<<<<<< HEAD
   <property name="styleSheet">
    <string notr="true">font: 12px 方正小标宋;</string>
   </property>
+=======
+>>>>>>> 25ddaa8f86ddbb61dd12adca040a91a77147a369
   <widget class="QTableWidget" name="tableWidget">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
+<<<<<<< HEAD
      <width>850</width>
      <height>440</height>
+=======
+     <width>641</width>
+     <height>481</height>
+>>>>>>> 25ddaa8f86ddbb61dd12adca040a91a77147a369
     </rect>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
+<<<<<<< HEAD
      <x>190</x>
      <y>460</y>
+=======
+     <x>220</x>
+     <y>410</y>
+>>>>>>> 25ddaa8f86ddbb61dd12adca040a91a77147a369
      <width>121</width>
      <height>41</height>
     </rect>
    </property>
+<<<<<<< HEAD
    <property name="font">
     <font>
      <family>方正小标宋</family>
@@ -57,6 +76,8 @@ QPushButton:pressed{
     background-color: #e9edee;
 }</string>
    </property>
+=======
+>>>>>>> 25ddaa8f86ddbb61dd12adca040a91a77147a369
    <property name="text">
     <string>保存</string>
    </property>
@@ -64,12 +85,18 @@ QPushButton:pressed{
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
+<<<<<<< HEAD
      <x>540</x>
      <y>460</y>
+=======
+     <x>460</x>
+     <y>410</y>
+>>>>>>> 25ddaa8f86ddbb61dd12adca040a91a77147a369
      <width>121</width>
      <height>41</height>
     </rect>
    </property>
+<<<<<<< HEAD
    <property name="styleSheet">
     <string notr="true">QPushButton {
 	border-radius: 5px; 
@@ -84,6 +111,8 @@ QPushButton:pressed{
     background-color: #e9edee;
 }</string>
    </property>
+=======
+>>>>>>> 25ddaa8f86ddbb61dd12adca040a91a77147a369
    <property name="text">
     <string>清空</string>
    </property>

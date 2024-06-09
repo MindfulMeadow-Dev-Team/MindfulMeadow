@@ -27,6 +27,7 @@
 //above are planttree by zjy
 class MiniSchedule;
 
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -60,6 +61,7 @@ private slots:
 
     void on_timeout();
 
+<<<<<<< HEAD
     void on_mainDateEdit_userDateChanged(const QDate &date);
 
     void on_dateEdit_userDateChanged(const QDate &date);
@@ -81,16 +83,21 @@ private slots:
     //avove are planttree by zjy
 
 
+=======
+>>>>>>> 25ddaa8f86ddbb61dd12adca040a91a77147a369
     void on_page3_Button_clicked();
 
     void on_page4_Button_clicked();
 
+<<<<<<< HEAD
     void on_activatedSysTrayIcon(QSystemTrayIcon::ActivationReason reason);
 
     void on_label_linkActivated(const QString &link);
 
     void on_timeEdit_2_userTimeChanged(const QTime &time);
 
+=======
+>>>>>>> 25ddaa8f86ddbb61dd12adca040a91a77147a369
 private:
     Ui::MainWindow *ui;
 

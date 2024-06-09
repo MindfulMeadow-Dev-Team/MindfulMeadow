@@ -12,7 +12,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Sql)
+<<<<<<< HEAD
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Multimedia)
+=======
+find_package(Qt6 REQUIRED COMPONENTS PrintSupport)
+find_package(Qt6 REQUIRED COMPONENTS AxContainer)
+>>>>>>> 25ddaa8f86ddbb61dd12adca040a91a77147a369
 
 set(PROJECT_SOURCES
         main.cpp
@@ -28,6 +33,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         matter.h matter.cpp
         matterhandler.h matterhandler.cpp
         matterbox.h matterbox.cpp matterbox.ui
+<<<<<<< HEAD
         minischedule.h minischedule.cpp minischedule.ui
         whitenoisewindow.h whitenoisewindow.cpp whitenoisewindow.ui
         res.qrc
@@ -38,6 +44,11 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         forest.h forest.cpp forest.ui
         treedetails.h treedetails.cpp treedetails.ui
         myschedule.h myschedule.cpp myschedule.ui
+=======
+        myschedule.h myschedule.cpp myschedule.ui
+        pdfapi.h pdfapi.cpp pdfapi.ui
+
+>>>>>>> 25ddaa8f86ddbb61dd12adca040a91a77147a369
 
 
 
@@ -60,8 +71,17 @@ else()
     endif()
 endif()
 
+<<<<<<< HEAD
 target_link_libraries(MindfulMeadow PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Core
     Qt${QT_VERSION_MAJOR}::Sql Qt${QT_VERSION_MAJOR}::Multimedia)
+=======
+target_link_libraries(MindfulMeadow PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Core
+    Qt${QT_VERSION_MAJOR}::Sql
+    Qt6::PrintSupport
+    Qt6::AxContainer
+)
+>>>>>>> 25ddaa8f86ddbb61dd12adca040a91a77147a369
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an

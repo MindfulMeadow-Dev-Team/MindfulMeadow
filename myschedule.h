@@ -2,6 +2,7 @@
 #define MYSCHEDULE_H
 
 #include <QWidget>
+<<<<<<< HEAD
 #include <QTableWidget>
 #include "ui_myschedule.h"
 #include <QTableWidget>
@@ -19,6 +20,10 @@
 #include <QApplication>
 #include <QDebug>
 
+=======
+#include<QTableWidget>
+#include <QAxObject>
+>>>>>>> 25ddaa8f86ddbb61dd12adca040a91a77147a369
 namespace Ui {
 class MySchedule;
 }
@@ -39,9 +44,12 @@ private slots:
 
 private:
     Ui::MySchedule *ui;
+<<<<<<< HEAD
 
     void saveSchedule(); // 新增的保存函数
     void loadSchedule(); // 读取保存的课表函数
+=======
+>>>>>>> 25ddaa8f86ddbb61dd12adca040a91a77147a369
 };
 
 #endif // MYSCHEDULE_H
