@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QLabel>
 #include "treehandler.h"
+#include "treedetails.h"
 namespace Ui {
 class forest;
 }
@@ -57,6 +58,7 @@ signals:
     void forestClosed();
 private slots:
     void showFirstTree();  // 显示第一棵树
+    void on_pushButton_clicked();
 };
 
 #endif // FOREST_H

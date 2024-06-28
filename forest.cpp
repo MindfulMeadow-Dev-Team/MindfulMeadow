@@ -89,3 +89,10 @@ void forest::closeEvent(QCloseEvent *event) {
     emit forestClosed();  // 发出 forestClosed 信号
     QWidget::closeEvent(event);
 }
+
+void forest::on_pushButton_clicked()
+{
+    // 弹出种植记录对话框
+    TreeDetails dialog(&thandler, this);
+    dialog.exec();
+}

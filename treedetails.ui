@@ -11,8 +11,35 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>种植记录</string>
   </property>
+  <widget class="QListWidget" name="listWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>1</y>
+     <width>401</width>
+     <height>301</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>华文细黑</family>
+     <pointsize>11</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+     <kerning>true</kerning>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QListWidget {
+	spacing: 30px !important;
+	font: 11pt &quot;华文细黑&quot;;
+
+}
+</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
