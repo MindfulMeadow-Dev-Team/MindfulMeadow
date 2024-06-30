@@ -427,11 +427,11 @@ void MainWindow::on_page4_Button_clicked()
 //above are planttree by zjy
 void MainWindow::on_page3_Button_clicked()
 {
-    MySchedule *newschedule = new MySchedule();
+    MySchedule *newschedule = new MySchedule(this);
     // ui->stackedWidget->setCurrentIndex(2);
 
     // ui->stackedWidget->addWidget(newschedule);
-    // newschedule->move(15, 0);
+    newschedule->move(180, 0);
     newschedule->show();
 }
 
