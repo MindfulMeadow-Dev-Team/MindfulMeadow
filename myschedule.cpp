@@ -1,4 +1,5 @@
 #include "myschedule.h"
+#include "ui_myschedule.h"
 
 MySchedule::MySchedule(QWidget *parent)
     : QWidget(parent)

@@ -7,7 +7,6 @@
 #include <QDate>
 #include <QDebug>
 #include <QFile>
-#include "ui_myschedule.h"
 
 namespace Ui {
 class MySchedule;
