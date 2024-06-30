@@ -100,9 +100,9 @@ void forest::showFirstTree()
         bool isDead = tree.ifDead();
 
         if (isDead) {
-            labels[i]->setPixmap(QPixmap(":/img/died.png"));
+            labels[i]->setPixmap(QPixmap(":/icon/res/img/died.png"));
         } else {
-            QString imagePath = QString(":/img/tree%1.png").arg(treeType);
+            QString imagePath = QString(":/icon/res/img/tree%1.png").arg(treeType);
             labels[i]->setPixmap(QPixmap(imagePath));
         }
         labels[i]->setScaledContents(true);  // 缩放图片以适应 QLabel 大小

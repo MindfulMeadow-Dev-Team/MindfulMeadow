@@ -33,7 +33,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // set up tray icon
     tray = new QSystemTrayIcon();
-    tray->setIcon(QIcon(":/icon/img/mainIcon.png"));
+    tray->setIcon(QIcon(":/icon/res/img/mainIcon.png"));
     auto trayShow = new QAction("MindfulMeadow", this);
     connect(trayShow, SIGNAL(triggered(bool)), this, SLOT(show()));
     auto trayMini = new QAction("悬浮窗口", this);
@@ -199,7 +199,7 @@ void MainWindow::updateMatters() {
         delete widget;
     }
     if (size == 0) {
-        ui->matterScrollArea->widget()->setStyleSheet("QWidget#scrollAreaContent {background-image: url(:/img/noMatter.png);background-size: cover;background-position: center center; background-size: 100px;}");
+        ui->matterScrollArea->widget()->setStyleSheet("QWidget#scrollAreaContent {background-image: url(:/icon/res/img/noMatter.png);background-size: cover;background-position: center center; background-size: 100px;}");
         return;
     }
     for (int i = 0; i < size; ++i) {
@@ -227,7 +227,7 @@ void MainWindow::updateRecentMatters() {
         delete widget;
     }
     if (size == 0) {
-        ui->matterScrollArea2->widget()->setStyleSheet("QWidget#scrollAreaContent2 {background-image: url(://img/noMatter.png);background-size: cover;background-position: center center; background-size: 100px;}");
+        ui->matterScrollArea2->widget()->setStyleSheet("QWidget#scrollAreaContent2 {background-image: url(:/icon/res/img/noMatter.png);background-size: cover;background-position: center center; background-size: 100px;}");
         return;
     }
     for (int i = 0; i < size; ++i) {

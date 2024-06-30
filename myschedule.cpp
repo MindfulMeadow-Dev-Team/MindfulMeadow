@@ -66,8 +66,6 @@ void MySchedule::on_pushButton_2_clicked() // 清空按钮
     ui->tableWidget->setGeometry(QRect(0, 0, 850, 440));
 }
 
-
-
 void MySchedule::saveSchedule() // 保存函数实现
 {
     QFile file("schedule.txt");

@@ -56,7 +56,7 @@ void WhiteNoiseWindow::playMusic() {
         playBtn->setIcon(QIcon::fromTheme("media-playback-pause"));
 
         int id = buttonGroup->checkedId();
-        player->setSource(QUrl(QString("qrc:/audio/audio/%1.mp3").arg(id)));
+        player->setSource(QUrl(QString("qrc:/audio/res/audio/%1.mp3").arg(id)));
         qDebug() << player->source();
         player->setLoops(QMediaPlayer::Infinite);
         player->play();

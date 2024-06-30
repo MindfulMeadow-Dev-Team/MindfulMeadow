@@ -19,22 +19,6 @@ plantTree::plantTree(QWidget *parent)
     ui->setupUi(this);
     qDebug()<<"初始化"<<closeflag<<Qt::endl;
     setWindowTitle("Plant Tree");
-    // ui->startButton->setStyleSheet("QPushButton {\n	border-radius: 5px; \n	background-color: #c4dae2; \n	border-style: none;\n	color: #333333;\n}\nQPushButton:hover{\n    background-color: #9cb2c7;\n}\nQPushButton:pressed{\n    background-color: #e9edee;\n}");
-    /*if(closeflag){
-        treePixmap = QPixmap(":/img/died.png");
-        ui->treeLabel->setPixmap(treePixmap);
-        ui->startButton->setText("思绪之苗枯死了...");
-        currentTreeIndex = 1;  // 默认树的索引为1
-
-    }else{
-    // 初始化树的图片
-        treePixmap = QPixmap(":/img/tree1.png");  // 默认显示第一种树
-        currentTreeIndex = 1;  // 默认树的索引为1
-        ui->treeLabel->setPixmap(treePixmap);
-        ui->startButton->setText("种下一颗思绪之种");
-    }*/
-
-    // 设置倒计时选择框
 
     timeComboBox->addItem("取消", 0);  // 添加取消选项
     timeComboBox->addItem(QString("%1 分钟").arg(1), 1 * 60);
@@ -100,12 +84,12 @@ void plantTree::showEvent(QShowEvent *event) {
     //updateMatters();
     //ui->timeLabel->setText(QDate::currentDate().toString("MMM d, ddd"));
     if (closeflag==1) {
-        treePixmap = QPixmap(":/img/died.png");
+        treePixmap = QPixmap(":/icon/res/img/died.png");
         ui->treeLabel->setPixmap(treePixmap);
         ui->startButton->setText("思绪之苗枯死了...");
         currentTreeIndex = 1;  // 默认树的索引为1
     } else if(closeflag==0){
-        treePixmap = QPixmap(":/img/tree1.png");  // 默认显示第一种树
+        treePixmap = QPixmap(":/icon/res/img/tree1.png");  // 默认显示第一种树
         currentTreeIndex = 1;  // 默认树的索引为1
         ui->treeLabel->setPixmap(treePixmap);
         ui->startButton->setText("种下一颗思绪之种");
@@ -119,11 +103,11 @@ void plantTree::on_lefttree_clicked()
     // 切换到左边的树
     if (currentTreeIndex > 1) {
         currentTreeIndex--;
-        treePixmap = QPixmap(QString(":/img/tree%1.png").arg(currentTreeIndex));
+        treePixmap = QPixmap(QString(":/icon/res/img/tree%1.png").arg(currentTreeIndex));
         updateTreeLabel();
     }else{
         currentTreeIndex=4;
-        treePixmap = QPixmap(QString(":/img/tree%1.png").arg(currentTreeIndex));
+        treePixmap = QPixmap(QString(":/icon/res/img/tree%1.png").arg(currentTreeIndex));
         updateTreeLabel();
     }
 }
@@ -133,11 +117,11 @@ void plantTree::on_righttree_clicked()
     // 切换到右边的树
     if (currentTreeIndex < 4) {
         currentTreeIndex++;
-        treePixmap = QPixmap(QString(":/img/tree%1.png").arg(currentTreeIndex));
+        treePixmap = QPixmap(QString(":/icon/res/img/tree%1.png").arg(currentTreeIndex));
         updateTreeLabel();
     }else{
         currentTreeIndex=1;
-        treePixmap = QPixmap(QString(":/img/tree%1.png").arg(currentTreeIndex));
+        treePixmap = QPixmap(QString(":/icon/res/img/tree%1.png").arg(currentTreeIndex));
         updateTreeLabel();
     }
 }
@@ -167,7 +151,7 @@ void plantTree::on_startButton_clicked()
             cancelCountdown();
         }
     } else if (ui->startButton->text() == "思绪之苗枯死了...") {
-        treePixmap = QPixmap(QString(":/img/tree%1.png").arg(currentTreeIndex));
+        treePixmap = QPixmap(QString(":/icon/res/img/tree%1.png").arg(currentTreeIndex));
 
         resetUI();
     }else if(ui->startButton->text() == "思绪之树长大啦") {
@@ -189,7 +173,7 @@ void plantTree::startCountdown(int index)
 
     timeComboBox->hide();
     countdownLabel->show();
-    ui->treeLabel->setPixmap(QPixmap(":/img/stage1.png"));
+    ui->treeLabel->setPixmap(QPixmap(":/icon/res/img/stage1.png"));
 
     // 更改 startButton 文本
     ui->startButton->setText("放弃");
@@ -222,9 +206,9 @@ void plantTree::updateCountdown()
         ui->startButton->setText("思绪之树长大啦");
         //resetUI();
     } else if (elapsedSeconds >= countdownTime * 2 / 3) {
-        ui->treeLabel->setPixmap(QPixmap(":/img/stage3.png"));  // 显示第三阶段图片
+        ui->treeLabel->setPixmap(QPixmap(":/icon/res/img/stage3.png"));  // 显示第三阶段图片
     } else if (elapsedSeconds >= countdownTime / 3) {
-        ui->treeLabel->setPixmap(QPixmap(":/img/stage2.png"));  // 显示第二阶段图片
+        ui->treeLabel->setPixmap(QPixmap(":/icon/res/img/stage2.png"));  // 显示第二阶段图片
     }
 }
 
@@ -232,7 +216,7 @@ void plantTree::cancelCountdown()
 {
     timer->stop();
     isCountdownActive = false;  // 标记倒计时开始
-    ui->treeLabel->setPixmap(QPixmap(":/img/died.png"));  // 显示枯树图片
+    ui->treeLabel->setPixmap(QPixmap(":/icon/res/img/died.png"));  // 显示枯树图片
     ui->startButton->setText("思绪之苗枯死了...");
 
     // 存储取消种树的信息到数据库

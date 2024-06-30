@@ -14,7 +14,7 @@
    <string/>
   </property>
   <property name="windowIcon">
-   <iconset resource="res.qrc">
+   <iconset>
     <normaloff>:/icon/img/mainIcon.png</normaloff>:/icon/img/mainIcon.png</iconset>
   </property>
   <widget class="QScrollArea" name="matterScrollArea2">
@@ -43,7 +43,7 @@
     </property>
     <property name="styleSheet">
      <string notr="true">QWidget#scrollAreaWidgetContents {
-    background-image: url(:/img/planttreebg.png);
+    background-image: url(:/icon/res/img/planttreebg.png);
 }
 </string>
     </property>
@@ -166,8 +166,6 @@ QPushButton:pressed{
    <layout class="QVBoxLayout" name="verticalLayout_3"/>
   </widget>
  </widget>
- <resources>
-  <include location="res.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

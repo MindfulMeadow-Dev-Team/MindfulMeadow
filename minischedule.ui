@@ -47,7 +47,7 @@ background-color: #ededed;
    </property>
    <property name="icon">
     <iconset resource="res.qrc">
-     <normaloff>:/icon/img/bigger.png</normaloff>:/icon/img/bigger.png</iconset>
+     <normaloff>:/icon/res/img/bigger.png</normaloff>:/icon/res/img/bigger.png</iconset>
    </property>
    <property name="iconSize">
     <size>

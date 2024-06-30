@@ -43,7 +43,7 @@
    </property>
    <property name="styleSheet">
     <string notr="true">QWidget {
-    background-image: url(:/img/meadow.png);
+    background-image: url(:/icon/res/img/meadow.png);
 }</string>
    </property>
    <property name="text">

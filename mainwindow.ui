@@ -35,9 +35,8 @@
    <string>MindfulMeadow</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>:/icons/img/mainIcon.png</normaloff>
-    <normalon>:/icon/img/mainIcon.png</normalon>:/icons/img/mainIcon.png</iconset>
+   <iconset resource="res.qrc">
+    <normaloff>:/icon/res/img/mainIcon.png</normaloff>:/icon/res/img/mainIcon.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">font: 10pt 方正小标宋;</string>
@@ -91,7 +90,7 @@ QPushButton:pressed{
      </property>
      <property name="icon">
       <iconset resource="res.qrc">
-       <normaloff>:/icon/img/toDo.png</normaloff>:/icon/img/toDo.png</iconset>
+       <normaloff>:/icon/res/img/toDo.png</normaloff>:/icon/res/img/toDo.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -128,7 +127,7 @@ QPushButton:pressed{
      </property>
      <property name="icon">
       <iconset resource="res.qrc">
-       <normaloff>:/icon/img/clock.png</normaloff>:/icon/img/clock.png</iconset>
+       <normaloff>:/icon/res/img/clock.png</normaloff>:/icon/res/img/clock.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -165,7 +164,7 @@ QPushButton:pressed{
      </property>
      <property name="icon">
       <iconset resource="res.qrc">
-       <normaloff>:/icon/img/calendar.png</normaloff>:/icon/img/calendar.png</iconset>
+       <normaloff>:/icon/res/img/calendar.png</normaloff>:/icon/res/img/calendar.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -205,7 +204,7 @@ QPushButton:pressed{
      </property>
      <property name="icon">
       <iconset resource="res.qrc">
-       <normaloff>:/icon/img/mainIcon.png</normaloff>:/icon/img/mainIcon.png</iconset>
+       <normaloff>:/icon/res/img/icon(onlyTree).png</normaloff>:/icon/res/img/icon(onlyTree).png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -253,9 +252,8 @@ QPushButton:pressed{
       <string>开始种树</string>
      </property>
      <property name="icon">
-      <iconset>
-       <activeon>:/img/plant.png</activeon>
-      </iconset>
+      <iconset resource="res.qrc">
+       <normaloff>:/icon/res/img/plant.png</normaloff>:/icon/res/img/plant.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -291,7 +289,7 @@ QPushButton:pressed{
      </property>
      <property name="icon">
       <iconset resource="res.qrc">
-       <normaloff>:/icon/img/whiteNoise.png</normaloff>:/icon/img/whiteNoise.png</iconset>
+       <normaloff>:/icon/res/img/whiteNoise.png</normaloff>:/icon/res/img/whiteNoise.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -426,12 +424,12 @@ padding-left: 5px;</string>
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>7</hour>
+        <hour>23</hour>
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
         <month>12</month>
-        <day>24</day>
+        <day>23</day>
        </datetime>
       </property>
       <property name="minimumDate">
@@ -576,17 +574,17 @@ background-color: #ededed;
       </property>
       <property name="maximumDateTime">
        <datetime>
-        <hour>7</hour>
+        <hour>23</hour>
         <minute>59</minute>
         <second>59</second>
         <year>2100</year>
         <month>12</month>
-        <day>24</day>
+        <day>23</day>
        </datetime>
       </property>
       <property name="minimumDateTime">
        <datetime>
-        <hour>16</hour>
+        <hour>8</hour>
         <minute>0</minute>
         <second>0</second>
         <year>2000</year>
@@ -680,7 +678,7 @@ background-color: #ededed;
       </property>
       <property name="icon">
        <iconset resource="res.qrc">
-        <normaloff>:/icon/img/smaller.png</normaloff>:/icon/img/smaller.png</iconset>
+        <normaloff>:/icon/res/img/smaller.png</normaloff>:/icon/res/img/smaller.png</iconset>
       </property>
       <property name="iconSize">
        <size>
