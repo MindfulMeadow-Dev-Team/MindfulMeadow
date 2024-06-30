@@ -3,7 +3,7 @@
 
 TreeDetails::TreeDetails(TreeHandler* handler, QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::treeDetails), // 修改为 Ui::treeDetails
+    ui(new Ui::treeDetails),
     handler(new TreeHandler("tree.db"))
 {
     ui->setupUi(this);
