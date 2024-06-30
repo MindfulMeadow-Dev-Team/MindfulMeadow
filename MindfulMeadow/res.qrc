@@ -1,0 +1,47 @@
+<RCC>
+    <qresource prefix="/icon">
+        <file>res/img/calendar.png</file>
+        <file>res/img/backgroundWithField.png</file>
+        <file>res/img/backgroundWithNoField.png</file>
+        <file>res/img/bigger.png</file>
+        <file>res/img/clock.png</file>
+        <file>res/img/died.png</file>
+        <file>res/img/down.png</file>
+        <file>res/img/flowertree.png</file>
+        <file>res/img/flowertree_s.png</file>
+        <file>res/img/fruittree.png</file>
+        <file>res/img/fruittree_s.png</file>
+        <file>res/img/greentree.png</file>
+        <file>res/img/greentree_s.png</file>
+        <file>res/img/icon(onlyTree).png</file>
+        <file>res/img/icon.png</file>
+        <file>res/img/mainIcon.png</file>
+        <file>res/img/meadow.png</file>
+        <file>res/img/miniNoMatter.png</file>
+        <file>res/img/noMatter.png</file>
+        <file>res/img/pinktree.png</file>
+        <file>res/img/pinktree_s.png</file>
+        <file>res/img/plant.png</file>
+        <file>res/img/planttreebg.png</file>
+        <file>res/img/smaller.png</file>
+        <file>res/img/stage1.png</file>
+        <file>res/img/stage2.png</file>
+        <file>res/img/stage3.png</file>
+        <file>res/img/toDo.png</file>
+        <file>res/img/tree1.png</file>
+        <file>res/img/tree2.png</file>
+        <file>res/img/tree3.png</file>
+        <file>res/img/tree4.png</file>
+        <file>res/img/whiteNoise.png</file>
+    </qresource>
+    <qresource prefix="/audio">
+        <file>res/audio/0.mp3</file>
+        <file>res/audio/1.mp3</file>
+        <file>res/audio/2.mp3</file>
+        <file>res/audio/3.mp3</file>
+        <file>res/audio/4.mp3</file>
+        <file>res/audio/5.mp3</file>
+        <file>res/audio/6.mp3</file>
+        <file>res/audio/7.mp3</file>
+    </qresource>
+</RCC>
