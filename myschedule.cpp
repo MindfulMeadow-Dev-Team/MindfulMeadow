@@ -117,7 +117,6 @@ void MySchedule::loadSchedule() // 读取保存的课表函数实现
         if (!file.exists()) {
             if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
                 file.close();
-                //QMessageBox::information(this, "新建文件", "已创建一个新txt文件.");
             }
         }else{
             QMessageBox::warning(this, "读取失败", "无法打开文件进行读取");

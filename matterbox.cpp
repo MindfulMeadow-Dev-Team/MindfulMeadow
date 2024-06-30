@@ -54,12 +54,6 @@ MatterBox::MatterBox(Matter matter, int matterId, int kind,
         ui->time->adjustSize();
         ui->time->move(QPoint(43, this->geometry().height() - 20));
     }
-    // else if (matter.getDate() < mainWindow->currDate) {
-    //     this->setFixedHeight(this->geometry().height() + 20);
-    //     ui->time->setText(matter.getDate().toString("MM-dd"));
-    //     ui->time->adjustSize();
-    //     ui->time->move(QPoint(40, this->geometry().height() - 20));
-    // }
     else {
         ui->time->setVisible(false);
     }
@@ -85,32 +79,7 @@ void MatterBox::on_underlyingBtn_clicked()
 // If so, display the due time in red.
 void MatterBox::checkTime() {
     bool cond1 = matter.getDate() < QDate::currentDate();
-    bool cond2 = matter.getDate() == QDate::currentDate() && matter.getSetDue() && matter.getDueTime() < QTime::currentTime();;
-    // if (cond1 && matter.getState() == false) {
-    //     ui->time->setStyleSheet("color:red");
-    //     if (kind == 1) {
-    //         return;
-    //     }
-    //     if (matter.getDate() != mainWindow->currDate) {
-    //         ui->time->setText(matter.getDate().toString("MM-dd"));
-    //         // If the year is not this year, show it.
-    //         if (matter.getDate().year() != QDate::currentDate().year()) {
-    //             ui->time->setText(matter.getDate().year() + "-" + ui->time->text());
-    //         }
-    //         if (matter.getSetDue()) {
-    //             ui->time->setText(ui->time->text() + " " + matter.getDueTime().toString("h:mm"));
-    //         }
-    //     }
-    //     else if (matter.getSetDue()){
-    //         ui->time->setText(matter.getDueTime().toString("h:mm"));
-    //     }
-    // }
-    // else if (cond2 && matter.getState() == false) {
-    //     ui->time->setStyleSheet("color:red");
-    // }
-    // else {
-    //     ui->time->setStyleSheet("color:black");
-    // }
+    bool cond2 = matter.getDate() == QDate::currentDate() && matter.getSetDue() && matter.getDueTime() < QTime::currentTime();
     if ((cond1 || cond2) && matter.getState() == false) {
         ui->time->setStyleSheet("color:red");
     }
@@ -132,7 +101,7 @@ void MatterBox::on_checkBox_clicked(bool checked)
     }
     handler->updateMatter(matterId, matter);
     if (kind == 1) {
-        mainWindow->updateMatters2();
+        mainWindow->updateRecentMatters();
     }
     else if (kind == 0){
         mainWindow->updateMatters();

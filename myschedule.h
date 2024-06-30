@@ -3,33 +3,21 @@
 
 #include <QWidget>
 #include <QTableWidget>
-#include "ui_myschedule.h"
-#include <QTableWidget>
 #include <QMessageBox>
-#include <QPushButton>
-#include <QFileDialog>
-#include <QStringList>
-#include <QTextEdit>
-#include <QTextStream>
-#include <QFileDialog>
-#include <QStandardPaths>
 #include <QDate>
-#include <QMessageBox>
-#include <QDesktopServices>
-#include <QApplication>
 #include <QDebug>
+#include <QFile>
+#include "ui_myschedule.h"
 
 namespace Ui {
 class MySchedule;
 }
+
 class MySchedule : public QWidget
 {
     Q_OBJECT
-    QTableWidget table;
 public:
     explicit MySchedule(QWidget *parent = nullptr);
-    void maybeSave(); // 判断是否需要保存
-    bool saveFile();
     ~MySchedule();
 
 private slots:
@@ -40,6 +28,10 @@ private slots:
 private:
     Ui::MySchedule *ui;
 
+    QTableWidget table;
+
+    void maybeSave(); // 判断是否需要保存
+    bool saveFile();
     void saveSchedule(); // 新增的保存函数
     void loadSchedule(); // 读取保存的课表函数
 };

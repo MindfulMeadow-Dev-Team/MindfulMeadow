@@ -30,7 +30,6 @@ private:
     Ui::MatterBox *ui;
     Matter matter;
     int matterId;
-    // for feature recent schedules, if showDate == true, always show the date.
     int kind;
     MatterHandler* handler;
     MainWindow* mainWindow;

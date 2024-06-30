@@ -18,6 +18,7 @@ public:
     MatterHandler(QString dbName);
     ~MatterHandler();
 
+    // get matters on a single day. return the matters and ids.
     std::pair<QVector<Matter>, QVector<int>> getMatters(const QDate& date) const;
     std::pair<QVector<Matter>, QVector<int>> getMattersSince(const QDate& date, int nday) const;
     Matter getSingleMatter(int id) const;

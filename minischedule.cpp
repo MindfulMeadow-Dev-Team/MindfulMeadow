@@ -40,7 +40,6 @@ void MiniSchedule::updateMatters() {
         qDebug() << "no layout error\n";
         return;
     }
-    // layout->setSpacing(10);
 
     while (layout->count()) {
         auto widget = layout->itemAt(0)->widget();
@@ -70,7 +69,6 @@ void MiniSchedule::showEvent(QShowEvent *event) {
     qDebug() << QGuiApplication::primaryScreen()->geometry();
     this->resize(300, 300);
     this->move(QGuiApplication::primaryScreen()->geometry().width() - 330, 30);
-    // this->setGeometry(QRect(QGuiApplication::primaryScreen()->geometry().width() - 330, 30, 300, 300));
     updateMatters();
     ui->timeLabel->setText(QDate::currentDate().toString("MMM d, ddd"));
     QWidget::showEvent(event);

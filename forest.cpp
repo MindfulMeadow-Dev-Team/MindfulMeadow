@@ -48,6 +48,36 @@ forest::forest(QWidget *parent)
 forest::~forest()
 {
     delete ui;
+    delete treelb_1;
+    delete treelb_2;
+    delete treelb_3;
+    delete treelb_4;
+    delete treelb_5;
+    delete treelb_6;
+    delete treelb_7;
+    delete treelb_8;
+    delete treelb_9;
+    delete treelb_10;
+    delete treelb_11;
+    delete treelb_12;
+    delete treelb_13;
+    delete treelb_14;
+    delete treelb_15;
+    delete treelb_16;
+    delete treelb_17;
+    delete treelb_18;
+    delete treelb_19;
+    delete treelb_20;
+    delete treelb_21;
+    delete treelb_22;
+    delete treelb_23;
+    delete treelb_24;
+    delete treelb_25;
+    delete treelb_26;
+    delete treelb_27;
+    delete treelb_28;
+    delete treelb_29;
+    delete treelb_30;
 }
 
 void forest::showFirstTree()

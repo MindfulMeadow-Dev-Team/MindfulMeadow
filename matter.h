@@ -14,8 +14,6 @@ class Matter
     bool isDone;
     bool setDue;
     QTime dueTime;
-    // QImage image;
-    // QTime time;
 public:
     Matter(QString _name = "",
            QString _description = "",
@@ -25,6 +23,7 @@ public:
            bool setDue = false,
            QTime dueTime = QTime(23, 59, 59));
 
+    // getters
     QString getName() const;
     QString getDescription() const;
     bool getState() const;
@@ -32,6 +31,7 @@ public:
     QTime getDueTime() const;
     QDate getDate() const;
 
+    // setters
     void changeName(QString newName);
     void changeDescription(QString newDes);
     void changeDate(QDate newDate);
@@ -41,7 +41,6 @@ public:
     void changeSetDue(bool newSetDue);
 
     friend class MatterHandler;
-
 };
 
 #endif // MATTER_H

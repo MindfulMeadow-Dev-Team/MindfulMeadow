@@ -17,11 +17,10 @@
 #include "matterbox.h"
 #include "minischedule.h"
 #include "whitenoisewindow.h"
-#include"myschedule.h"
-//below are planttree by zjy
+#include "myschedule.h"
 #include "planttree.h"
-#include"forest.h"
-//above are planttree by zjy
+#include "forest.h"
+
 class MiniSchedule;
 
 QT_BEGIN_NAMESPACE
@@ -69,14 +68,11 @@ private slots:
 
     void on_whiteNoiseButton_clicked();
 
-    //below are planttree by zjy
     void on_treeButton_clicked();
 
     void onTreeWindowClosing();
 
     void notDied();
-    //avove are planttree by zjy
-
 
     void on_page3_Button_clicked();
 
@@ -87,44 +83,50 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
+    // animations on the mainwindow
     QPropertyAnimation* rightSideAnm;
     QPropertyAnimation* mainNameEditAnm;
     QPropertyAnimation* matterScrollAreaAnm;
+    //windows tray
     QSystemTrayIcon* tray;
+    // windows tray's menu
     QMenu* trayMenu;
-    // QAction* trayShow;
-    // QAction* trayMini;
-    // QAction* trayExit;
+    // timer for schedule noticing
     QTimer* timer;
+    // mini-window
     MiniSchedule* mini;
+    // white noise window
     WhiteNoiseWindow* whiteNoise;
-    //below are planttree by zjy
+    // tree-planting window
     plantTree *ptree;
+    // window of the forest
     forest *frst;
 
-    //avove are planttree by zjy
-
+    // indicates if the right side menu is hidden
     bool rightSideHidden;
     QDate currDate;
     Matter currMatter;
     int currMatterId;
+
+    // database handler
     std::unique_ptr<MatterHandler> handler;
 
     void showRightSide();
+    // update the matters on the first page of the stacked widget
     void updateMatters();
-    void updateMatters2();
+    // update the matters on the second page of the stacked widget
+    void updateRecentMatters();
     void hideRightSide();
 
+    // redefine closeEvent to avoid direct closing of the mainwindow
     void closeEvent(QCloseEvent *event);
     void showEvent(QShowEvent* event);
-    // test: when the mouse clicked on the main window, hide the white noise window
+    // when the mouse clicked on the main window, hide the white noise window
     void mousePressEvent(QMouseEvent* event);
+
+    int closeflag;
 
 public:
     friend class MatterBox;
-    //below are planttree by zjy
-    int closeflag;
-
-    //above are planttree by zjy
 };
 #endif // MAINWINDOW_H

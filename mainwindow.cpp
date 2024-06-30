@@ -6,13 +6,12 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    // this->setWindowFlags(this->windowFlags() | Qt::FramelessWindowHint);
     ui->statusbar->setVisible(false);
 
-    // set matter handler
+    // set up matter handler
     handler = std::make_unique<MatterHandler>("matters.db");
 
-    // hide and initialize right scroll area
+    // hide and initialize right scroll area and its animation
     ui->rightScrollArea->move(this->width(), 0);
     rightSideAnm = new QPropertyAnimation(ui->rightScrollArea, "geometry");
     rightSideAnm->setEasingCurve(QEasingCurve::InOutSine);
@@ -54,7 +53,6 @@ MainWindow::MainWindow(QWidget *parent)
     tray->show();
     connect(tray, &QSystemTrayIcon::activated, this, &MainWindow::on_activatedSysTrayIcon);
 
-
     // set up the timer
     timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(on_timeout()));
@@ -78,17 +76,15 @@ MainWindow::MainWindow(QWidget *parent)
     ui->matterScrollArea2->widget()->layout()->setAlignment(Qt::AlignTop);
     ui->matterScrollArea2->horizontalScrollBar()->hide();
     ui->matterScrollArea2->widget()->setObjectName("scrollAreaContent2");
-    updateMatters2();
+    updateRecentMatters();
 
-
-    //below are planttree by zjy
+    // set up the forest window
     ptree=nullptr;
     frst=nullptr;
     connect(ui->plantButton, &QPushButton::clicked, this, &MainWindow::on_treeButton_clicked);
     closeflag = 0;
 
-    //above are planttree by zjy
-
+    // set the stacked widget to page 1
     ui->stackedWidget->setCurrentIndex(0);
 }
 
@@ -102,6 +98,8 @@ MainWindow::~MainWindow()
     delete trayMenu;
     delete timer;
     delete mini;
+    delete ptree;
+    delete frst;
 }
 
 void MainWindow::on_hideButton_clicked()
@@ -194,7 +192,6 @@ void MainWindow::updateMatters() {
         qDebug() << "no layout error\n";
         return;
     }
-    // layout->setSpacing(10);
     while (layout->count()) {
         auto widget = layout->itemAt(0)->widget();
         widget->setParent(nullptr);
@@ -213,7 +210,7 @@ void MainWindow::updateMatters() {
     ui->matterScrollArea->verticalScrollBar()->setValue(0);
 }
 
-void MainWindow::updateMatters2() {
+void MainWindow::updateRecentMatters() {
     auto [matters, ids] = handler->getMattersSince(QDate::currentDate(), 10);
     int size = matters.size();
     qDebug() << size << Qt::endl;
@@ -272,7 +269,6 @@ void MainWindow::on_page1_Button_clicked()
     ui->stackedWidget->setCurrentIndex(0);
     updateMatters();
     if(frst){
-
         frst->close();
         frst=nullptr;
     }
@@ -283,9 +279,8 @@ void MainWindow::on_page2_Button_clicked()
 {
     hideRightSide();
     ui->stackedWidget->setCurrentIndex(1);
-    updateMatters2();
+    updateRecentMatters();
     if(frst){
-
         frst->close();
         frst=nullptr;
     }
@@ -367,7 +362,7 @@ void MainWindow::on_miniButton_clicked()
 // Each time the main window is shown, flash the matter scroll area.
 void MainWindow::showEvent(QShowEvent *event) {
     updateMatters();
-    updateMatters2();
+    updateRecentMatters();
     QMainWindow::showEvent(event);
 }
 
@@ -385,7 +380,6 @@ void MainWindow::mousePressEvent(QMouseEvent *event) {
     QMainWindow::mousePressEvent(event);
 }
 
-//below are planttree by zjy
 void MainWindow::on_treeButton_clicked()
 {
     if (!ptree) {
@@ -402,13 +396,14 @@ void MainWindow::on_treeButton_clicked()
         ptree->show();
     }
 }
+
 void MainWindow::onTreeWindowClosing() {
     closeflag = 1;
 }
+
 void MainWindow::notDied() {
     closeflag = 0;
 }
-
 
 void MainWindow::on_page4_Button_clicked()
 {
@@ -417,20 +412,14 @@ void MainWindow::on_page4_Button_clicked()
         connect(frst, &forest::forestClosed, this, [this]() {
             frst = nullptr;
         });
-
         frst->move(180,0);
         frst->show();
     }
-
 }
 
-//above are planttree by zjy
 void MainWindow::on_page3_Button_clicked()
 {
-    MySchedule *newschedule = new MySchedule(this);
-    // ui->stackedWidget->setCurrentIndex(2);
-
-    // ui->stackedWidget->addWidget(newschedule);
+    MySchedule *newschedule = new MySchedule();
     newschedule->move(180, 0);
     newschedule->show();
 }

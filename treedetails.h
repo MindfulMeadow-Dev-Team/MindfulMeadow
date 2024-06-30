@@ -20,7 +20,6 @@ private:
     Ui::treeDetails *ui; // 修改类名为 Ui::treeDetails
     TreeHandler* handler;
 
-
     void displayRecords();
 };
 

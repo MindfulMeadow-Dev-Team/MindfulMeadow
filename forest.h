@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QLabel>
+#include <memory>
 #include "treehandler.h"
 #include "treedetails.h"
 namespace Ui {

@@ -16,7 +16,6 @@ TreeDetails::~TreeDetails()
     delete ui;
 }
 
-
 void TreeDetails::displayRecords()
 {
     QVector<Tree> trees = handler->getTrees(30);  // 获取前30棵树

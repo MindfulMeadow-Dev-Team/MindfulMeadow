@@ -42,6 +42,7 @@ WhiteNoiseWindow::~WhiteNoiseWindow()
     delete player;
     delete audioOutput;
     delete buttonGroup;
+    delete playBtn;
     delete ui;
 }
 

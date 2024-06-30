@@ -58,6 +58,9 @@ plantTree::plantTree(QWidget *parent)
 
 plantTree::~plantTree()
 {
+    delete timer;
+    delete countdownLabel;
+    delete timeComboBox;
     delete ui;
 }
 
