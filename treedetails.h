@@ -5,10 +5,10 @@
 #include "treehandler.h"
 
 namespace Ui {
-class treeDetails; // 确保这里的类名与 ui_treedetails.h 中的一致
+class treeDetails;
 }
 
-class TreeDetails : public QDialog // 修改类名为 TreeDetails
+class TreeDetails : public QDialog
 {
     Q_OBJECT
 
@@ -17,7 +17,7 @@ public:
     ~TreeDetails();
 
 private:
-    Ui::treeDetails *ui; // 修改类名为 Ui::treeDetails
+    Ui::treeDetails *ui;
     TreeHandler* handler;
 
     void displayRecords();
